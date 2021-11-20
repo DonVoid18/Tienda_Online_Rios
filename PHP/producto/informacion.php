@@ -18,7 +18,7 @@
         <div id="mensaje-agregar-producto"></div>
         <div class="contenedor-producto">
             <div class="contenedor-imagen">
-                <img src="data:image/png;base64,<?php echo base64_encode($row["imagen"])?>" alt="Imagen del producto">
+                <img src="http://localhost:8080/PROYECTO-OFICIAL-FINAL\imagenes_productos/<?php echo $row["imagen"]?>" alt="Imagen del producto">
             </div>
             <div class="contenedor-informacion">
                 <p class="titulo producto"><?php echo $row["modelo"]?></p>

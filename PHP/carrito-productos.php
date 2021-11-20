@@ -35,7 +35,9 @@
             <tr>
                 <td><input  readonly="readonly" type="number" class="cantidad-input-tabla" value="<?php echo $_SESSION["carrito"][$i][1]?>"></td>
                 <td><?php echo $_SESSION["carrito"][$i][2]?></td>
-                <td><div class="fila-imagen-tabla"><img src="data:image/png;base64,<?php echo base64_encode($_SESSION["carrito"][$i][3])?>" alt="Imagen del producto"></div></td>
+                <td><div class="fila-imagen-tabla">
+                    <img src="http://localhost:8080/PROYECTO-OFICIAL-FINAL\imagenes_productos/<?php echo $_SESSION["carrito"][$i][3]?>" alt="Imagen del producto">
+                </div></td>
                 <td><?php echo $_SESSION["carrito"][$i][4]?></td>
                 <td><?php echo $_SESSION["carrito"][$i][5]?>%</td>
                 <td><?php echo $_SESSION["carrito"][$i][6]?></td>
