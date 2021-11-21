@@ -1,0 +1,34 @@
+:root{
+    --padding-total-comentario: 1.5625rem;
+    --text-size-titulo-usuario: 2em;
+    --text-size-nombre-usuario: 1.3em;
+
+    --fondo-color-comentario-usuario: ;
+}
+.container-comentarios-producto{
+    width: 70%;
+    margin: auto;
+}
+.container-tituto-comentarios-producto{
+    font-size: var(--text-size-titulo-usuario);
+    padding: 2% 0;
+}
+.container-comentario-usuario{
+    padding: var(--padding-total-comentario);
+    margin: 0.625rem 0;
+    background-color: var(--fondo-color-comentario-usuario);
+    background-color: rgba(71, 61, 139, 0.267);
+    border-radius: 0.3125rem;
+}
+.container-nombre-usuario-comentario{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: var(--text-size-nombre-usuario);
+}
+.container-mensaje-usuario-comentario{
+    padding: 0.3125rem 1.875rem 0.3125rem 1.875rem;
+}
+.container-fecha-usuario-comentario{
+    text-align: right;
+}

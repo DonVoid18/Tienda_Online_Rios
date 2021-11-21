@@ -100,14 +100,13 @@ header{
     .contenedor-logo-imagen{
         width: 200px;
     }
-    
     /* media del menu */
     .contenedor-menu-1 nav{
-        width: 50%;
+        width: 40%;
     }
     /* media del buscador */
     .contenedor-buscador-input{
-        width: 40%;
+        width: 50%;
     }
     /* css del menu 2 */
     .header-2{

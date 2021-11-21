@@ -1,6 +1,7 @@
 <?php
     include "../head.php";
     echo "<link rel='stylesheet' href='http://localhost:8080/PROYECTO-OFICIAL-FINAL/estilos/main-producto.css'>";
+    echo "<link rel='stylesheet' href='http://localhost:8080/PROYECTO-OFICIAL-FINAL/estilos/estilo-comentarios-producto.css'>";
     echo "<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>";
     include "../header.php";
     include "../registro.php";
@@ -75,6 +76,37 @@
                     </tr>
                 </tbody>
             </table>
+        </div>
+
+        <!-- seccion de comentarios -->
+        <div class="container-comentarios-producto">
+            <div class="container-tituto-comentarios-producto">
+                <p>
+                    <strong>
+                        Comentarios
+                    </strong>
+                </p>
+            </div>
+            <div class="container-comentario-usuario">
+                <div class="container-nombre-usuario-comentario">
+                    <span>
+                        <strong>
+                            Angelo Patrick
+                        </strong>
+                    </span>
+                    <span>
+                        *****
+                    </span>
+                </div>
+                <div class="container-mensaje-usuario-comentario">
+                    <p>Este producto es muy bueno es todos los aspectos.
+                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis voluptatem saepe ducimus exercitationem veritatis, officia assumenda earum animi dolorum vitae optio, necessitatibus magni tempora possimus dolore minima sit et recusandae itaque illo! Deserunt iste, dolore dolorem suscipit, velit, rerum sapiente nulla accusamus dolorum necessitatibus modi dignissimos. Corporis praesentium commodi consectetur.
+                    </p>
+                </div>
+                <div class="container-fecha-usuario-comentario">
+                    Hora: 12:10:01 | Fecha: 12/12/12
+                </div>
+            </div>
         </div>
     </main>
     <script src="http://localhost:8080/PROYECTO-OFICIAL-FINAL\JS\producto-informacion.js"></script>
