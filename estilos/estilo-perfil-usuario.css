@@ -1,0 +1,106 @@
+:root{
+    --padding-input: 12px;
+    --padding-label: 5px;
+    --padding-titulo: 20px 0;
+    --text-size: 16px;
+    --text-form-family: 'Lato', sans-serif;
+    --color-botones: #e63946;
+    --color-text-in-boton: white;
+}
+/* css del container form */
+.form-container{
+    width: 100%;
+    height: calc(100vh - 136.34px);
+    font-family: var(--text-form-family);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f2f2f2;
+}
+/* css del titulo */
+.container-titulo-perfil{
+    width: 90%;
+    text-align: left;
+    padding: var(--padding-titulo);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* css del boton cerrar sesión */
+.boton_cerrar_sesion{
+    padding: 10px 20px;
+    cursor: pointer;
+    background: var(--color-botones);
+    color: var(--color-text-in-boton);
+    font-family: var(--text-form-family);
+    font-size: var(--text-size);
+    border: none;
+}
+.container-datos-usuario{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+/* css del container */
+.container-input{
+    padding: var(--padding-input)  0;
+}
+/* css del label */
+.descripcion_input{
+    display: block;
+    font-size: var(--text-size);
+    padding-bottom: var(--padding-label);
+}
+/* css de los input */
+.input_info{
+    width: 100%;
+    height: 30px;
+    padding: 0 5px;
+    outline: none;
+    font-size: var(--text-size);
+    font-family: var(--text-form-family);
+}
+.container-info-personal{
+    width: 48%;
+}
+.container-sesion-usuario{
+    width: 48%;
+}
+/* css de los botones */
+.container-botones-perfil{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: var(--padding-input)  0;
+}
+.container-botones-perfil button{
+    width: 49%;
+    height: 40px;
+    cursor: pointer;
+    border: none;
+    font-size: var(--text-size);
+    font-family: var(--text-form-family);
+    background: var(--color-botones);
+    color: var(--color-text-in-boton);
+    transition: 0.5s ease;
+}
+.container-botones-perfil button:active{
+    transform: scale(.9,.9);
+}
+@media (max-width: 580px){
+    .container-datos-usuario{
+        width: 90%;
+        display: block;
+        margin: auto;
+    }
+    .container-info-personal{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .container-sesion-usuario{
+        width: 100%;
+    }
+}

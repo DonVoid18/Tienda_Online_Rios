@@ -17,7 +17,7 @@
                     // iniciar sesion
                     session_start();
                     if(isset($_SESSION["correo"])){?>
-                        <li class="item-menu" class="cuenta-activa"><a href="http://localhost:8080/PROYECTO-OFICIAL-FINAL\PHP\cuenta-personal.php"><i class="fas fa-user"></i> <?php echo $_SESSION["nombre"]?></a></li>                        
+                        <li class="item-menu" class="cuenta-activa"><a href="http://localhost:8080/PROYECTO-OFICIAL-FINAL\PHP\usuario\usuario_perfil.php"><i class="fas fa-user"></i> <?php echo $_SESSION["nombre"]?></a></li>                        
                     <?php }
                     else{?>
                         <li class="item-menu ingresar-cuenta"><span><i class="fas fa-user"></i></span>  Ingresar</li>

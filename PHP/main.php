@@ -11,7 +11,6 @@
             // $row = $resultado->fetch_assoc();
             // echo $cantidadFilas;
             // print_r(array_values($row));
-            
         ?>
         <div class="seccion">
             <div class="seccion-titulo-productos">
@@ -25,13 +24,12 @@
                     ?>
                 </span>
             </div>
-            
             <div class="contenedor-productos">
                 <?php while($row = $resultado->fetch_assoc()) {?>
                 <div class="contenedor-producto">
                     <div class="contenedor-producto-imagen">
                         <!-- imagen del producto -->
-                        <img src="http://localhost:8080/PROYECTO-OFICIAL-FINAL\imagenes_productos/<?php echo $row["imagen"]?>" alt="Imagen del producto">
+                        <img src="https://hiraoka.com.pe/media/catalog/product/cache/48567fcfb4ecc28ec659b7fb30522c5f/1/2/121294.jpg" alt="Imagen del producto">
                     </div>
                     <div class="contenedor-producto-info">
                         <div class="contenedor-producto-titulo">
