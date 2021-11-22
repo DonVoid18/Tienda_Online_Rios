@@ -94,8 +94,12 @@
                             Angelo Patrick
                         </strong>
                     </span>
-                    <span>
-                        *****
+                    <span class="valoracion-producto-estrellas">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                     </span>
                 </div>
                 <div class="container-mensaje-usuario-comentario">

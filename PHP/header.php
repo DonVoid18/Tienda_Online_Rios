@@ -3,7 +3,7 @@
     <header class="header-1">
         <div class="contenedor-menu-1">
             <div class="contenedor-logo-imagen">
-                <a href="http://localhost:8080/PROYECTO-OFICIAL-FINAL\PHP\index.php"><img src="http://localhost:8080/PROYECTO-OFICIAL-FINAL\imagenes\logo-principal.png" alt="logo de la página"></a>
+                <a href="http://localhost:8080/PROYECTO-OFICIAL-FINAL\index.php"><img src="http://localhost:8080/PROYECTO-OFICIAL-FINAL\imagenes\logo-principal.png" alt="logo de la página"></a>
             </div>
             <div class="contenedor-buscador-input">
                 <input type="text" placeholder="Buscar producto">

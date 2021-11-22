@@ -1,6 +1,5 @@
 <?php
         session_start();
-        
         include "../../baseDeDatos/conexion.php";
         $codigo = $_POST["codigo-producto-form"];
         $consulta1 = "SELECT * FROM productos WHERE codigo = '$codigo'";
@@ -33,7 +32,6 @@
             if(isset($_SESSION["carrito"])){
                 $cantProductos = count($_SESSION["carrito"]); 
                 $validar = FALSE;
-                
                 $codigoActual = $_SESSION["datos"][0];
                 $cantidadActual = $_SESSION["datos"][1];
                 $descuentoTotalActual = $_SESSION["datos"][6];
@@ -62,5 +60,4 @@
         }else{
             echo "<div class='mensaje-carrito'>El producto no a sido añadido por algunos errores. <i class='fas fa-check-circle'></i> </div>";
         }
-        
 ?>

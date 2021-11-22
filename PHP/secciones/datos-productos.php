@@ -59,7 +59,7 @@
             <div class="contenedor-producto">
                 <div class="contenedor-producto-imagen">
                     <!-- imagen del producto -->
-                    <img src="http://localhost:8080/PROYECTO-OFICIAL-FINAL\imagenes_productos/<?php echo $row["imagen"]?>" alt="Imagen del producto">
+                    <img src="http://localhost:8080/PROYECTO-OFICIAL-FINAL\imagenes_productos/<?php echo $row["imagen"]?>" alt="Imagen del producto" loading="lazy">
                 </div>
                 <div class="contenedor-producto-info">
                     <div class="contenedor-producto-titulo">
@@ -76,6 +76,16 @@
                         <p>S/. <span class="precio"><?php
                         echo $row["precio"];
                         ?></span></p>
+                    </div>
+                    <div class="contenedor-producto-precio-oferta">
+                        <p>
+                            S/. <span class="precio-oferta">
+                                1230
+                            </span>
+                        </p>
+                    </div>
+                    <div class="contenedor-banner-descuento-producto">
+                        <span>-100%</span>
                     </div>
                     <div class="contenedor-producto-botom">
                         <form action="http://localhost:8080/PROYECTO-OFICIAL-FINAL\PHP\producto\informacion.php" method="GET">
@@ -96,9 +106,6 @@
             // cerramos la conexion a la base de datos
             $conn->close();
         ?>
-        <div class="seccion-ver-mas">
-            <button>Ver más producto <span><i class="fas fa-angle-double-right"></i></span></button>
-        </div>
     </div>
     <!-- todo el contenido de la página -->  
 </main>

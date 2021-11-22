@@ -4,7 +4,7 @@
     ?>
     <main>
         <?php 
-            include "../baseDeDatos/conexion.php";
+            include "baseDeDatos/conexion.php";
             $consulta = "SELECT * FROM productos ORDER BY RAND() LIMIT 10";
             $resultado = $conn->query($consulta);
             $cantidadFilas = mysqli_num_rows($resultado);
@@ -17,7 +17,7 @@
                 <span>
                     <?php
                     if($cantidadFilas == 0){
-                        echo "No producto";
+                        echo "No tenemos productos";
                     }else{
                         echo "Productos de la Tienda";
                     }
@@ -29,7 +29,7 @@
                 <div class="contenedor-producto">
                     <div class="contenedor-producto-imagen">
                         <!-- imagen del producto -->
-                        <img src="https://hiraoka.com.pe/media/catalog/product/cache/48567fcfb4ecc28ec659b7fb30522c5f/1/2/121294.jpg" alt="Imagen del producto">
+                        <img src="https://hiraoka.com.pe/media/catalog/product/cache/48567fcfb4ecc28ec659b7fb30522c5f/1/2/121294.jpg" alt="Imagen del producto" loading="lazy">
                     </div>
                     <div class="contenedor-producto-info">
                         <div class="contenedor-producto-titulo">
@@ -47,6 +47,16 @@
                             echo $row["precio"];
                             ?></span></p>
                         </div>
+                        <div class="contenedor-producto-precio-oferta">
+                            <p>
+                                S/. <span class="precio-oferta">
+                                    1230
+                                </span>
+                            </p>
+                        </div>
+                        <div class="contenedor-banner-descuento-producto">
+                            <span>-100%</span>
+                        </div>
                         <div class="contenedor-producto-botom">
                         <form action="http://localhost:8080/PROYECTO-OFICIAL-FINAL\PHP\producto\informacion.php" method="GET">
                             <button type="submit">Ver producto <span><i class="fas fa-eye"></i></span></button>
@@ -58,8 +68,6 @@
                             echo $row["codigo"];
                             ?></span>
                         </div>
-                        
-                            
                     </div>
                 </div>
                 <?php }?>
@@ -67,10 +75,6 @@
                 // cerramos la conexion a la base de datos
                 $conn->close();
                 ?>
-            </div>
-            
-            <div class="seccion-ver-mas">
-                <button>Ver más producto <span><i class="fas fa-angle-double-right"></i></span></button>
             </div>
         </div>
         <!-- todo el contenido de la página -->

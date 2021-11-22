@@ -17,7 +17,8 @@
     padding: var(--padding-total-comentario);
     margin: 0.625rem 0;
     background-color: var(--fondo-color-comentario-usuario);
-    background-color: rgba(71, 61, 139, 0.267);
+    background-color: var(--color-principal);
+    color: white;
     border-radius: 0.3125rem;
 }
 .container-nombre-usuario-comentario{
@@ -31,4 +32,8 @@
 }
 .container-fecha-usuario-comentario{
     text-align: right;
+}
+/* css de las estrellas */
+.valoracion-producto-estrellas i{
+    color: #ffd000;
 }
