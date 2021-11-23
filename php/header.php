@@ -41,9 +41,17 @@
         <nav>
             <ul>
                 <?php
-                //aqui deben aparecer todas todas las secciones de la base de datos
+                    //aqui deben aparecer todas todas las secciones de la base de datos
+                    $seccion_header = "SELECT DISTINCT nombre_categoria FROM categoria";
+                    $secciones = $conn->query($seccion_header);
+                    if ($secciones->num_rows > 0) {
+                        while($row = $secciones->fetch_assoc()) {?>
+                            <li class="item-menu-2"><a href="<?php echo $link_base_root?>secciones/<?php echo $row["nombre_categoria"];?>.php" class="item-link-2"><?php echo $row["nombre_categoria"];?></a></li>
+                <?php                        }
+                    } else {
+                      echo "No tenemos resultados";
+                    }
                 ?>
-                <li class="item-menu-2"><a href="http://localhost:8080/PROYECTO-OFICIAL-FINAL/PHP/secciones/televisores.php" class="item-link-2">Televisores</a></li>
             </ul>
         </nav>
     </header>

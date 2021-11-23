@@ -7,10 +7,18 @@
     <title>RIOS GAMING</title>
     <!-- aqui van los estilos principales de la pagina -->
     <?php
-        $link_base_root = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        $ruta_carpeta_raiz = "/TIENDA_ONLINE_RIOS";//cambiar cada vez que el nombre de la carpeta raiz cambie
+        $link_base_root = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'].$ruta_carpeta_raiz;
     ?>
-    <link rel="stylesheet" href="<?php echo $link_base_root?>estilos/estilo-header.css">
-    <link rel="stylesheet" href="<?php echo $link_base_root?>estilos/estilo-footer.css">
-    <link rel="stylesheet" href="<?php echo $link_base_root?>estilos/estilo-registro.css">
-    <link rel="stylesheet" href="<?php echo $link_base_root?>estilos/estilo-ventana-modal.css">
+    <link rel="stylesheet" href="<?php echo $link_base_root?>/estilos/estilo-header.css">
+    <link rel="stylesheet" href="<?php echo $link_base_root?>/estilos/estilo-footer.css">
+    <link rel="stylesheet" href="<?php echo $link_base_root?>/estilos/estilo-registro.css">
+    <link rel="stylesheet" href="<?php echo $link_base_root?>/estilos/estilo-ventana-modal.css">
+    <?php
+        $link_page_actual = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+    if(($link_page_actual == $link_base_root."/index.php")){
+        echo "<link rel='stylesheet' href=".$link_base_root."/estilos/estilo-slider.css>";
+        echo "<link rel='stylesheet' href=".$link_base_root."/estilos/estilo-main.css>";
+    }
+    ?>
     <script src="https://kit.fontawesome.com/71a4b48035.js" crossorigin="anonymous"></script>

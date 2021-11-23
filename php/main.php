@@ -54,7 +54,7 @@
                         <div class="contenedor-producto-botom">
                         <form action="http://localhost:8080/PROYECTO-OFICIAL-FINAL\PHP\producto\informacion.php" method="GET">
                             <button type="submit">Ver producto <span><i class="fas fa-eye"></i></span></button>
-                            <input type="hidden" name="codigo" value="<?php echo $row["codigo"]?>">
+                            <input type="hidden" name="codigo" value="<?php echo $row["id_producto"]?>">
                         </form>
                         </div>
                         <div class="contenedor-producto-codigo">
