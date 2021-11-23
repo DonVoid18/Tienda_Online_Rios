@@ -17,11 +17,12 @@
     position: fixed;
     left: 0;
     top: 0;
+    z-index: 1000;
 }
 .contenedor-registro-ventana-modal{
     background-color: white;
     width: 300px;
-    height: 500px;
+    height: 420px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -96,5 +97,5 @@
 .mensaje-error-modal{
     font-size: 0.8em;
     display: none;
-    color: var(--color-principal);
+    color: red;
 }

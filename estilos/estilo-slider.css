@@ -8,6 +8,7 @@ img {vertical-align: middle;}
   width: 100%;
   position: relative;
   margin: auto;
+  z-index: 100;
 }
 
 .slideshow-container img{

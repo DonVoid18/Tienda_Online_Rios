@@ -9,6 +9,7 @@
     <?php
         $ruta_carpeta_raiz = "/TIENDA_ONLINE_RIOS";//cambiar cada vez que el nombre de la carpeta raiz cambie
         $link_base_root = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['HTTP_HOST'].$ruta_carpeta_raiz;
+        $base_link = realpath($_SERVER["DOCUMENT_ROOT"]).$ruta_carpeta_raiz;
     ?>
     <link rel="stylesheet" href="<?php echo $link_base_root?>/estilos/estilo-header.css">
     <link rel="stylesheet" href="<?php echo $link_base_root?>/estilos/estilo-footer.css">

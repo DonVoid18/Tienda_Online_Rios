@@ -45,6 +45,7 @@ html{
     border-radius: var(--size-borderRadius-contenedor-producto);
     position: relative;
     font-size: 16px;
+    z-index: 1;
 }
 .contenedor-producto-imagen{
     width: var(--size-contenedor-producto);

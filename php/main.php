@@ -2,9 +2,9 @@
     ?>
     <main>
         <?php 
-            $consulta = "SELECT * FROM productos ORDER BY RAND() LIMIT 10";
-            $resultado = $conn->query($consulta);
-            $cantidadFilas = mysqli_num_rows($resultado);
+            $consulta_productos = "SELECT * FROM productos ORDER BY RAND() LIMIT 10";
+            $productos = $conn->query($consulta_productos);
+            $cantidadFilas = mysqli_num_rows($productos);
         ?>
         <div class="seccion">
             <div class="seccion-titulo-productos">
@@ -19,11 +19,11 @@
                 </span>
             </div>
             <div class="contenedor-productos">
-                <?php while($row = $resultado->fetch_assoc()) {?>
+                <?php while($row = $productos->fetch_assoc()) {?>
                 <div class="contenedor-producto">
                     <div class="contenedor-producto-imagen">
                         <!-- imagen del producto -->
-                        <img src="https://hiraoka.com.pe/media/catalog/product/cache/48567fcfb4ecc28ec659b7fb30522c5f/1/2/121294.jpg" alt="Imagen del producto" loading="lazy">
+                        <img src="<?php echo $row["imagen_producto"]?>" alt="Imagen del producto" loading="lazy">
                     </div>
                     <div class="contenedor-producto-info">
                         <div class="contenedor-producto-titulo">
@@ -33,7 +33,7 @@
                         </div>
                         <div class="contenedor-producto-descripcion">
                             <?php
-                            print $row["descripcion"];
+                            echo $row["descripcion"];
                             ?>
                         </div>
                         <div class="contenedor-producto-precio">
@@ -49,7 +49,7 @@
                             </p>
                         </div>
                         <div class="contenedor-banner-descuento-producto">
-                            <span>-100%</span>
+                            <span>-<?php echo $row["descuento"]?>%</span>
                         </div>
                         <div class="contenedor-producto-botom">
                         <form action="http://localhost:8080/PROYECTO-OFICIAL-FINAL\PHP\producto\informacion.php" method="GET">
