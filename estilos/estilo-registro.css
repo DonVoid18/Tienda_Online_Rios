@@ -1,0 +1,79 @@
+/* variables */
+:root{  
+    --size-enfoque: 10%;
+    --size-titulo: 2em;
+    --size-subtitulo: 1.5em;
+    --size-padding-top-input: 25px;
+    --color-principal: #6606bf;
+}
+.contenedor-formulario{
+    padding: 20px var(--size-enfoque);
+    background-color: #f2f2f2;
+}
+/* css del titulo y los subtitulos */
+.titulo-principal p{
+    font-size: var(--size-titulo);
+}
+.subtitulo{
+    padding-top: 30px;
+}
+.subtitulo strong{
+    font-size: var(--size-subtitulo);
+}
+
+/* css de los nombre de los input */
+.contenedor-input p{
+    padding-top: var(--size-padding-top-input);
+    padding-bottom: 5px;
+}
+
+/* css de los inputs */
+.contenedor-input input{
+    width: 50%;
+    height: 30px;
+    padding-left: 5px;
+    border: 1px solid #c2c2c2;
+    outline: none;
+    display: block;
+}
+.contenedor-input input:hover{
+    box-shadow: 0 0 3px 1px #00699d;
+}
+/* css del chexbox */
+.contenedor-checkbox{
+    padding-top: var(--size-padding-top-input);
+}
+/* css del boton */
+.contenedor-boton{
+    padding-top: var(--size-padding-top-input);
+}
+.contenedor-boton button{
+    width: 40%;
+    height: 40px;
+    border: none;
+    background: var(--color-principal);
+    cursor: pointer;
+    color: white;
+}
+.error{
+    -webkit-box-shadow: 0px 0px 5px 0px var(--color-principal);
+    -moz-box-shadow: 0px 0px 5px 0px var(--color-principal);
+    box-shadow: 0px 0px 5px 0px var(--color-principal);
+}
+
+/* el mensaje de error */
+.info-error{
+    display: none;
+    color: var(--color-principal);
+    font-size: 0.8em;
+    padding-top: 5px;
+}
+
+/* mensaje critico de php */
+.mensaje-php{
+    padding: 1% 0;
+    font-size: 0.8em;
+    font-weight: 600;
+    color: var(--color-principal);
+    text-transform: uppercase;
+}

@@ -1,0 +1,133 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --espaciado-text: 20px;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 5% 0;
+}
+/* css del producto */
+.contenedor-producto{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+/* css de las imagenes */
+.contenedor-imagen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+}
+.contenedor-imagen img{
+    width: 100%;
+}
+.contenedor-informacion{
+    padding: 5% 0 5% 10%;
+}
+
+/* css de la informacion */
+.contenedor-informacion{
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+}
+.titulo{
+    font-size: 2em;
+    font-weight: 700;
+}
+.descripcion{
+    text-align: justify;
+    padding: 0;
+    font-size: 1em;
+    width: 80%;
+}
+.codigo{
+    padding-top: 5px;
+    font-size: 0.8em;   
+    color: var(--color-border-input);
+}
+.titulo{
+    padding: 0 0 var(--espaciado-text) 0;
+}
+.precio{
+    padding: var(--espaciado-text) 0;
+    font-size: 1.5em;
+}
+.precio span{
+    font-weight: 700;
+}
+.cantidad{
+    padding:  var(--espaciado-text) 0 5px 0;
+    font-size: 1em;
+}
+/* css de los botones para aumentar la cantidad de productos */
+.contenedor-botones-cantidad{
+    padding: 0 0 var(--espaciado-text) 0;
+}
+.contenedor-botones-cantidad button{
+    width: 15%;
+    height: 30px;
+}
+/* css del boton agregar al carrito */
+.bottom-carrito{
+    width: 50%;
+    height: 40px;
+    background-color: var(--color-principal);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+/* css de la tabla ficha tecnica */
+.contenedor-tabla{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.titulo-tabla-ficha-tecnica{
+    text-align: left;
+    width: 70%;
+    padding: 2% 0;
+    font-size: 2em;
+    font-weight: 700;
+}
+.ficha-tecnica-tabla{
+    border-collapse: collapse;
+    width: 70%;
+}
+.ficha-tecnica-tabla td, .ficha-tecnica-tabla th{
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+.ficha-tecnica-tabla tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+.ficha-tecnica-tabla tr:hover {
+    background-color: #ddd;
+}
+
+.ficha-tecnica-tabla th{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #ddd;
+    color: black;
+}
+.mensaje-carrito{
+    font-size: 1.5em;
+    line-height: 5px;
+    text-align: center;
+}
+.fa-check-circle{
+    font-size: 0.9em;
+    color: chartreuse;
+}

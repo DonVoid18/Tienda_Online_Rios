@@ -1,0 +1,75 @@
+:root{
+    --color-principal: #6606bf;
+}
+
+/* css del FOOTER */
+.footer{
+    border-top: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;    
+    padding: 5% 10%;
+}  
+.contenedor-seccion p{
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.input-footer-seccion-1{
+    display: flex;
+    margin: 10px 0; 
+}
+.input-footer-seccion-1 input{
+    padding: 5px 0 5px 10px;
+    border: 1px solid black;
+    border-radius: 50px 0 0 50px;
+    border-right: none;
+    outline: none;
+}
+.input-footer-seccion-1 button{
+    width: 10%;
+    cursor: pointer;
+    border: none;
+    border-left: none;
+    border-radius: 0 50px 50px 0;
+    background: var(--color-principal);
+    color: white;
+    background: var(--color-principal);
+}
+
+.contenedor-seccion ul{
+    list-style-type: none;
+    padding-left: 10px;
+}
+.contenedor-seccion ul li {
+    margin: 10px 0;
+}
+.contenedor-seccion ul li a{
+    text-decoration: none;
+    color: black;
+
+}
+.contenedor-seccion ul li a:hover{
+    color:var(--color-principal);
+    text-decoration: underline;
+}
+
+/* css contenedor banner */
+.contenedor-banner-footer{
+    background-color: var(--color-principal);
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* css del footer  */
+
+.contenedor-footer-img{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    width: 90px;
+}
+.contenedor-footer-img img{
+    width: 80%;
+}
