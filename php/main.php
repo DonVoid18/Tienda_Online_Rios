@@ -52,9 +52,9 @@
                             <span>-<?php echo $row["descuento"]?>%</span>
                         </div>
                         <div class="contenedor-producto-botom">
-                        <form action="http://localhost:8080/PROYECTO-OFICIAL-FINAL\PHP\producto\informacion.php" method="GET">
+                        <form action="<?php echo $link_base_root?>/producto/informacion_producto.php" method="GET">
                             <button type="submit">Ver producto <span><i class="fas fa-eye"></i></span></button>
-                            <input type="hidden" name="codigo" value="<?php echo $row["id_producto"]?>">
+                            <input type="hidden" name="nombre_producto" value="<?php echo $row["modelo"]?>">
                         </form>
                         </div>
                         <div class="contenedor-producto-codigo">

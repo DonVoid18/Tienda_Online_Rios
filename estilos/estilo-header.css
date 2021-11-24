@@ -152,9 +152,14 @@ header{
 }
 /* css del contenedor cantidad de productos carrito */
 #cantidad-productos-carrito{
-    padding: 4px;
-    border-radius: 50%;
-    font-size: 0.8em;
+    width: 30px;
+    height: 18px;
+    display: inline-block;
+    text-align: center;
+    line-height: 18px;
+    font-weight: 700;
+    border-radius: 5px;
     background-color: var(--principal-color);
     color: white;
+    font-size: 12px;
 }
