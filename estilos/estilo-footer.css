@@ -1,75 +1,108 @@
 :root{
-    --color-principal: #6606bf;
+    --size-iconos-redes-sociales: 35px;
+    --border-radius-email-input: 5px;
+    --color-opciones-defecto: black;
+    --color-opciones-lista: var(--color-principal);
+    --color-icon-boton-input: white;
 }
-
-/* css del FOOTER */
-.footer{
-    border-top: 1px solid black;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;    
-    padding: 5% 10%;
-}  
-.contenedor-seccion p{
-    font-weight: 700;
-    text-transform: uppercase;
-}
-
-.input-footer-seccion-1{
-    display: flex;
-    margin: 10px 0; 
-}
-.input-footer-seccion-1 input{
-    padding: 5px 0 5px 10px;
-    border: 1px solid black;
-    border-radius: 50px 0 0 50px;
-    border-right: none;
-    outline: none;
-}
-.input-footer-seccion-1 button{
-    width: 10%;
-    cursor: pointer;
-    border: none;
-    border-left: none;
-    border-radius: 0 50px 50px 0;
-    background: var(--color-principal);
-    color: white;
-    background: var(--color-principal);
-}
-
-.contenedor-seccion ul{
-    list-style-type: none;
-    padding-left: 10px;
-}
-.contenedor-seccion ul li {
-    margin: 10px 0;
-}
-.contenedor-seccion ul li a{
-    text-decoration: none;
-    color: black;
-
-}
-.contenedor-seccion ul li a:hover{
-    color:var(--color-principal);
-    text-decoration: underline;
-}
-
-/* css contenedor banner */
-.contenedor-banner-footer{
-    background-color: var(--color-principal);
+/* contenedor del todo footer */
+.container-footer{
     width: 100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-around;
+    padding: 1.875rem 0.625rem;
 }
-
-/* css del footer  */
-
-.contenedor-footer-img{
-    padding: 10px;
+.container-seccion > p{
+    font-size: 1.125em;
+    font-weight: 700;
+    padding-bottom: 0.5125rem;
+}
+.container-ul-seccion > ul{
+    list-style: none;
+}
+.container-ul-seccion > ul > li{
+    padding: 0.3125rem 0;
+}
+.container-ul-seccion > ul > li > a{
+    text-decoration: none;
+    color: var(--color-opciones-defecto);
+}
+.container-ul-seccion > ul > li > a:hover{
+    text-decoration: underline;
+    color: var(--color-opciones-lista);
+}
+/* input-footer-seccion-1 */
+.container-input-email-footer{
+    width: 13.125rem;
+    height: 1.875rem;
+    border: 0.0625rem solid black;
     display: flex;
-    justify-content: center;
-    width: 90px;
+    justify-content: space-between;
+    border-radius: var(--border-radius-email-input);
+}
+.container-input-email-footer input{
+    outline: none;
+    padding: 0rem 0.1875rem 0rem 0.3125rem;
+    border: none;
+    border-radius: var(--border-radius-email-input);
+}
+.container-input-email-footer button{
+    width: 1.875rem;
+    height: 100%;
+    border-radius: 0 var(--border-radius-email-input) var(--border-radius-email-input) 0;
+    background: var(--color-opciones-lista);
+    border: none;
+    color: var(--color-icon-boton-input);
+    cursor: pointer;
+}
+/* css del container logos de las páginas */
+.container-redes-sociales-footer{
+    padding: 0.4375rem 0;
+}
+.container-redes-sociales-footer a{
+    text-decoration: none;
+    color: black;
+    font-size: var(--size-iconos-redes-sociales);
+    margin: 0 0.1875rem 0 0;
+}
+.fa-facebook{
+    color: #1b74f4;
+}
+.fa-whatsapp{
+    color: #42c353;
+}
+.fa-instagram{
+    color: #f87b29;
+}
+/* contenedor del logo de la página */
+.contenedor-footer-img{
+    width: 100%;
+    padding: 0.3100rem 0.625rem;
+    text-align: right;
+    background-color: var(--color-opciones-lista);
 }
 .contenedor-footer-img img{
-    width: 80%;
+    width: 3.325rem;
+}
+/* css de logos de método de pago */
+.medios-pago-logo{
+    width: 120px;
+}
+.medios-pago-logo img{
+    width: 48%;
+}
+/* css de las medias querys */
+@media (max-width: 840px){
+    .container-footer{
+        flex-wrap: wrap;
+    }
+    .container-seccion{
+        padding: 0.625rem;
+        width: 45%;
+    }
+}
+@media (max-width: 520px){
+    .container-seccion{
+        width: 100%;
+    }
 }
