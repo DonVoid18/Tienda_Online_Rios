@@ -23,7 +23,7 @@
                     else{?>
                         <li class="item-menu ingresar-cuenta"><span><i class="fas fa-user"></i></span>  Ingresar</li>
                     <?php } ?>
-                    <li class="item-menu"><a href="http://localhost:8080/PROYECTO-OFICIAL-FINAL\PHP\carrito-productos.php" class="item-link"><span><i class="fas fa-shopping-cart"></i></span> Mi carrito 
+                    <li class="item-menu"><a href="<?php echo $link_base_root?>\producto\carrito_productos.php" class="item-link"><span><i class="fas fa-shopping-cart"></i></span> Mi carrito 
                     <?php
                     if(isset($_SESSION["carrito"])){
                         // entonces que nos muestre la cantidad de productos
@@ -81,12 +81,12 @@
                 </div>
                 <div class="contenedor-modal-correo">
                     <span><i class="fas fa-at"></i></span>
-                    <input type="text" name="correo_modal" placeholder="Correo">
+                    <input type="text" class="input_registro_usuario_modal" name="correo_modal" placeholder="Correo" required>
                 </div>
                 <p class="mensaje-error-modal">Email inválido</p>
                 <div class="contenedor-modal-pass">
                     <span><i class="fas fa-lock"></i></span>
-                    <input type="password" name="pass_modal" placeholder="Contraseña">
+                    <input type="password" class="input_registro_usuario_modal" name="pass_modal" placeholder="Contraseña" required>
                 </div>
                 <p class="mensaje-error-modal">Contraseña inválida</p>
                 <div class="contenedor-modal-botonEnviar">

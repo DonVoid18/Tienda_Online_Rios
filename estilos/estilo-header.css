@@ -12,7 +12,7 @@ body{
 }
 :root{
     --color-border-input: #c2c2c2;
-    --border-radius: 50px;
+    --border-radius: 10px;
     --padding-general: 10%;
     --principal-color: #6606bf;
 }
@@ -55,7 +55,7 @@ header{
 /* css del buscador */
 .contenedor-buscador-input{
     width: 60%;
-    padding: 1% 0.5%;
+    padding: 1% 1.5%;
     border: 1px solid var(--color-border-input);
     display: flex;
     justify-content: center;

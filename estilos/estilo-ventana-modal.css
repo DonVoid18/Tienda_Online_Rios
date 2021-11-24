@@ -1,12 +1,12 @@
-:root{
-    --color-border-input: #c2c2c2;
-}
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
-
+:root{
+    --border-radius-modal: 10px;
+    --color-border-input: #c2c2c2;
+}
 .contenedor-global-modal{
     width: 100vw;
     height: 100vh;
@@ -29,7 +29,7 @@
     flex-direction: column;
     transition: opacity 0.3s ease;
     padding: 10px;
-    border-radius: 30px;
+    border-radius: var(--border-radius-modal);
 }
 .contenedor-registro-ventana-modal div{
     padding: 3% 0;
@@ -39,7 +39,7 @@
 .contenedor-modal-correo,.contenedor-modal-pass{
     width: 80%;
     border: 1px solid var(--color-border-input);
-    border-radius: 50px;
+    border-radius: var(--border-radius-modal);
     margin: 5px 0;
     color: var(--color-border-input);
     display: flex;
@@ -66,7 +66,8 @@
     color: white;
     font-weight: 700;
     cursor: pointer;
-    border-radius: 50px;
+    border-radius: var(--border-radius-modal);
+    text-transform: uppercase;
 }
 /* css del icono de la ventana */
 .contenedor-modal-icon{

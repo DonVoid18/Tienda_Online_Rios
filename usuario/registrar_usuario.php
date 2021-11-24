@@ -158,5 +158,5 @@
         </form>
     </div>
     <!-- agregamos el footer -->
-    <script src="<?php $link_base_root?>/javascript/codigo-registro.js"></script>
+    <script src="<?php echo $link_base_root?>/javascript/codigo-registro.js"></script>
 <?php include "../php/footer.php" ?>

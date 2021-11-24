@@ -8,7 +8,7 @@ function enviar(){
     var data1 = "modelo-form="+modelo+"&descripcion-form="+descripcion+"&codigo-producto-form="+codigo+"&precio-form="+precio+"&descuento-form="+descuento+"&cantidad-productos-form="+cantidad;
     $.ajax({
         type:'post',
-        url:'carrito-compras.php',
+        url:'operacion_carrito_productos.php',
         data: data1,
         success:function(resp){
             $("#mensaje-agregar-producto").html(resp);
