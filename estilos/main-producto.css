@@ -1,11 +1,4 @@
-:root{
-    --espaciado-text: 1.25rem;
-}
-main{
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-}
+
 /* css del producto */
 .contenedor-producto{
     width: 100%;
@@ -39,13 +32,12 @@ main{
 }
 .descripcion{
     text-align: justify;
-    padding: 0;
-    font-size: 1rem;
     width: 80%;
+    font-size: 1rem;
 }
 .codigo{
     padding-top: 0.3125rem;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: var(--color-border-input);
 }
 .titulo{
@@ -53,18 +45,27 @@ main{
 }
 .precio{
     padding: var(--espaciado-text) 0;
-    font-size: 1.5rem;
+    text-decoration:line-through;
+    font-size: 1rem;
+    padding-top: 0.625rem;
 }
-.precio span{
+.precio_descuento{
+    color: red;
+    font-size: 1.125rem;
+    padding-bottom: 0.625rem;
     font-weight: 700;
 }
+.precio_descuento span{
+    font-size: 1.25rem;
+}
 .cantidad{
-    padding:  var(--espaciado-text) 0 5px 0;
+    padding:  var(--espaciado-text) 0 0.3125rem 0;
     font-size: 1rem;
+    padding: 0.625rem 0;
 }
 /* css de los botones para aumentar la cantidad de productos */
 .contenedor-botones-cantidad{
-    padding: 0 0 var(--espaciado-text) 0;
+    padding: 0.625rem 0;
 }
 .contenedor-botones-cantidad button{
     width: 15%;
@@ -74,7 +75,7 @@ main{
 .bottom-carrito{
     width: 50%;
     height: 2.5rem;
-    background-color: var(--color-principal);
+    background-color: var(--principal-color);
     color: white;
     border: none;
     cursor: pointer;

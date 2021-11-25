@@ -2,7 +2,7 @@
     --size-iconos-redes-sociales: 2.1875rem;
     --border-radius-email-input: 0.3125rem;
     --color-opciones-defecto: black;
-    --color-opciones-lista: var(--color-principal);
+    --color-opciones-lista: var(--principal-color);
     --color-icon-boton-input: white;
 }
 /* contenedor del todo footer */

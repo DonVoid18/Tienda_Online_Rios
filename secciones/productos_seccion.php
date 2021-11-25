@@ -50,13 +50,17 @@
                     </div>
                     <div class="contenedor-producto-precio">
                         <p>S/. <span class="precio"><?php
-                        echo $row["precio"];
+                        echo number_format($row["precio"],2);
                         ?></span></p>
                     </div>
                     <div class="contenedor-producto-precio-oferta">
                         <p>
                             S/. <span class="precio-oferta">
-                                2300
+                                <?php
+                                $descuento_precio = round($row["precio"] * ($row["descuento"]/100),2);
+                                $precio_nuevo = number_format($row["precio"]-$descuento_precio,2);
+                                echo $precio_nuevo;
+                                ?>
                             </span>
                         </p>
                     </div>

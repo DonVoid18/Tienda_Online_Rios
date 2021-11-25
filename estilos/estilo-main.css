@@ -4,13 +4,13 @@ main{
 }
 :root{
     --padding-seccion-producto: 1.10rem;
-    --size-contenedor-producto: 9.475rem;
+    --size-contenedor-producto: 10.475rem;
     --size-height-contenedor-producto: 20.875rem;
     --size-borderRadius-contenedor-producto: 0.3125rem;
     --size-botom-producto: 6.875rem;
     --color-botom-text: white;
     --color-oferta-text: red;
-    --color-line-titulo: #ff9e00;
+    --color-line-titulo: #0091ad;
 }
 .seccion-titulo-productos{
     background: var(--principal-color);
@@ -21,7 +21,7 @@ main{
     padding-left: 0.625rem;
 }
 .seccion-titulo-productos span{
-    border-left: 0.625rem solid #ff9e00;
+    border-left: 0.625rem solid var(--color-line-titulo);
     padding-left: 0.625rem;
 }
 .contenedor-productos{

@@ -56,7 +56,7 @@
 .contenedor-modal-botonEnviar button{
     width: 80%;
     height: 2.5rem;
-    background: var(--color-principal);
+    background: var(--principal-color);
     border: none;
     color: white;
     font-weight: 700;
@@ -68,7 +68,7 @@
 /* css del icono de la ventana */
 .contenedor-modal-icon{
     font-size: 5rem;
-    color: var(--color-principal);
+    color: var(--principal-color);
 }
 /* css del titulo */
 .contenedor-modal-titulo{

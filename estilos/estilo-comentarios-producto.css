@@ -17,7 +17,7 @@
 .container-comentario-usuario{
     padding: var(--padding-total-comentario);
     background-color: var(--fondo-color-comentario-usuario);
-    background-color: var(--color-principal);
+    background-color: var(--principal-color);
     color: white;
     border-radius: 0.3125rem;
 }

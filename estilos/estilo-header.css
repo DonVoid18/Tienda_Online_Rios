@@ -17,7 +17,7 @@ body{
     --color-border-input: #c2c2c2;
     --border-radius: 0.625rem;
     --padding-general: 3.125rem;
-    --principal-color: #eb253e;
+    --principal-color: #2b2d42;
 }
 .header-1{
     padding: 1.25rem var(--padding-general);

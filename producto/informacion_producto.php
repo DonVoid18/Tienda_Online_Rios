@@ -23,7 +23,12 @@
                 <p class="titulo producto"><?php echo $row["marca"]?></p>
                 <p class="descripcion producto"><?php echo $row["descripcion"]?></p>
                 <p class="codigo producto">Código: <?php echo $row["id_producto"]?></p>
-                <p class="precio producto">Precio: S/. <span><?php echo $row["precio"]?></span></p>
+                <p class="precio producto">Precio: S/. <span><?php echo number_format($row["precio"],2)?></span></p>
+                <p class="precio_descuento producto">Precio Final: S/. <span><?php 
+                    $descuento_precio = round($row["precio"] * ($row["descuento"]/100),2);
+                    $precio_nuevo = number_format($row["precio"]-$descuento_precio,2);
+                    echo $precio_nuevo;
+                    ?></span></p>
                 <p class="descuento producto">Descuento: <span><?php echo $row["descuento"]?>%</span></p>
                 <p class="cantidad producto">Cantidad: <span value ="<?php echo $row["cantidad"]?>" class="cantidad-max-productos"><?php echo $row["cantidad"]?></span></p>
                 <div class="contenedor-botones-cantidad">
