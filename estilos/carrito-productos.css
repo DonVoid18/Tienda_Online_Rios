@@ -1,11 +1,5 @@
-body{
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
 main{
     display: flex;
-    padding: 5% 10%;
     background-color: #f2f2f2;
     flex-grow: 1;
     align-items: center;
@@ -13,7 +7,6 @@ main{
 }
 .tabla-productos-informacion{
     border-collapse: collapse;
-    font-size: 1.1em;
     background-color: white;
 }
 .tabla-productos-informacion td, .tabla-productos-informacion th{
@@ -22,16 +15,16 @@ main{
     text-align: center;
 } 
 .tabla-productos-informacion th{
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
     background-color: var(--color-principal);
     color: white;
     font-size: 0.9em;
 }
 /* css del input de cantidad */
 .cantidad-input-tabla{
-    padding: 10px;
-    width: 45px;
+    padding: 0.625rem;
+    width: 2.8125rem;
     text-align: center;
 }
 .cantidad-input-tabla::-webkit-inner-spin-button{
@@ -49,7 +42,7 @@ main{
 }
 /* css del contenedor de la imagen */
 .fila-imagen-tabla{
-    width: 200px;
+    width: 12.5rem;
 }
 /* css de la imagen */
 .fila-imagen-tabla img{
@@ -69,13 +62,13 @@ main{
 /*  css de la columna del precio  */
 .precio-producto-tabla{
     font-weight: 700;
-    background-color: #6606bf23;
+    background-color: rgba(0, 0, 0, 0.144);
 }
 
 /* css de la celda de la suma de todos los precios finales */
 #precio-total-productos{
     font-weight: 700;
-    background-color: #6606bf4f;
+    background-color: rgba(0, 0, 0, 0.144);
 }
 
 /* css del boton vaciar carrito */
@@ -84,10 +77,10 @@ main{
     background: rgba(255, 0, 0, 0.438);
     border: none;
     color: white;
-    padding: 2px 5px;
+    padding: 0.125rem 0.3125rem;
     cursor: pointer;
 }
 .boton-fila-final:hover{
     transition: 0.3s ease;
-    background: red;
+    background: var(--color-principal);
 }

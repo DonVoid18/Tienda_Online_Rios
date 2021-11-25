@@ -1,13 +1,13 @@
 /* variables */
-:root{  
+:root{ 
     --size-enfoque: 10%;
     --size-titulo: 2em;
     --size-subtitulo: 1.5em;
     --size-padding-top-input: 25px;
-    --color-principal: #6606bf;
+    --color-principal: #eb253e;
 }
 .contenedor-formulario{
-    padding: 20px var(--size-enfoque);
+    padding: 1.25rem var(--size-enfoque);
     background-color: #f2f2f2;
 }
 /* css del titulo y los subtitulos */
@@ -15,7 +15,7 @@
     font-size: var(--size-titulo);
 }
 .subtitulo{
-    padding-top: 30px;
+    padding-top: 1.875rem;
 }
 .subtitulo strong{
     font-size: var(--size-subtitulo);
@@ -24,20 +24,20 @@
 /* css de los nombre de los input */
 .contenedor-input p{
     padding-top: var(--size-padding-top-input);
-    padding-bottom: 5px;
+    padding-bottom: 0.3125rem;
 }
 
 /* css de los inputs */
 .contenedor-input input{
     width: 50%;
-    height: 30px;
-    padding-left: 5px;
+    height: 1.875rem;
+    padding-left: 0.3125rem;
     border: 1px solid #c2c2c2;
     outline: none;
     display: block;
 }
 .contenedor-input input:hover{
-    box-shadow: 0 0 3px 1px #00699d;
+    box-shadow: 0 0 0.1875rem 0.0625rem #00699d;
 }
 /* css del chexbox */
 .contenedor-checkbox{
@@ -49,16 +49,16 @@
 }
 .contenedor-boton button{
     width: 40%;
-    height: 40px;
+    height: 2.5rem;
     border: none;
     background: var(--color-principal);
     cursor: pointer;
     color: white;
 }
 .error{
-    -webkit-box-shadow: 0px 0px 5px 0px var(--color-principal);
-    -moz-box-shadow: 0px 0px 5px 0px var(--color-principal);
-    box-shadow: 0px 0px 5px 0px var(--color-principal);
+    -webkit-box-shadow: 0rem 0rem 0.3125rem 0rem var(--color-principal);
+    -moz-box-shadow: 0rem 0rem 0.3125rem 0rem var(--color-principal);
+    box-shadow: 0rem 0rem 0.3125rem 0rem var(--color-principal);
 }
 
 /* el mensaje de error */
@@ -66,7 +66,7 @@
     display: none;
     color: var(--color-principal);
     font-size: 0.8em;
-    padding-top: 5px;
+    padding-top: 0.3125rem;
 }
 
 /* mensaje critico de php */
@@ -76,4 +76,12 @@
     font-weight: 600;
     color: var(--color-principal);
     text-transform: uppercase;
+}
+@media (max-width: 740px) {
+    .contenedor-input input{
+        width: 100%;
+    }
+    .contenedor-boton button{
+        width: 100%;
+    }
 }

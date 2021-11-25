@@ -3,22 +3,22 @@
     <header class="header-1">
         <div class="contenedor-menu-1">
             <div class="contenedor-logo-imagen">
-                <a href="<?php echo $link_base_root?>\index.php"><img src="http://localhost:8080/PROYECTO-OFICIAL-FINAL\imagenes\logo-principal.png" alt="logo de la página"></a>
+                <a href="<?php echo $link_base_root?>\index.php"><img src="<?php echo $link_base_root?>/imagenes_banner/logo_pagina_principal.png" alt="logo de la página"></a>
                 </div>
             <div class="contenedor-buscador-input">
-                <input type="text" placeholder="Buscar producto">
+                <input type="text" placeholder="Buscar productos de tu preferencia">
                 <button class="icon-buscador">
                     <i class="fas fa-search"></i>
                 </button>
             </div>
-            <nav>
+            <nav class="container-nav-icons-header-1">
                 <ul>
                     <?php
                     require_once $base_link."/base_de_datos/conexion.php";//CONEXIÓN A LA BASE DE DATOSS
                     // iniciar sesion
                     session_start();
                     if(isset($_SESSION["correo"])){?>
-                        <li class="item-menu" class="cuenta-activa"><a href="http://localhost:8080/PROYECTO-OFICIAL-FINAL\PHP\usuario\usuario_perfil.php"><i class="fas fa-user"></i> <?php echo $_SESSION["nombre"]?></a></li>                        
+                        <li class="item-menu" class="cuenta-activa"><a href="<?php echo $link_base_root?>\usuario\usuario_cuenta.php"><i class="fas fa-user"></i> <?php echo $_SESSION["nombre"]?></a></li>                        
                     <?php }
                     else{?>
                         <li class="item-menu ingresar-cuenta"><span><i class="fas fa-user"></i></span>  Ingresar</li>

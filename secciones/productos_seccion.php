@@ -40,7 +40,7 @@
                 <div class="contenedor-producto-info">
                     <div class="contenedor-producto-titulo">
                         <p><?php
-                        echo $row["modelo"];
+                        echo $row["marca"];
                         ?></p>
                     </div>
                     <div class="contenedor-producto-descripcion">
@@ -66,7 +66,7 @@
                     <div class="contenedor-producto-botom">
                         <form action="<?php echo $link_base_root?>/producto/informacion_producto.php" method="GET">
                             <button type="submit">Ver producto <span><i class="fas fa-eye"></i></span></button>
-                            <input type="hidden" name="nombre_producto" value="<?php echo $row["modelo"]?>">
+                            <input type="hidden" name="nombre_producto" value="<?php echo $row["marca"]?>">
                         </form>
                     </div>
                     <div class="contenedor-producto-codigo">

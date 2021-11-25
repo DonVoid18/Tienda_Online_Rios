@@ -19,7 +19,7 @@
         <thead>
             <tr>
                 <th>Cantidad</th>
-                <th>Modelo</th>
+                <th>Marca</th>
                 <th>Imagen</th>
                 <th>Precio Unitario</th>
                 <th>Descuento %</th>

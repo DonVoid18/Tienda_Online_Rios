@@ -1,6 +1,6 @@
 :root{
-    --size-iconos-redes-sociales: 35px;
-    --border-radius-email-input: 5px;
+    --size-iconos-redes-sociales: 2.1875rem;
+    --border-radius-email-input: 0.3125rem;
     --color-opciones-defecto: black;
     --color-opciones-lista: var(--color-principal);
     --color-icon-boton-input: white;
@@ -11,6 +11,7 @@
     display: flex;
     justify-content: space-around;
     padding: 1.875rem 0.625rem;
+    border-top: 1px solid #ddd;
 }
 .container-seccion > p{
     font-size: 1.125em;
@@ -33,7 +34,7 @@
 }
 /* input-footer-seccion-1 */
 .container-input-email-footer{
-    width: 13.125rem;
+    width: 15.125rem;
     height: 1.875rem;
     border: 0.0625rem solid black;
     display: flex;
@@ -47,7 +48,7 @@
     border-radius: var(--border-radius-email-input);
 }
 .container-input-email-footer button{
-    width: 1.875rem;
+    width: 2.875rem;
     height: 100%;
     border-radius: 0 var(--border-radius-email-input) var(--border-radius-email-input) 0;
     background: var(--color-opciones-lista);
@@ -86,7 +87,7 @@
 }
 /* css de logos de método de pago */
 .medios-pago-logo{
-    width: 120px;
+    width: 7.5rem;
 }
 .medios-pago-logo img{
     width: 48%;

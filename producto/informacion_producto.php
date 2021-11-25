@@ -7,7 +7,7 @@
     $nombre_producto = $_GET["nombre_producto"];
 ?>
 <?php
-    $consulta_producto = "SELECT * FROM productos WHERE modelo = '$nombre_producto'";
+    $consulta_producto = "SELECT * FROM productos WHERE marca = '$nombre_producto'";
     $datos_producto = $conn->query($consulta_producto);
     $row = $datos_producto->fetch_assoc();
     // $cantidadFilas = mysqli_num_rows($resultado);
@@ -20,7 +20,7 @@
                 <img src="<?php echo $row["imagen_producto"]?>" alt="Imagen del producto">
             </div>
             <div class="contenedor-informacion">
-                <p class="titulo producto"><?php echo $row["modelo"]?></p>
+                <p class="titulo producto"><?php echo $row["marca"]?></p>
                 <p class="descripcion producto"><?php echo $row["descripcion"]?></p>
                 <p class="codigo producto">Código: <?php echo $row["id_producto"]?></p>
                 <p class="precio producto">Precio: S/. <span><?php echo $row["precio"]?></span></p>
@@ -32,7 +32,7 @@
                     <button class="boton-sumar-producto">+</button>
                 </div>
                 <form onsubmit="return enviar();" method="POST">
-                    <input type="hidden" id="modelo-form" name="modelo-form" value="<?php echo $row["modelo"]?>">
+                    <input type="hidden" id="marca-form" name="marca-form" value="<?php echo $row["marca"]?>">
                     <input type="hidden" id="descripcion-form" name="descripcion-form" value="<?php echo $row["descripcion"]?>">
                     <input type="hidden" id="codigo-producto-form" name="codigo-producto-form" value="<?php echo $row["id_producto"]?>">
                     <input type="hidden" id="precio-form" name="precio-form" value="<?php echo $row["precio"]?>">
@@ -54,10 +54,6 @@
                 <tbody>
                     <tr>
                         <td>Modelo</td>
-                        <td><?php echo $row["modelo"]?></td>
-                    </tr>
-                    <tr>
-                        <td>Marca</td>
                         <td><?php echo $row["marca"]?></td>
                     </tr>
                     <tr>

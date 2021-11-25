@@ -1,16 +1,10 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 :root{
-    --espaciado-text: 20px;
+    --espaciado-text: 1.25rem;
 }
 main{
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    padding: 5% 0;
 }
 /* css del producto */
 .contenedor-producto{
@@ -24,34 +18,34 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 300px;
+    width: 22.75rem;
 }
 .contenedor-imagen img{
     width: 100%;
 }
 .contenedor-informacion{
-    padding: 5% 0 5% 10%;
+    padding: 1.875rem 0 1.875rem 3.125rem;
 }
 
 /* css de la informacion */
 .contenedor-informacion{
-    width: 700px;
+    width: 35.75rem;
     display: flex;
     flex-direction: column;
 }
 .titulo{
-    font-size: 2em;
+    font-size: 2rem;
     font-weight: 700;
 }
 .descripcion{
     text-align: justify;
     padding: 0;
-    font-size: 1em;
+    font-size: 1rem;
     width: 80%;
 }
 .codigo{
-    padding-top: 5px;
-    font-size: 0.8em;   
+    padding-top: 0.3125rem;
+    font-size: 0.8rem;
     color: var(--color-border-input);
 }
 .titulo{
@@ -59,14 +53,14 @@ main{
 }
 .precio{
     padding: var(--espaciado-text) 0;
-    font-size: 1.5em;
+    font-size: 1.5rem;
 }
 .precio span{
     font-weight: 700;
 }
 .cantidad{
     padding:  var(--espaciado-text) 0 5px 0;
-    font-size: 1em;
+    font-size: 1rem;
 }
 /* css de los botones para aumentar la cantidad de productos */
 .contenedor-botones-cantidad{
@@ -74,12 +68,12 @@ main{
 }
 .contenedor-botones-cantidad button{
     width: 15%;
-    height: 30px;
+    height: 1.875rem;
 }
 /* css del boton agregar al carrito */
 .bottom-carrito{
     width: 50%;
-    height: 40px;
+    height: 2.5rem;
     background-color: var(--color-principal);
     color: white;
     border: none;
@@ -95,8 +89,8 @@ main{
 .titulo-tabla-ficha-tecnica{
     text-align: left;
     width: 70%;
-    padding: 2% 0;
-    font-size: 2em;
+    padding: 0.825rem 0;
+    font-size: 2rem;
     font-weight: 700;
 }
 .ficha-tecnica-tabla{
@@ -104,27 +98,27 @@ main{
     width: 70%;
 }
 .ficha-tecnica-tabla td, .ficha-tecnica-tabla th{
-    border: 1px solid #ddd;
-    padding: 8px;
+    border: 0.0625rem solid #ddd;
+    padding: 0.5rem;
 }
 .ficha-tecnica-tabla tr:nth-child(even){
     background-color: #f2f2f2;
 }
 
 .ficha-tecnica-tabla tr:hover {
-    background-color: #ddd;
+    background-color: rgba(221, 221, 221, 0.281);
 }
 
 .ficha-tecnica-tabla th{
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
     text-align: left;
     background-color: #ddd;
     color: black;
 }
 .mensaje-carrito{
-    font-size: 1.5em;
-    line-height: 5px;
+    font-size: 1.5rem;
+    line-height: 0.3125rem;
     text-align: center;
 }
 .fa-check-circle{

@@ -1,10 +1,5 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
 :root{
-    --border-radius-modal: 10px;
+    --border-radius-modal: 0.625rem;
     --color-border-input: #c2c2c2;
 }
 .contenedor-global-modal{
@@ -21,26 +16,26 @@
 }
 .contenedor-registro-ventana-modal{
     background-color: white;
-    width: 300px;
-    height: 420px;
+    width: 18.75rem;
+    height: 26.25rem;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     transition: opacity 0.3s ease;
-    padding: 10px;
+    padding: 0.625rem;
     border-radius: var(--border-radius-modal);
 }
 .contenedor-registro-ventana-modal div{
-    padding: 3% 0;
+    width: 90%;
+    padding: 0.525rem 0;
     text-align: center;
-    width: 80%;
 }
 .contenedor-modal-correo,.contenedor-modal-pass{
-    width: 80%;
-    border: 1px solid var(--color-border-input);
+    width: 90%;
+    border: 0.0625rem solid var(--color-border-input);
     border-radius: var(--border-radius-modal);
-    margin: 5px 0;
+    margin: 0.3125rem 0;
     color: var(--color-border-input);
     display: flex;
     justify-content: center;
@@ -49,18 +44,18 @@
 .contenedor-modal-pass input{
     border: none;
     outline: none;
-    padding-left: 10px;
+    padding-left: 0.625rem;
 }
 .contenedor-modal-correo input{
     border: none;
     outline: none;
-    padding-left: 10px;
+    padding-left: 0.625rem;
 }
 
 /* css del boton del contenedor */
 .contenedor-modal-botonEnviar button{
     width: 80%;
-    height: 40px;
+    height: 2.5rem;
     background: var(--color-principal);
     border: none;
     color: white;
@@ -68,15 +63,16 @@
     cursor: pointer;
     border-radius: var(--border-radius-modal);
     text-transform: uppercase;
+    font-size: 1rem;
 }
 /* css del icono de la ventana */
 .contenedor-modal-icon{
-    font-size: 5em;
+    font-size: 5rem;
     color: var(--color-principal);
 }
 /* css del titulo */
 .contenedor-modal-titulo{
-    font-size: 1.3em;
+    font-size: 1.3rem;
 }
 /* css del link del modal */
 .contenedor-modal-link a{
@@ -96,7 +92,7 @@
 }
 /* css de los errores que debe mostrar */
 .mensaje-error-modal{
-    font-size: 0.8em;
+    font-size: 0.8rem;
     display: none;
     color: red;
 }

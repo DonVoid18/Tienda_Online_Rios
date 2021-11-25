@@ -9,7 +9,7 @@
         // si los datos se encuentran correctos entonces se envian
         // debemos validar el nombre cantidad y todos los campos para enviarlos al carrito
         if(($row["cantidad"]>=$_POST["cantidad-productos-form"]) && ($row["id_producto"] == $_POST["codigo-producto-form"]) 
-        && ($row["modelo"] == $_POST["modelo-form"]) && ($row["descripcion"] == $_POST["descripcion-form"]) && ($row["precio"] == $_POST["precio-form"])
+        && ($row["marca"] == $_POST["marca-form"]) && ($row["descripcion"] == $_POST["descripcion-form"]) && ($row["precio"] == $_POST["precio-form"])
         && ($row["descuento"] == $_POST["descuento-form"])){
             // debemos calcular el precio total = (cantidad*precio) - ((cantidad*precio)*descuento);
             $precioSinDescuento = (floatval($_POST["precio-form"]) * floatval($_POST["cantidad-productos-form"]));
@@ -19,7 +19,7 @@
             $_SESSION["datos"] = array();
             $_SESSION["datos"][0] = $_POST["codigo-producto-form"];
             $_SESSION["datos"][1] = $_POST["cantidad-productos-form"];
-            $_SESSION["datos"][2] = $_POST["modelo-form"];
+            $_SESSION["datos"][2] = $_POST["marca-form"];
             $_SESSION["datos"][3] = $row["imagen_producto"];
             $_SESSION["datos"][4] = $_POST["precio-form"];
             $_SESSION["datos"][5] = $_POST["descuento-form"];
