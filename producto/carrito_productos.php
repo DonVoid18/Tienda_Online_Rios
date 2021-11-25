@@ -4,9 +4,7 @@
     require_once "../php/header.php";
 
     // que pasa si el boton vaciar carrito es pulsado: Entonces tenenmos que destruir la variable session carrito y recargar la pagina
-    if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["boton-vaciar-carrito"])){
-        unset($_SESSION["carrito"]);
-    }
+     
     if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["button-eliminar-producto"])){
         $codEliminar = $_POST["codigo-producto-eliminar"];
         unset($_SESSION["carrito"][$codEliminar]);

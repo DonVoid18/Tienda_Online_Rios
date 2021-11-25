@@ -58,7 +58,7 @@
     if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["button-enviar-registro"])){
         $correo = $_POST["correo_modal"];
         $pass = $_POST["pass_modal"];
-        $consulta_validacion = "SELECT * FROM usuarios WHERE correo = '$correo' && pass='$pass'";
+        $consulta_validacion = "SELECT * FROM usuarios WHERE email = '$correo' && password='$pass'";
         $validacion_datos = $conn->query($consulta_validacion);
         $cantidadFilas = mysqli_num_rows($validacion_datos);
         $row = $validacion_datos->fetch_assoc();
@@ -66,11 +66,16 @@
         if($cantidadFilas !== 0){
             $_SESSION["correo"] = $correo;
             $_SESSION["nombre"] = $row["nombre"];
-            header("Location: http://localhost:8080/PROYECTO-OFICIAL-FINAL\PHP\index.php");
+            $_SESSION["apellido_paterno"] = $row["apellido_paterno"];
+            $_SESSION["fecha_nacimiento"] = $row["fecha_nacimiento"];
+            $_SESSION["dni"] = $row["dni"];
+            $_SESSION["celular"] = $row["celular"];
+            $_SESSION["password"] = $row["password"];
+            header("Location: $link_base_root\index.php");
         }
     }else{?>
     <?php if(!isset($_SESSION["correo"])){?>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" autocomplete="off">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" autocomplete="on">
         <div class="contenedor-global-modal desactivo">
             <div class="contenedor-registro-ventana-modal">
                 <div class="contenedor-modal-icon">
@@ -98,7 +103,7 @@
             </div>
         </div>
     </form>
-    <?php } ?>
     <script src='<?php echo $link_base_root?>\javascript\ventana-modal.js'></script>
+    <?php } ?>
     <!-- html de la ventana modal -->
     <?php } ?>

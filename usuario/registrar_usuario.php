@@ -70,9 +70,8 @@
                         $mensajeError = "Los datos de algún campo se encuentran inválidos...";
                         echo $mensajeError;
                     }else{
-                        include "../baseDeDatos/conexion.php";
                         // necesitamos saber que el correo, celular y dni no se repitan
-                        $consulta_buscar_datos = "SELECT * FROM usuarios WHERE celular = '$celular' || dni = '$dni' || correo = '$correo'";
+                        $consulta_buscar_datos = "SELECT * FROM usuarios WHERE celular = '$celular' || dni = '$dni' || email = '$correo'";
                         $datos_consultados = $conn->query($consulta_buscar_datos);
                         if($datos_consultados->num_rows > 0){
                             // se encuentran datos repetidos
@@ -80,7 +79,7 @@
                             echo $mensajeDatosRepetidos;
                         }
                         else{
-                            $consulta_insertar_datos = "INSERT INTO usuarios (nombre,apellidoP,fechaNacimiento,dni,celular,correo,pass) VALUES ('$nombre','$apellidoP','$fechaNacimiento','$dni','$celular','$correo','$pass')";
+                            $consulta_insertar_datos = "INSERT INTO usuarios (nombre,apellido_paterno,fecha_nacimiento,dni,celular,email,password) VALUES ('$nombre','$apellidoP','$fechaNacimiento','$dni','$celular','$correo','$pass')";
                             $datos_insertados = $conn->query($consulta_insertar_datos);
                             if($datos_insertados === TRUE){
                                 // los datos se enviaron
