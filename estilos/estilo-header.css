@@ -3,6 +3,12 @@
     margin: 0;
     box-sizing: border-box;
 }
+:root{
+    --color-border-input: #c2c2c2;
+    --border-radius: 0.625rem;
+    --padding-general: 3.125rem;
+    --principal-color: #2b2d42;
+}
 html{
     font-size: 13px;
 }
@@ -13,11 +19,14 @@ body{
     flex-direction: column;
     min-height: 100vh;
 }
-:root{
-    --color-border-input: #c2c2c2;
-    --border-radius: 0.625rem;
-    --padding-general: 3.125rem;
-    --principal-color: #2b2d42;
+body::-webkit-scrollbar {
+    width: 10px;               /* width of the entire scrollbar */
+}
+body::-webkit-scrollbar-track {
+    background: #d4d4d4;
+}
+body::-webkit-scrollbar-thumb {
+    background: #e63946;
 }
 .header-1{
     padding: 1.25rem var(--padding-general);
@@ -161,3 +170,4 @@ body{
     color: white;
     font-size: 0.75rem;
 }
+

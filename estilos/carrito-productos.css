@@ -4,6 +4,7 @@ main{
     flex-grow: 1;
     align-items: center;
     justify-content: center;
+    padding: 20px 0;
 }
 .tabla-productos-informacion{
     border-collapse: collapse;
@@ -17,7 +18,7 @@ main{
 .tabla-productos-informacion th{
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
-    background-color: var(--color-principal);
+    background-color: var(--principal-color);
     color: white;
     font-size: 0.9em;
 }
@@ -46,17 +47,17 @@ main{
 }
 /* css de la imagen */
 .fila-imagen-tabla img{
-    width: 50%;   
+    width: 50%;
 }
 /* medias querys */
 @media (max-width: 1100px) {
     .fila-imagen-tabla img{
-        width: 70%;    
+        width: 70%;
     }
 }
 @media (max-width: 600px) {
     .fila-imagen-tabla img{
-        width: 60%;    
+        width: 60%;
     }
 }
 /*  css de la columna del precio  */
@@ -73,12 +74,11 @@ main{
 
 /* css del boton vaciar carrito */
 .boton-fila-final{
-    font-size: 1.1em;
-    background: rgba(255, 0, 0, 0.438);
+    background: var(--principal-color);
     border: none;
     color: white;
-    padding: 0.125rem 0.3125rem;
     cursor: pointer;
+    padding: 5px 10px;
 }
 .boton-fila-final:hover{
     transition: 0.3s ease;

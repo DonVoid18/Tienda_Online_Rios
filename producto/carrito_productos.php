@@ -2,9 +2,11 @@
     require_once "../php/head.php";
     echo "<link rel='stylesheet' href='$link_base_root/estilos/carrito-productos.css'>";
     require_once "../php/header.php";
-
     // que pasa si el boton vaciar carrito es pulsado: Entonces tenenmos que destruir la variable session carrito y recargar la pagina
-     
+    if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["boton-vaciar-carrito"])){
+        unset($_SESSION["carrito"]);
+    }
+    // que pasa si el boton vaciar carrito es pulsado: Entonces tenenmos que destruir la variable session carrito y recargar la pagina
     if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["button-eliminar-producto"])){
         $codEliminar = $_POST["codigo-producto-eliminar"];
         unset($_SESSION["carrito"][$codEliminar]);
@@ -35,11 +37,26 @@
                 <td><div class="fila-imagen-tabla">
                     <img src="<?php echo $_SESSION["carrito"][$i][3]?>" alt="Imagen del producto">
                 </div></td>
-                <td><?php echo $_SESSION["carrito"][$i][4]?></td>
-                <td><?php echo $_SESSION["carrito"][$i][5]?>%</td>
-                <td><?php echo $_SESSION["carrito"][$i][6]?></td>
-                <td><?php echo $_SESSION["carrito"][$i][7]?></td>
-                <td class="precio-producto-tabla"><?php echo $_SESSION["carrito"][$i][8]?></td>
+                <td>
+                    <!-- precio unitario -->
+                    <?php echo number_format($_SESSION["carrito"][$i][4],2)?>
+                </td>
+                <td>
+                    <!-- descuento -->
+                    <?php echo $_SESSION["carrito"][$i][5]?>%
+                </td>
+                <td>
+                    <!-- descuento total -->
+                    <?php echo number_format($_SESSION["carrito"][$i][6],2)?>
+                </td>
+                <td>
+                    <!-- precio sin descuento -->
+                    <?php echo number_format($_SESSION["carrito"][$i][7],2)?>
+                </td>
+                <td class="precio-producto-tabla">
+                    <!-- precio final -->
+                    <?php echo number_format($_SESSION["carrito"][$i][8],2)?>
+                </td>
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
                     <input type="hidden" name="codigo-producto-eliminar" value="<?php echo $i?>">
                     <td><button id="button-eliminar-producto" name="button-eliminar-producto"><i class="fas fa-trash-alt"></i></button></td>
@@ -54,7 +71,7 @@
                         for ($i=0; $i < count($_SESSION["carrito"]); $i++) { 
                             $montoFinal = $montoFinal + $_SESSION["carrito"][$i][8];
                         }
-                        echo $montoFinal;
+                        echo number_format($montoFinal,2);
                     ?>
                 </td>
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
