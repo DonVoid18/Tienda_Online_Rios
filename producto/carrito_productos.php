@@ -75,12 +75,26 @@
                     ?>
                 </td>
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
-                    <td><button class="boton-vaciar-carrito boton-fila-final" name="boton-vaciar-carrito">Vaciar carrito</button></td>
+                    <td><button class="boton-vaciar-carrito boton-fila-final" name="boton-vaciar-carrito">Vaciar carrito <i class="fas fa-thumbs-down"></i></button></td>
                 </form>
             </tr>
         </tbody>
     </table>
-    <?php 
+    <?php
+        // SE DEBE CONFIMAR LA COMPRA SI EL USUARIO YA A INICIADO SESIÓN (OBVIAMENTE YA HAY PRODUCTOS EN EL CARRITO)
+        if(isset($_SESSION["correo"])){?>
+        <div class="container-botones-confirmar-compra">
+            <form action="<?php echo $link_base_root?>/compra/confirmar_compra.php" method="post">
+                <button name="boton_confirmar_compra">
+                    Confirmar Compra <i class="fas fa-shipping-fast"></i>
+                </button>
+            </form>
+        </div>
+    <?php
+        }
+        else{
+            echo "<div class='container-botones-confirmar-compra'> Debe registrarse para confirmar la compra.</div>";
+        }
     }else{
         echo "<div>No hay productos en carrito.</div>";
     }

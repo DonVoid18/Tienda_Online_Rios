@@ -4,6 +4,7 @@ main{
     flex-grow: 1;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     padding: 20px 0;
 }
 .tabla-productos-informacion{
@@ -83,4 +84,20 @@ main{
 .boton-fila-final:hover{
     transition: 0.3s ease;
     background: var(--color-principal);
+}
+/* css del boton confirmar compra */
+.container-botones-confirmar-compra{
+    padding-top: 1.25rem;
+}
+.container-botones-confirmar-compra button{
+    border: none;
+    background: #e63946;
+    color: white;
+    padding: 0.625rem 0.9375rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.container-botones-confirmar-compra button:hover{
+    transform: scale(1.1,1.1);
 }

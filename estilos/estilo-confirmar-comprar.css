@@ -1,0 +1,157 @@
+.container-principal{
+    flex-grow: 1;
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container-seccion-pedido{
+    width: 90%;
+    border-radius: var(--border-radius);
+    background-color: white;
+    padding: 1.25rem;
+    margin: 0.625rem 0;
+}
+.container-title-seccion-pedido{
+    width: 100%;
+    padding: var(--border-radius) 0;
+}
+.container-title-seccion-pedido span{
+    font-size: 1.25rem;
+    font-weight: 700;
+    border-left: 0.3125rem solid var(--principal-color);
+    padding-left: 0.3125rem;
+}
+.container-dato-destino-pedido{
+    padding: var(--border-radius) 0;
+}
+.container-dato-destino-pedido label{
+    display: block;
+    padding-bottom: 0.3125rem;
+}
+.container-dato-destino-pedido input{
+    width: 50%;
+    height: 30px;
+    outline: none;
+    border-radius: 0.3125rem;
+    border: 1px solid #ddd;
+    padding: 0 10px;
+}
+.container-dato-destino-pedido select{
+    width: 50%;
+    height: 1.875rem;
+    border: 0.0625rem solid #ddd;
+    border-radius: 0.3125rem;
+    padding: 0 0.3125rem;
+    outline: none;
+}
+.container-button-enviar-datos-pedido{
+    width: 100%;
+    padding: 0.625rem 0;
+}
+.container-button-enviar-datos-pedido button{
+    width: 40%;
+    height: 1.875rem;
+    background: var(--principal-color);
+    font-weight: 700;
+    border-radius: 0.3125rem;
+    border: none;
+    color: white;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+.container-button-enviar-datos-pedido button:active{
+    transform: scale(0.9,0.9);
+}
+/* css de los métodos de pago */
+.container-seccion-metodos-pagos{
+    display: flex;
+    flex-wrap: wrap;
+}
+.container-metodo-pago{
+    width: 11.875rem;
+    border: 0.0625rem solid #ddd;
+    border-radius: 0.3125rem;
+    margin: 0.3125rem;
+    padding: 0.3125rem 0.625rem;
+}
+.nombre-metodo-pago{
+    padding-bottom: 0.3125rem;
+}
+
+.container-metodo-pago img{
+    width: 90%;
+    text-align: center;
+}
+/* css del container productos pedidos */
+.container-seccion-productos-pedido{
+    display: flex;
+    flex-wrap: wrap;
+}
+.container-producto-pedido{
+    width: 13.125rem;
+    height: 6.25rem;
+    border: 0.0625rem solid #ddd;
+    border-radius: var(--border-radius);
+    padding: 0.3125rem;
+    display: flex;
+    position: relative;
+    margin: 0.3125rem;
+}
+.container-imagen-producto-pedido{
+    width: 5.625rem;
+    min-width: 5.625rem;
+    height: 5.625rem;
+}
+.container-imagen-producto-pedido img{
+    width: 100%;
+}
+.container-descripcion-producto-pedido{
+    width: 8.125rem;
+    padding: 0 0.3125rem;
+}
+/* css de la descrición de un producto */
+.marca-producto-pedido{
+    font-weight: 700;
+    font-size: 0.75rem;
+}
+.cantidad-producto-pedido{
+    font-size: 0.75rem;
+}
+.descripcion-producto-pedido{
+    font-size: 0.625rem;
+    color: rgb(148, 147, 147);
+}
+.precio-producto-pedido{
+    position: absolute;
+    right: 0.625rem;
+    bottom: 0.3125rem;
+    font-size: 0.875rem;
+    color: red;
+    font-weight: 700;
+}
+/* css de la boleta final */
+.container-boleta-pedido{
+    display: flex;
+    justify-content: right;
+}
+.container-detalle-boleta-pedido{
+    text-align: right;
+}
+.boleta-precio-final{
+    font-weight: 700;
+}
+.boleta-precio-num-final{
+    color: red;
+}
+@media (max-width: 420px ) {
+    .container-dato-destino-pedido input{
+        width: 100%;
+    }
+    .container-dato-destino-pedido select{
+        width: 100%;
+    }
+    .container-button-enviar-datos-pedido button{
+        width: 100%;
+    }
+}

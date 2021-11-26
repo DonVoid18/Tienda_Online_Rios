@@ -108,7 +108,7 @@ main{
 }
 .contenedor-producto-botom button{
     border: none;
-    padding: 0.2125rem;
+    padding: 0.3rem 0.2125rem;
     cursor: pointer;
     background: var(--principal-color);
     color: var(--color-botom-text);

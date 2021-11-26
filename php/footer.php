@@ -43,8 +43,9 @@
     <div class="container-seccion">
         <p>Medios de pago</p>
         <div class="medios-pago-logo">
-            <img src="<?php echo $link_base_root?>/imagenes_banner/imagenes_pagos/unnamed.png" alt="Logo de método de pago">
+            <img src="<?php echo $link_base_root?>/imagenes_banner/imagenes_pagos/yape.jpg" alt="Logo de método de pago">
             <img src="<?php echo $link_base_root?>/imagenes_banner/imagenes_pagos/bcp_logo.jpg" alt="Logo de método de pago">
+            <img src="<?php echo $link_base_root?>/imagenes_banner/imagenes_pagos/icon-pago_tienda.svg" alt="Logo de método de pago">
         </div>
     </div>
     </footer>

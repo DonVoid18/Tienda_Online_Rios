@@ -87,10 +87,10 @@
 }
 /* css de logos de método de pago */
 .medios-pago-logo{
-    width: 7.5rem;
+    width: 9.5rem;
 }
 .medios-pago-logo img{
-    width: 48%;
+    width: 70%;
 }
 /* css de las medias querys */
 @media (max-width: 840px){
