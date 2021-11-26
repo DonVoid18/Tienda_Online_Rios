@@ -4,9 +4,14 @@
         <div class="contenedor-menu-1">
             <div class="contenedor-logo-imagen">
                 <a href="<?php echo $link_base_root?>\index.php"><img src="<?php echo $link_base_root?>/imagenes_banner/logo_pagina_principal.png" alt="logo de la página"></a>
+                <div class="container-button-togle-menu">
+                    <button>
+                        <i class="fas fa-align-justify"></i>
+                    </button>
                 </div>
+            </div>
             <div class="contenedor-buscador-input">
-                <input type="text" placeholder="Buscar productos de tu preferencia">
+                <input type="text" placeholder="Buscar productos de tu preferencia" name="search">
                 <button class="icon-buscador">
                     <i class="fas fa-search"></i>
                 </button>
@@ -104,6 +109,7 @@
         </div>
     </form>
     <script src='<?php echo $link_base_root?>\javascript\ventana-modal.js'></script>
+    <script src='<?php echo $link_base_root?>\javascript\menu-responsive.js'></script>
     <?php } ?>
     <!-- html de la ventana modal -->
     <?php } ?>

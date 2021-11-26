@@ -78,7 +78,9 @@
 .nombre-metodo-pago{
     padding-bottom: 0.3125rem;
 }
-
+.number-metodo-pago{
+    padding-top: 0.3125rem;
+}
 .container-metodo-pago img{
     width: 90%;
     text-align: center;
@@ -90,7 +92,7 @@
 }
 .container-producto-pedido{
     width: 13.125rem;
-    height: 6.25rem;
+    height: 6.875rem;
     border: 0.0625rem solid #ddd;
     border-radius: var(--border-radius);
     padding: 0.3125rem;
@@ -101,7 +103,7 @@
 .container-imagen-producto-pedido{
     width: 5.625rem;
     min-width: 5.625rem;
-    height: 5.625rem;
+    height: 6.25rem;
 }
 .container-imagen-producto-pedido img{
     width: 100%;
@@ -121,6 +123,7 @@
 .descripcion-producto-pedido{
     font-size: 0.625rem;
     color: rgb(148, 147, 147);
+    padding: 2px 0;
 }
 .precio-producto-pedido{
     position: absolute;

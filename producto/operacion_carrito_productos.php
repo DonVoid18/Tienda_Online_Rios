@@ -26,7 +26,7 @@
             $_SESSION["datos"][6] = $descuentoTotal;
             $_SESSION["datos"][7] = $precioSinDescuento;
             $_SESSION["datos"][8] = $precioFinal;
-
+            $_SESSION["datos"][9] = $_POST["descripcion-form"];
             // agregamos el producto al carrito
             if(isset($_SESSION["carrito"])){
                 $cantProductos = count($_SESSION["carrito"]); 

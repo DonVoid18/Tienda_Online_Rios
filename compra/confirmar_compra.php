@@ -4,39 +4,67 @@
     <link rel="stylesheet" href="<?php echo $link_base_root?>/estilos/estilo-confirmar-comprar.css">
 <?php
     require_once "../php/header.php";
-?>
-<main class="container-principal">
+    if((isset($_SESSION["carrito"]) && count($_SESSION["carrito"])>0 && isset($_SESSION["correo"]))){?>
+    <main class="container-principal">
         <div class="container-seccion-pedido">
             <div class="container-title-seccion-pedido">
                 <span>PRODUCTOS DEL PEDIDO</span>
             </div>
             <div class="container-seccion-productos-pedido">
+            <?php for ($i=0; $i < count($_SESSION["carrito"]); $i++) { ?>
                 <div class="container-producto-pedido">
                     <div class="container-imagen-producto-pedido">
-                        <img src="imagenes_banner/huawei1.jpg" alt="Imagen del producto">
+                        <img src="<?php echo $_SESSION["carrito"][$i][3]?>" alt="Imagen del producto">
                     </div>
                     <div class="container-descripcion-producto-pedido">
-                        <p class="marca-producto-pedido">XIOMI</p>
-                        <p class="descripcion-producto-pedido">anoasnd onfansdofnasodso asdfna sodnf</p>
-                        <p class="cantidad-producto-pedido">Cantidad: 12</p>
-                        <p class="precio-producto-pedido">S/ 1,000.00</p>
+                        <p class="marca-producto-pedido"><?php echo $_SESSION["carrito"][$i][2]?></p>
+                        <p class="descripcion-producto-pedido"><?php echo $_SESSION["carrito"][$i][9]?></p>
+                        <p class="cantidad-producto-pedido">Cantidad: <?php echo $_SESSION["carrito"][$i][1]?></p>
+                        <p class="precio-producto-pedido">S/ <?php echo number_format($_SESSION["carrito"][$i][8],2)?></p>
                     </div>
                 </div>
+            <?php } ?>
             </div>
             <div class="container-boleta-pedido">
                 <div class="container-detalle-boleta-pedido">
                     <table>
                         <tr>
                             <td>SubTotal: S/ </td>
-                            <td>1212</td>
+                            <td>
+                                <!-- sin descuento -->
+                                <?php
+                                    $monto_sin_descuento = 0;
+                                    for ($i=0; $i < count($_SESSION["carrito"]); $i++) { 
+                                        $monto_sin_descuento = $monto_sin_descuento + $_SESSION["carrito"][$i][7];
+                                    }
+                                    echo number_format($monto_sin_descuento,2);
+                                ?>
+                            </td>
                         </tr>
                         <tr>
                             <td>Total Descuento: S/ </td>
-                            <td>1212</td>
+                            <td>
+                                <!-- descuento total -->
+                                <?php
+                                    $descuento_total_productos = 0;
+                                    for ($i=0; $i < count($_SESSION["carrito"]); $i++) { 
+                                        $descuento_total_productos = $descuento_total_productos + $_SESSION["carrito"][$i][6];
+                                    }
+                                    echo number_format($descuento_total_productos,2);
+                                ?>
+                            </td>
                         </tr>
                         <tr class="boleta-precio-final">
                             <td>Total Pedido: S/ </td>
-                            <td class="boleta-precio-num-final">1212</td>
+                            <td class="boleta-precio-num-final">
+                            <?php
+                                $montoFinal = 0;
+                                for ($i=0; $i < count($_SESSION["carrito"]); $i++) { 
+                                    $montoFinal = $montoFinal + $_SESSION["carrito"][$i][8];
+                                }
+                                echo number_format($montoFinal,2);
+                            ?>
+                            </td>
                         </tr>
                     </table>
                 </div>
@@ -92,6 +120,13 @@
             </div>
         </div>
     </main>
+
+
+<?php
+    }else{
+        echo "Esta página necesita requisitos previos";
+    }
+?>
 <?php
     require_once "../php/footer.php";
 ?>
