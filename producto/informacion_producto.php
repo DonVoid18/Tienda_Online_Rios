@@ -86,25 +86,48 @@
                     </strong>
                 </p>
             </div>
+            <?php
+            if(isset($_SESSION["correo"])){?>
             <div class="container-nuevo-comentario-usuario">
                 <div class="container-comentario-logo-usuario">
                     <i class="fas fa-user-edit"></i>
                 </div>
                 <div class="container-opinion-estrellas-usuario">
-                    <span class="valoracion-producto-estrellas">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </span>
+                        <input type="radio" name="opinion_star" id="star-1">
+                        <label for="star-1">
+                            <i class="fas fa-star"></i>
+                        </label>
+
+                        <input type="radio" name="opinion_star" id="star-2">
+                        <label for="star-2">
+                            <i class="fas fa-star"></i>
+                        </label>
+
+                        <input type="radio" name="opinion_star" id="star-3">
+                        <label for="star-3">
+                            <i class="fas fa-star"></i>
+                        </label>
+
+                        <input type="radio" name="opinion_star" id="star-4">
+                        <label for="star-4">
+                            <i class="fas fa-star"></i>
+                        </label>
+
+                        <input type="radio" name="opinion_star" id="star-5">
+                        <label for="star-5">
+                            <i class="fas fa-star"></i>
+                        </label>
                 </div>
                 <div class="container-mensaje-input-usuario">
-                    <label for="">Usuario: Angelo Patrick</label>
+                    <p class="nombre_usuario_comentario_nuevo"><?php echo $_SESSION["nombre"]?></p>
+                    <p>Danos tu opinión para saber que tan bueno es este producto</p>
                     <input type="text" name="mensaje-usuario-nuevo" placeholder="Escribir un comentario para este producto...">
                     <button>Enviar Comentario</button>
                 </div>
             </div>
+            <?php
+            }
+            ?>
             <div class="container-comentario-usuario">
                 <div class="container-nombre-usuario-comentario">
                     <span>

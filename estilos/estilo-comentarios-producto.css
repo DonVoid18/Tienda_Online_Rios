@@ -2,7 +2,7 @@
     --padding-total-comentario: 1.5625rem;
     --text-size-titulo-usuario: 2em;
     --text-size-nombre-usuario: 1.3em;
-
+    --border-radius-comentario-usuario: 0.3125rem;
     --fondo-color-comentario-usuario: ;
 }
 .container-comentarios-producto{
@@ -19,7 +19,7 @@
     background-color: var(--fondo-color-comentario-usuario);
     background-color: var(--principal-color);
     color: white;
-    border-radius: 0.3125rem;
+    border-radius: var(--border-radius-comentario-usuario);
 }
 .container-nombre-usuario-comentario{
     display: flex;
@@ -37,14 +37,17 @@
 .valoracion-producto-estrellas i{
     color: #ffd000;
 }
-/* css del container dejar un nuevo comentario */
 
+
+
+/* css del container dejar un nuevo comentario */
 .container-nuevo-comentario-usuario{
     border: 1px solid black;
     display: flex;
-    height: 100px;
+    height: 130px;
     margin-bottom: 10px;
     position: relative;
+    border-radius: var(--border-radius-comentario-usuario);
 }
 .container-opinion-estrellas-usuario{
     position: absolute;
@@ -56,7 +59,7 @@
     min-width: 80px;
     font-size: 45px;
     text-align: center;
-    line-height: 80px;
+    line-height: 110px;
     padding: 10px;
 }
 
@@ -78,7 +81,32 @@
     background: var(--principal-color);
     color: white;
     transition: 0.3s ease;
+    border-radius: var(--border-radius-comentario-usuario);
 }
 .container-mensaje-input-usuario button:active{
     transform: scale(0.9,0.9);
+}
+.container-opinion-estrellas-usuario {
+    direction: rtl;/* right to left */
+    unicode-bidi: bidi-override;
+}
+/* css del nuevo comentrio y la opinion en estrellas */
+.container-opinion-estrellas-usuario input[type=radio]{
+    display: none;
+}
+.container-opinion-estrellas-usuario label{
+    cursor: pointer;
+    font-size: var(--text-size-nombre-usuario);
+    color: #ddd;
+}
+.container-opinion-estrellas-usuario input[type=radio]:checked ~ label{
+    color: #ffd000;
+}
+.container-opinion-estrellas-usuario input[type=radio]:hover ~ label{
+    color: #ffd000;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.26);
+}
+.nombre_usuario_comentario_nuevo{
+    font-weight: 700;
+    font-size: 22px;
 }
