@@ -86,6 +86,25 @@
                     </strong>
                 </p>
             </div>
+            <div class="container-nuevo-comentario-usuario">
+                <div class="container-comentario-logo-usuario">
+                    <i class="fas fa-user-edit"></i>
+                </div>
+                <div class="container-opinion-estrellas-usuario">
+                    <span class="valoracion-producto-estrellas">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </span>
+                </div>
+                <div class="container-mensaje-input-usuario">
+                    <label for="">Usuario: Angelo Patrick</label>
+                    <input type="text" name="mensaje-usuario-nuevo" placeholder="Escribir un comentario para este producto...">
+                    <button>Enviar Comentario</button>
+                </div>
+            </div>
             <div class="container-comentario-usuario">
                 <div class="container-nombre-usuario-comentario">
                     <span>

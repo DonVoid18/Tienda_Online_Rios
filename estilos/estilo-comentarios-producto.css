@@ -37,3 +37,48 @@
 .valoracion-producto-estrellas i{
     color: #ffd000;
 }
+/* css del container dejar un nuevo comentario */
+
+.container-nuevo-comentario-usuario{
+    border: 1px solid black;
+    display: flex;
+    height: 100px;
+    margin-bottom: 10px;
+    position: relative;
+}
+.container-opinion-estrellas-usuario{
+    position: absolute;
+    right: 15px;
+    top: 10px;
+}
+.container-comentario-logo-usuario{
+    width: 15%;
+    min-width: 80px;
+    font-size: 45px;
+    text-align: center;
+    line-height: 80px;
+    padding: 10px;
+}
+
+.container-mensaje-input-usuario{
+    width: 80%;
+    padding-top: 15px;
+}
+.container-mensaje-input-usuario input{
+    margin: 5px 0;
+    width: 100%;
+    outline: none;
+    border: 1px solid #ddd;
+    padding: 3px;
+}
+.container-mensaje-input-usuario button{
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    background: var(--principal-color);
+    color: white;
+    transition: 0.3s ease;
+}
+.container-mensaje-input-usuario button:active{
+    transform: scale(0.9,0.9);
+}
