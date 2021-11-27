@@ -70,7 +70,9 @@
                     <div class="contenedor-producto-botom">
                         <form action="<?php echo $link_base_root?>/producto/informacion_producto.php" method="GET">
                             <button type="submit">Ver producto <span><i class="fas fa-eye"></i></span></button>
+                            <input type="hidden" name="codigo_producto" value="<?php echo $row["id_producto"]?>">
                             <input type="hidden" name="nombre_producto" value="<?php echo $row["marca"]?>">
+                            <input type="hidden" name="descripcion_producto" value="<?php echo $row["descripcion"]?>">
                         </form>
                     </div>
                     <div class="contenedor-producto-codigo">

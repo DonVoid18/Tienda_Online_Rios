@@ -5,9 +5,11 @@
     echo "<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js'></script>";
     require_once "../php/header.php";
     $nombre_producto = $_GET["nombre_producto"];
+    $descripcion_producto = $_GET["descripcion_producto"];
+    $codigo_producto =  $_GET["codigo_producto"];
 ?>
 <?php
-    $consulta_producto = "SELECT * FROM productos WHERE marca = '$nombre_producto'";
+    $consulta_producto = "SELECT * FROM productos WHERE id_producto = '$codigo_producto' AND marca = '$nombre_producto' AND descripcion = '$descripcion_producto'";
     $datos_producto = $conn->query($consulta_producto);
     $row = $datos_producto->fetch_assoc();
     // $cantidadFilas = mysqli_num_rows($resultado);
