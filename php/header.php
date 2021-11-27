@@ -10,12 +10,12 @@
                     </button>
                 </div>
             </div>
-            <div class="contenedor-buscador-input">
+            <form action="<?php echo $link_base_root?>/busqueda/busqueda.php" class="contenedor-buscador-input" method="get">
                 <input type="text" placeholder="Buscar productos de tu preferencia" name="search">
                 <button class="icon-buscador">
                     <i class="fas fa-search"></i>
                 </button>
-            </div>
+            </form>
             <nav class="container-nav-icons-header-1">
                 <ul>
                     <?php
