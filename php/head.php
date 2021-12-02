@@ -16,10 +16,5 @@
     <link rel="stylesheet" href="<?php echo $link_base_root?>/estilos/estilo-registro.css">
     <link rel="stylesheet" href="<?php echo $link_base_root?>/estilos/estilo-ventana-modal.css">
     <?php
-        $link_page_actual = $_SERVER['REQUEST_SCHEME'].'://'.$_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
-    if(($link_page_actual == $link_base_root."/index.php")){
-        echo "<link rel='stylesheet' href=".$link_base_root."/estilos/estilo-slider.css>";
-        echo "<link rel='stylesheet' href=".$link_base_root."/estilos/estilo-main.css>";
-    }
     ?>
     <script src="https://kit.fontawesome.com/71a4b48035.js" crossorigin="anonymous"></script>

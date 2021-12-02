@@ -104,11 +104,12 @@ main{
     width: var(--size-botom-producto);
     position: absolute;
     bottom: 1.4375rem;
-    left: calc(var(--size-contenedor-producto)/2 - 3.4375rem);
+    left: calc(var(--size-contenedor-producto)/2 - 3.625rem);
 }
 .contenedor-producto-botom button{
     border: none;
-    padding: 0.3rem 0.2125rem;
+    width: 7.25rem;
+    height: 1.65rem;
     cursor: pointer;
     background: var(--principal-color);
     color: var(--color-botom-text);
