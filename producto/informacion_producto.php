@@ -90,7 +90,7 @@
             </div>
             <?php
             if(isset($_SESSION["correo"])){?>
-            <div class="container-nuevo-comentario-usuario">
+            <form class="container-nuevo-comentario-usuario" onsubmit="return enviarComentario();" method="POST">
                 <div class="container-comentario-logo-usuario">
                     <i class="fas fa-user-edit"></i>
                 </div>
@@ -123,10 +123,12 @@
                 <div class="container-mensaje-input-usuario">
                     <p class="nombre_usuario_comentario_nuevo"><?php echo $_SESSION["nombre"]?></p>
                     <p>Danos tu opinión para saber que tan bueno es este producto</p>
-                    <input type="text" name="mensaje-usuario-nuevo" placeholder="Escribir un comentario para este producto...">
-                    <button>Enviar Comentario</button>
+                    <input type="text" name="mensaje-usuario-comentario" placeholder="Escribir un comentario para este producto...">
+                    <input type="hidden" name="correo_usuario_comentario" value="<?php echo $_SESSION["correo"]?>">
+                    <button type="submit">Enviar Comentario</button>
                 </div>
-            </div>
+            </form>
+            <div id="mensaje_comentario_correcto"></div>
             <?php
             }
             ?>
@@ -156,6 +158,7 @@
             </div>
         </div>
     </main>
+    <script src="<?php echo $link_base_root?>\javascript\enviar_comentario_producto.js"></script>
     <script src="<?php echo $link_base_root?>\javascript\producto-informacion.js"></script>
     <script src="<?php echo $link_base_root?>\javascript\guardar_producto_carrito.js"></script>
 <?php
