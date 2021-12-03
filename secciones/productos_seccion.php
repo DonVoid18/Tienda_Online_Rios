@@ -5,7 +5,7 @@
 ?>
 <main>
     <?php 
-        $consulta_producto_seccion = "SELECT * FROM categoria INNER JOIN productos on categoria.id_categoria = productos.categoria WHERE nombre_categoria = '$nombre_categoria'";
+        $consulta_producto_seccion = "SELECT * FROM categoria INNER JOIN productos on categoria.id_categoria = productos.id_categoria WHERE nombre_categoria = '$nombre_categoria'";
         $productos_seccion = $conn->query($consulta_producto_seccion);
         $cantidadFilas = mysqli_num_rows($productos_seccion);
         // $row = $resultado->fetch_assoc();

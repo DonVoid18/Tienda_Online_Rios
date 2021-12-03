@@ -36,7 +36,7 @@
     outline: none;
     display: block;
 }
-.contenedor-input input:hover{
+.contenedor-input input:focus{
     box-shadow: 0 0 0.1875rem 0.0625rem #00699d;
 }
 /* css del chexbox */

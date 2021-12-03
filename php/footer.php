@@ -24,7 +24,6 @@
             <ul>
                 <li><a href="">Contáctenos</a></li>
                 <li><a href="">Nuestras tiendas</a></li>
-                <li><a href="">Libro de reclamaciones</a></li>
                 <li><a href="">Cambio y devoluciones</a></li>
             </ul>
         </div>
@@ -34,7 +33,7 @@
         <div class="container-ul-seccion">
             <ul>
                 <li><a href="">Mi cuenta</a></li>
-                <li><a href="">Registrate</a></li>
+                <li><a href="<?php echo $link_base_root?>\usuario\registrar_usuario.php">Registrate</a></li>
                 <li><a href="">Actualizar datos</a></li>
                 <li><a href="">Cambiar contraseña</a></li>
             </ul>

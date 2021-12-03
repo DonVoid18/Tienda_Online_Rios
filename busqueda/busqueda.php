@@ -6,7 +6,7 @@
 <main>
     <?php 
         $text_busqueda = $_GET["search"];
-        $consulta_busqueda_productos = "SELECT * FROM productos, categoria WHERE (nombre_categoria='$text_busqueda' AND productos.categoria=categoria.id_categoria) OR (productos.marca LIKE ('%$text_busqueda%') AND productos.categoria=categoria.id_categoria) OR (productos.descripcion LIKE ('%$text_busqueda%') AND productos.categoria=categoria.id_categoria)";
+        $consulta_busqueda_productos = "SELECT * FROM productos, categoria WHERE (nombre_categoria='$text_busqueda' AND productos.id_categoria=categoria.id_categoria) OR (productos.marca LIKE ('%$text_busqueda%') AND productos.id_categoria=categoria.id_categoria) OR (productos.descripcion LIKE ('%$text_busqueda%') AND productos.id_categoria=categoria.id_categoria)";
         $resultados_busqueda = $conn->query($consulta_busqueda_productos);
         $cantidadFilas = mysqli_num_rows($resultados_busqueda);
         // $row = $resultado->fetch_assoc();

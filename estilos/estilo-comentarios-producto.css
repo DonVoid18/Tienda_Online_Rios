@@ -3,7 +3,7 @@
     --text-size-titulo-usuario: 2em;
     --text-size-nombre-usuario: 1.3em;
     --border-radius-comentario-usuario: 0.3125rem;
-    --fondo-color-comentario-usuario: ;
+    --color-borde-comentario: #dedede;
 }
 .container-comentarios-producto{
     width: 70%;
@@ -16,19 +16,20 @@
 }
 .container-comentario-usuario{
     padding: var(--padding-total-comentario);
-    background-color: var(--fondo-color-comentario-usuario);
-    background-color: var(--principal-color);
-    color: white;
+    border: 1px solid var(--color-borde-comentario);
     border-radius: var(--border-radius-comentario-usuario);
+    margin: 0.3125rem 0;
 }
 .container-nombre-usuario-comentario{
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-size: var(--text-size-nombre-usuario);
+    font-size: 1.4rem;
 }
 .container-mensaje-usuario-comentario{
-    padding: 0.3125rem 1.875rem 0.3125rem 1.875rem;
+    padding: 10px 30px;
+    font-size: 1.08rem;
 }
 .container-fecha-usuario-comentario{
     text-align: right;
@@ -40,46 +41,58 @@
 
 /* css del container dejar un nuevo comentario */
 .container-nuevo-comentario-usuario{
-    border: 1px solid black;
-    display: flex;
-    height: 130px;
-    margin-bottom: 10px;
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    border: 0.0625rem solid var(--color-borde-comentario);
     border-radius: var(--border-radius-comentario-usuario);
+    padding: 0.625rem;
 }
+/* css del logo del container nuevo comentario */
+.container_comentario_logo_usuario{
+    padding: 0.9375rem;
+}
+/* css del container de las estrellas */
 .container-opinion-estrellas-usuario{
     position: absolute;
     right: 15px;
     top: 10px;
 }
-.container-comentario-logo-usuario{
-    width: 15%;
-    min-width: 80px;
-    font-size: 45px;
-    text-align: center;
-    line-height: 110px;
-    padding: 10px;
-}
-
+/* css del container nuevo comentario > container donde se encuentra el nombre del usuario, input de comentario, y botom */
 .container-mensaje-input-usuario{
-    width: 80%;
-    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    padding: 0.625rem;
 }
-.container-mensaje-input-usuario input{
-    margin: 5px 0;
+.descripcion_new_comentario_usuario{
+    color: red;
+    font-weight: 700;
+}
+/* css del container nuevo comentario > input de nuevo comentario */
+#mensaje-usuario-comentario{
     width: 100%;
     outline: none;
-    border: 1px solid #ddd;
-    padding: 3px;
+    border: 0.0625rem solid var(--color-borde-comentario);
+    padding: 0.625rem;
+    font-size: 1.08rem;
+    border-radius: var(--border-radius-comentario-usuario);
+}
+#mensaje-usuario-comentario:focus{
+    box-shadow: 0 0 0.1875rem 0.0625rem #00699d94;
 }
 .container-mensaje-input-usuario button{
-    padding: 5px 10px;
+    width: 180px;
+    min-width: 120px;
+    height: 35px;
     cursor: pointer;
     border: none;
     background: var(--principal-color);
     color: white;
     transition: 0.3s ease;
     border-radius: var(--border-radius-comentario-usuario);
+    font-size: 1.1rem;
 }
 .container-mensaje-input-usuario button:active{
     transform: scale(0.9,0.9);
@@ -111,9 +124,10 @@
 .star_valoracion_producto_encendida{
     color: #ffd000;
 }
-.star_valoracion_producto{
+.star_valoracion_producto_apagada{
     color: #ddd;
 }
+
 /* css del mensaje de confirmación */
 #mensaje_comentario_correcto{
     padding: 20px 0;

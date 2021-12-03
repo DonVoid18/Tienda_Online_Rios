@@ -23,13 +23,6 @@
                         $apellidoP = validarDato($_POST["apellidoP"]);
                     }
 
-                    // fecha de nacimiento
-                    if(empty($_POST["fecha-nacimiento"])){
-                        $NumErrores++;
-                    }else{
-                        $fechaNacimiento = validarDato($_POST["fecha-nacimiento"]);
-                    }
-
                     // dni
                     if(empty($_POST["dni"])){
                         $NumErrores++;
@@ -79,7 +72,7 @@
                             echo $mensajeDatosRepetidos;
                         }
                         else{
-                            $consulta_insertar_datos = "INSERT INTO usuarios (nombre,apellido_paterno,fecha_nacimiento,dni,celular,email,password) VALUES ('$nombre','$apellidoP','$fechaNacimiento','$dni','$celular','$correo','$pass')";
+                            $consulta_insertar_datos = "INSERT INTO usuarios (nombre,apellido_paterno,dni,celular,email,password) VALUES ('$nombre','$apellidoP','$dni','$celular','$correo','$pass')";
                             $datos_insertados = $conn->query($consulta_insertar_datos);
                             if($datos_insertados === TRUE){
                                 // los datos se enviaron
@@ -113,11 +106,6 @@
                 <p>Apellido paterno</p>
                 <input type="text" name="apellidoP">
                 <span class="info-error">Por favor, use solo letras A-Z/a-z en este campo.</span>
-            </div>
-            <div class="contenedor-input" id="fecha-nacimiento">
-                <p>Fecha de nacimiento</p>
-                <input type="text" name="fecha-nacimiento" placeholder="Día / Mes / Año">
-                <span class="info-error">Por favor, ingrese correctamente su fecha de nacimiento.</span>
             </div>
             <div class="contenedor-input" id="dni">
                 <p>DNI</p>

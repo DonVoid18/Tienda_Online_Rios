@@ -91,8 +91,8 @@
             <?php
             if(isset($_SESSION["correo"])){?>
             <form class="container-nuevo-comentario-usuario" onsubmit="return enviarComentario();" method="POST">
-                <div class="container-comentario-logo-usuario">
-                    <i class="fas fa-user-edit"></i>
+                <div class="container_comentario_logo_usuario">
+                    <img src="<?php echo $link_base_root?>/imagenes_banner/logo_new_comentario/new_comentario.png" alt="Logo del nuevo comentario">
                 </div>
                 <div class="container-opinion-estrellas-usuario">
                         <input type="radio" name="opinion_star" id="star-1" class="star_opinion_product">
@@ -121,11 +121,11 @@
                         </label>
                 </div>
                 <div class="container-mensaje-input-usuario">
-                    <p class="nombre_usuario_comentario_nuevo"><?php echo $_SESSION["nombre"]?></p>
-                    <p>Danos tu opinión para saber que tan bueno es este producto</p>
+                    <span class="nombre_usuario_comentario_nuevo"><?php echo $_SESSION["nombre"]?></span>
+                    <span class="descripcion_new_comentario_usuario">Brindanos tu opinión acerta de este producto.</span>
                     <input type="text" name="mensaje-usuario-comentario" id="mensaje-usuario-comentario" placeholder="Escribir un comentario para este producto...">
                     <input type="hidden" name="id_producto" id="id_producto" value="<?php echo $row["id_producto"]?>">
-                    <button type="submit">Enviar Comentario</button>
+                    <button type="submit" id="boton_enviar_comentario">Enviar Comentario</button>
                 </div>
             </form>
             <div id="mensaje_comentario_correcto"></div>
@@ -134,34 +134,34 @@
             ?>
             <?php
                 // realizar una selección de todos los comentarios que se encuentran el base de datos
-                $consulta_comentarios_usuarios = "SELECT usuarios.nombre,opinion.comentario,opinion.producto_puntaje FROM opinion INNER JOIN usuarios ON opinion.id_usuario=usuarios.id_usuario WHERE opinion.id_producto='$codigo_producto'";
+                $consulta_comentarios_usuarios = "SELECT usuarios.nombre,opinion.comentario,opinion.producto_puntaje,opinion.fecha_registro FROM opinion INNER JOIN usuarios ON opinion.id_usuario=usuarios.id_usuario WHERE opinion.id_producto='$codigo_producto'";
                 $comentarios_usuarios = $conn->query($consulta_comentarios_usuarios);
                 $cantidad_comentarios = mysqli_num_rows($comentarios_usuarios);
                 if($cantidad_comentarios!==0){
                 while($comentario = $comentarios_usuarios->fetch_assoc()){
                     ?>
                 <div class="container-comentario-usuario">
-                <div class="container-nombre-usuario-comentario">
-                    <span>
-                        <strong>
+                    <div class="container-nombre-usuario-comentario">
+                        <span>
+                            <strong>
+                                <?php
+                                    echo $comentario["nombre"];
+                                ?>
+                            </strong>
+                        </span>
+                        <span class="valoracion-producto-estrellas">
                             <?php
-                                echo $comentario["nombre"];
-                            ?>
-                        </strong>
-                    </span>
-                    <span class="valoracion-producto-estrellas">
-                        <?php
-                            for ($i=0; $i < 5; $i++) {
-                                if($i<$comentario["producto_puntaje"]){
-                                    echo "<i class='fas fa-star star_valoracion_producto_encendida'></i>";
-                                }else{
-                                    echo "<i class='fas fa-star star_valoracion_producto_apagada'></i>";
+                                for ($i=0; $i < 5; $i++) {
+                                    if($i<$comentario["producto_puntaje"]){
+                                        echo "<i class='fas fa-star star_valoracion_producto_encendida'></i>";
+                                    }else{
+                                        echo "<i class='fas fa-star star_valoracion_producto_apagada'></i>";
+                                    }
+                                ?>
+                            <?php
                                 }
                             ?>
-                        <?php
-                            }
-                        ?>
-                    </span>
+                        </span>
                     </div>
                     <div class="container-mensaje-usuario-comentario">
                         <p>
@@ -171,7 +171,14 @@
                         </p>
                     </div>
                     <div class="container-fecha-usuario-comentario">
-                        Hora: 12:10:01 | Fecha: 12/12/12
+                        <?php 
+                        // extraer la hora y la fecha que se encuentra en una misma cadena
+                            $fecha_registro = $comentario["fecha_registro"];
+                            $posicion_espacio = strpos($fecha_registro," ");
+                            $fecha = substr($fecha_registro,0,$posicion_espacio);
+                            $hora = substr($fecha_registro,$posicion_espacio+1,strlen($fecha_registro));
+                            echo "Hora: ".$hora." | Fecha: ".$fecha;
+                        ?>
                     </div>
                 </div>
             <?php
@@ -180,6 +187,8 @@
             ?>
         </div>
     </main>
+    <!-- pequeño script para validar el campo del input -->
+    <script src="<?php echo $link_base_root?>\javascript\validar_input_new_comentario.js"></script>
     <script src="<?php echo $link_base_root?>\javascript\enviar_comentario_producto.js"></script>
     <script src="<?php echo $link_base_root?>\javascript\producto-informacion.js"></script>
     <script src="<?php echo $link_base_root?>\javascript\guardar_producto_carrito.js"></script>

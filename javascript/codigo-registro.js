@@ -5,18 +5,15 @@ const mensajes = document.querySelectorAll(".formulario span");
 
 // expresiones regulares
 let expresionesRegulares = [
-    // validar nombres y apellidos 
+    // validar nombres y apellidos
     /(^[a-zA-ZñÑáéíóúÁÉÍÓÚ\s]{3,16})+$/,
-    
-    // validadr fecha de nacimiento
-    /^(?:3[01]|[12][0-9]|0?[1-9])([\-/.])(0?[1-9]|1[1-2])\1\d{4}$/,
 
     // validad el dni
     /^\d{8}(?:[-\s]\d{4})?$/,
 
     // validar numero de celular
     /^\(?([\d]{3})\)?[-.]?([\d]{3})[-.]?([\d]{3})$/,
-    
+
     // validar correo
     /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/,
 
@@ -52,22 +49,15 @@ function validar(evento){
                 mensajes[1].style.display = "block";
             }
             break;
-        case "fecha-nacimiento":
+        case "dni":
             if(expresionesRegulares[1].test(value)){
-                let arregloFecha = value.split("/");
-                let anio =  arregloFecha[2];
-                console.log(anio);
-                if(anio < 1900 || (anio > 2003)){
-                    mensajes[2].style.display = "block";
-                }
-                else{
-                    mensajes[2].style.display = "none";
-                }
+                // necesitamos desaparecer el error
+                mensajes[2].style.display = "none";
             }else{
                 mensajes[2].style.display = "block";
             }
             break;
-        case "dni":
+        case "celular":
             if(expresionesRegulares[2].test(value)){
                 // necesitamos desaparecer el error
                 mensajes[3].style.display = "none";
@@ -75,7 +65,7 @@ function validar(evento){
                 mensajes[3].style.display = "block";
             }
             break;
-        case "celular":
+        case "correo":
             if(expresionesRegulares[3].test(value)){
                 // necesitamos desaparecer el error
                 mensajes[4].style.display = "none";
@@ -83,7 +73,7 @@ function validar(evento){
                 mensajes[4].style.display = "block";
             }
             break;
-        case "correo":
+        case "pass":
             if(expresionesRegulares[4].test(value)){
                 // necesitamos desaparecer el error
                 mensajes[5].style.display = "none";
@@ -91,28 +81,20 @@ function validar(evento){
                 mensajes[5].style.display = "block";
             }
             break;
-        case "pass":
-            if(expresionesRegulares[5].test(value)){
+        case "repeatPassword":
+            if(expresionesRegulares[4].test(value)){
                 // necesitamos desaparecer el error
-                mensajes[6].style.display = "none";
+                let contra = inputs[5].value;
+                if(contra === value){
+                    // las constraseñas no son iguales
+                    mensajes[6].style.display = "none";
+                }
+                else{
+                    mensajes[6].style.display = "block";
+                }
             }else{
                 mensajes[6].style.display = "block";
             }
             break;
-        case "repeatPassword":
-            if(expresionesRegulares[5].test(value)){
-                // necesitamos desaparecer el error
-                let contra = inputs[6].value;
-                if(contra === value){
-                    // las constraseñas no son iguales
-                    mensajes[7].style.display = "none";
-                }
-                else{
-                    mensajes[7].style.display = "block";
-                }
-            }else{
-                mensajes[7].style.display = "block";
-            }
-            break;        
     }
 }
