@@ -95,27 +95,27 @@
                     <i class="fas fa-user-edit"></i>
                 </div>
                 <div class="container-opinion-estrellas-usuario">
-                        <input type="radio" name="opinion_star" id="star-1">
+                        <input type="radio" name="opinion_star" id="star-1" class="star_opinion_product">
                         <label for="star-1">
                             <i class="fas fa-star"></i>
                         </label>
 
-                        <input type="radio" name="opinion_star" id="star-2">
+                        <input type="radio" name="opinion_star" id="star-2" class="star_opinion_product">
                         <label for="star-2">
                             <i class="fas fa-star"></i>
                         </label>
 
-                        <input type="radio" name="opinion_star" id="star-3">
+                        <input type="radio" name="opinion_star" id="star-3" class="star_opinion_product">
                         <label for="star-3">
                             <i class="fas fa-star"></i>
                         </label>
 
-                        <input type="radio" name="opinion_star" id="star-4">
+                        <input type="radio" name="opinion_star" id="star-4" class="star_opinion_product">
                         <label for="star-4">
                             <i class="fas fa-star"></i>
                         </label>
 
-                        <input type="radio" name="opinion_star" id="star-5">
+                        <input type="radio" name="opinion_star" id="star-5" class="star_opinion_product">
                         <label for="star-5">
                             <i class="fas fa-star"></i>
                         </label>
@@ -123,8 +123,8 @@
                 <div class="container-mensaje-input-usuario">
                     <p class="nombre_usuario_comentario_nuevo"><?php echo $_SESSION["nombre"]?></p>
                     <p>Danos tu opinión para saber que tan bueno es este producto</p>
-                    <input type="text" name="mensaje-usuario-comentario" placeholder="Escribir un comentario para este producto...">
-                    <input type="hidden" name="correo_usuario_comentario" value="<?php echo $_SESSION["correo"]?>">
+                    <input type="text" name="mensaje-usuario-comentario" id="mensaje-usuario-comentario" placeholder="Escribir un comentario para este producto...">
+                    <input type="hidden" name="id_producto" id="id_producto" value="<?php echo $row["id_producto"]?>">
                     <button type="submit">Enviar Comentario</button>
                 </div>
             </form>
@@ -132,30 +132,52 @@
             <?php
             }
             ?>
-            <div class="container-comentario-usuario">
+            <?php
+                // realizar una selección de todos los comentarios que se encuentran el base de datos
+                $consulta_comentarios_usuarios = "SELECT usuarios.nombre,opinion.comentario,opinion.producto_puntaje FROM opinion INNER JOIN usuarios ON opinion.id_usuario=usuarios.id_usuario WHERE opinion.id_producto='$codigo_producto'";
+                $comentarios_usuarios = $conn->query($consulta_comentarios_usuarios);
+                $cantidad_comentarios = mysqli_num_rows($comentarios_usuarios);
+                if($cantidad_comentarios!==0){
+                while($comentario = $comentarios_usuarios->fetch_assoc()){
+                    ?>
+                <div class="container-comentario-usuario">
                 <div class="container-nombre-usuario-comentario">
                     <span>
                         <strong>
-                            Angelo Patrick
+                            <?php
+                                echo $comentario["nombre"];
+                            ?>
                         </strong>
                     </span>
                     <span class="valoracion-producto-estrellas">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+                        <?php
+                            for ($i=0; $i < 5; $i++) {
+                                if($i<$comentario["producto_puntaje"]){
+                                    echo "<i class='fas fa-star star_valoracion_producto_encendida'></i>";
+                                }else{
+                                    echo "<i class='fas fa-star star_valoracion_producto_apagada'></i>";
+                                }
+                            ?>
+                        <?php
+                            }
+                        ?>
                     </span>
+                    </div>
+                    <div class="container-mensaje-usuario-comentario">
+                        <p>
+                        <?php
+                            echo $comentario["comentario"];
+                        ?>
+                        </p>
+                    </div>
+                    <div class="container-fecha-usuario-comentario">
+                        Hora: 12:10:01 | Fecha: 12/12/12
+                    </div>
                 </div>
-                <div class="container-mensaje-usuario-comentario">
-                    <p>Este producto es muy bueno es todos los aspectos.
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Corporis voluptatem saepe ducimus exercitationem veritatis, officia assumenda earum animi dolorum vitae optio, necessitatibus magni tempora possimus dolore minima sit et recusandae itaque illo! Deserunt iste, dolore dolorem suscipit, velit, rerum sapiente nulla accusamus dolorum necessitatibus modi dignissimos. Corporis praesentium commodi consectetur.
-                    </p>
-                </div>
-                <div class="container-fecha-usuario-comentario">
-                    Hora: 12:10:01 | Fecha: 12/12/12
-                </div>
-            </div>
+            <?php
+                }
+            }
+            ?>
         </div>
     </main>
     <script src="<?php echo $link_base_root?>\javascript\enviar_comentario_producto.js"></script>

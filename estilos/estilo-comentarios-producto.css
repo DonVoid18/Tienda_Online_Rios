@@ -34,9 +34,7 @@
     text-align: right;
 }
 /* css de las estrellas */
-.valoracion-producto-estrellas i{
-    color: #ffd000;
-}
+
 
 
 
@@ -109,4 +107,17 @@
 .nombre_usuario_comentario_nuevo{
     font-weight: 700;
     font-size: 22px;
+}
+.star_valoracion_producto_encendida{
+    color: #ffd000;
+}
+.star_valoracion_producto{
+    color: #ddd;
+}
+/* css del mensaje de confirmación */
+#mensaje_comentario_correcto{
+    padding: 20px 0;
+    text-align: center;
+    font-weight: 700;
+    font-size: 16px;
 }

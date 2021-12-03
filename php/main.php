@@ -13,7 +13,7 @@
                     if($cantidadFilas == 0){
                         echo "No tenemos productos";
                     }else{
-                        echo "Productos de la Tienda";
+                        echo "Todos nuestros productos";
                     }
                     ?>
                 </span>

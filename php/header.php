@@ -69,6 +69,7 @@
         $row = $validacion_datos->fetch_assoc();
         // si se encuentra 1 fila entonces el usuario si existe de lo contrario no existe
         if($cantidadFilas !== 0){
+            $_SESSION["id_usuario"] = $row["id_usuario"];
             $_SESSION["correo"] = $correo;
             $_SESSION["nombre"] = $row["nombre"];
             $_SESSION["apellido_paterno"] = $row["apellido_paterno"];
