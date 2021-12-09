@@ -118,7 +118,6 @@
             </div>
         </div>
     </form>
-    <script src='<?php echo $link_base_root?>\javascript\ventana-modal.js'></script>
     <?php } ?>
     <?php } ?>
     <!-- html de la ventana modal -->

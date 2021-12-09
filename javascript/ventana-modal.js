@@ -1,17 +1,26 @@
 const contenedor_total = document.querySelector(".contenedor-global-modal");
-const boton = document.querySelector(".ingresar-cuenta");
-
+const boton_menu_1 = document.querySelector(".ingresar-cuenta");
+const botones_footer_modal = document.querySelectorAll(".ingresar_cuenta_footer");
+// agregamos evento a todos los botones del footer
+for (let i = 0; i < botones_footer_modal.length; i++) {
+    botones_footer_modal[i].addEventListener("click",cerrarVentanaModal);
+}
 // agregamos el evento blur
 contenedor_total.addEventListener("click", function(e){
+    abrirCerrarVentanaModal(e);
+});
+
+boton_menu_1.addEventListener("click",cerrarVentanaModal);
+// funciones de cierre y abrir ventana modal
+function abrirCerrarVentanaModal(e){
     if(contenedor_total === e.target){
         contenedor_total.classList.add("desactivo");
     }
-});
-boton.addEventListener("click",function(e){
+}
+function cerrarVentanaModal(){
     contenedor_total.classList.remove("desactivo");
-});
-
-// js de las validaciones de registro modal 
+}
+// js de las validaciones de registro modal
 const contendor_registro = document.querySelector(".contenedor-registro-ventana-modal");
 const inpust_registro_modal = document.querySelectorAll(".contenedor-registro-ventana-modal input");
 const mensajes_registro_modal = document.querySelectorAll(".contenedor-global-modal .mensaje-error-modal");

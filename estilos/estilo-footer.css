@@ -92,6 +92,13 @@
 .medios-pago-logo img{
     width: 70%;
 }
+/* gestion de cuenta */
+.ingresar_cuenta_footer{
+    cursor: pointer;
+}
+.ingresar_cuenta_footer:hover{
+    text-decoration: underline;
+}
 /* css de las medias querys */
 @media (max-width: 840px){
     .container-footer{

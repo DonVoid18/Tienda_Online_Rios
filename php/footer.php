@@ -32,10 +32,25 @@
         <p>Gestión de cuenta</p>
         <div class="container-ul-seccion">
             <ul>
-                <li><a href="">Mi cuenta</a></li>
-                <li><a href="<?php echo $link_base_root?>\usuario\registrar_usuario.php">Registrate</a></li>
-                <li><a href="">Actualizar datos</a></li>
-                <li><a href="">Cambiar contraseña</a></li>
+                <!-- debemos validar si el correo se encuentra activo -->
+                <?php
+                if(isset($_SESSION["correo"])){?>
+                    <li>
+                        <a href="<?php echo $link_base_root?>/usuario/usuario_cuenta.php">Mi cuenta</a>
+                    </li>
+                    <li><a href="<?php echo $link_base_root?>\usuario\registrar_usuario.php">Registrate</a></li>
+                    <li><a href="<?php echo $link_base_root?>/usuario/usuario_cuenta.php">Actualizar datos</a></li>
+                    <li><a href="<?php echo $link_base_root?>/usuario/usuario_cuenta.php">Cambiar contraseña</a></li>
+                <?php }
+                else{?>
+                    <li class="ingresar_cuenta_footer">Mi cuenta</li>
+                    <li><a href="<?php echo $link_base_root?>\usuario\registrar_usuario.php">Registrate</a></li>
+                    <li class="ingresar_cuenta_footer">Actualizar datos</li>
+                    <li class="ingresar_cuenta_footer">Cambiar contraseña</li>
+                <?php
+                }
+                ?>
+
             </ul>
         </div>
     </div>
@@ -53,5 +68,11 @@
             <img src='<?php echo $link_base_root?>/imagenes_banner/footer-logo.png' alt="">
         </div>
     </div>
+    <?php
+        if(!isset($_SESSION["correo"])){?>
+            <script src='<?php echo $link_base_root?>\javascript\ventana-modal.js'></script>
+    <?php
+        }
+    ?>
 </body>
 </html>
