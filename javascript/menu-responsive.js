@@ -6,7 +6,7 @@ boton_responsive.addEventListener("click",function(){
 });
 window.onscroll = function (){
     // posición del scroll en pantalla
-    var scroll = document.documentElement.scrollTop || document.body.scrollTop;
+    let scroll = document.documentElement.scrollTop || document.body.scrollTop;
     // cuando pase los 50px el menu se va a ocultar
     if(scroll > 50){
         navegacion.classList.remove("activo-menu-responsive");

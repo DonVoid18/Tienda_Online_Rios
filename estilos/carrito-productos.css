@@ -80,6 +80,7 @@ main{
     color: white;
     cursor: pointer;
     padding: 5px 10px;
+    border-radius: var(--border-radius);
 }
 .boton-fila-final:hover{
     transition: 0.3s ease;
@@ -91,13 +92,15 @@ main{
 }
 .container-botones-confirmar-compra button{
     border: none;
-    background: #e63946;
+    background: var(--principal-color);
     color: white;
     padding: 0.625rem 0.9375rem;
     font-weight: 700;
     cursor: pointer;
     transition: 0.3s ease;
+    border-radius: var(--border-radius);
 }
 .container-botones-confirmar-compra button:hover{
     transform: scale(1.1,1.1);
+    background: var(--color-principal);
 }

@@ -5,7 +5,7 @@
 }
 :root{
     --color-border-input: #c2c2c2;
-    --border-radius: 0.625rem;
+    --border-radius: 0.3125rem;
     --padding-general: 2.825rem;
     --principal-color: #2b2d42;
 }
@@ -50,9 +50,9 @@ body::-webkit-scrollbar-thumb {
 .contenedor-logo-imagen img{
     width: 100%;
 }
-/* css de los items del menu 1 */
+/* css de los items del menu 1
 .contenedor-menu-1 nav{
-}
+} */
 .contenedor-menu-1 nav ul{
     list-style-type: none;
     display: flex;

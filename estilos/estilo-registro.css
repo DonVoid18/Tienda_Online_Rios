@@ -1,59 +1,66 @@
 /* variables */
-:root{ 
+:root{
     --size-enfoque: 10%;
-    --size-titulo: 2em;
-    --size-subtitulo: 1.5em;
-    --size-padding-top-input: 25px;
     --color-principal: #eb253e;
 }
 .contenedor-formulario{
+    flex-grow: 1;
     padding: 1.25rem var(--size-enfoque);
     background-color: #f2f2f2;
 }
 /* css del titulo y los subtitulos */
 .titulo-principal p{
-    font-size: var(--size-titulo);
+    font-size: 1.875rem;
 }
+/* cdd de los subtitulos */
 .subtitulo{
-    padding-top: 1.875rem;
-}
-.subtitulo strong{
+    padding: 0.625rem 0 0.3125rem 0;
     font-size: var(--size-subtitulo);
+    font-weight: 700;
+    font-size: 1.225rem;
 }
 
 /* css de los nombre de los input */
-.contenedor-input p{
-    padding-top: var(--size-padding-top-input);
+.contenedor-input{
+    padding: 0.625rem 0;
+}
+.contenedor-input > p{
     padding-bottom: 0.3125rem;
 }
 
 /* css de los inputs */
 .contenedor-input input{
-    width: 50%;
-    height: 1.875rem;
-    padding-left: 0.3125rem;
-    border: 1px solid #c2c2c2;
+    width: 70%;
+    padding: 0.4375rem;
     outline: none;
-    display: block;
+    border: none;
 }
 .contenedor-input input:focus{
     box-shadow: 0 0 0.1875rem 0.0625rem #00699d;
 }
 /* css del chexbox */
 .contenedor-checkbox{
-    padding-top: var(--size-padding-top-input);
+    padding: 0.625rem 0;
 }
 /* css del boton */
 .contenedor-boton{
-    padding-top: var(--size-padding-top-input);
+    padding: 0.625rem 0;
 }
 .contenedor-boton button{
     width: 40%;
     height: 2.5rem;
     border: none;
-    background: var(--color-principal);
+    background: var(--principal-color);
     cursor: pointer;
     color: white;
+    border-radius: var(--border-radius);
+    transition: 0.3s ease;
+}
+.contenedor-boton button:hover{
+    font-weight: 700;
+}
+.contenedor-boton button:active{
+    transform: scale(0.9,0.9);
 }
 .error{
     -webkit-box-shadow: 0rem 0rem 0.3125rem 0rem var(--color-principal);

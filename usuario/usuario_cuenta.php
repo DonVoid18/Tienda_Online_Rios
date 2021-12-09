@@ -37,6 +37,7 @@
     }
 ?>
 <!-- cuerpo de la página -->
+<main id="main_container_perfil_usuario">
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
         <div class="container-titulo-perfil">
             <h2>DATOS DE TU CUENTA</h2>
@@ -53,10 +54,6 @@
                 <div class="container-input">
                     <label for="apellido_paterno" class="descripcion_input">Apellido Paterno</label>
                     <input type="text" id="apellido_paterno" class="input_info" name="apellido_paterno" value="<?php echo $_SESSION["apellido_paterno"]?>" disabled>
-                </div>
-                <div class="container-input">
-                    <label for="fecha_nacimiento" class="descripcion_input">Fecha de nacimiento</label>
-                    <input type="text" id="fecha_nacimiento" class="input_info" name="fecha_nacimiento" value="<?php echo $_SESSION["fecha_nacimiento"]?>" disabled>
                 </div>
                 <div class="container-input">
                     <label for="dni_usuario" class="descripcion_input">DNI</label>
@@ -83,6 +80,7 @@
             </div>
         </div>
     </form>
+</main>
     <script>
         let inputs = document.querySelectorAll(".container-datos-usuario .input_info");
         let boton_modificar = document.querySelector("#boton_modificar_perfil");

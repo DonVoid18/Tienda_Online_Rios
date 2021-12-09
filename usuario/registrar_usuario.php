@@ -96,7 +96,7 @@
             ?>
             </div>
             <div class="titulo-principal"><p>Crear una cuenta de usuario</p></div>
-            <div class="subtitulo"><strong>Información Personal</strong></div>
+            <div class="subtitulo">Información Personal</div>
             <div class="contenedor-input" id="nombre">
                 <p>Nombre</p>
                 <input type="text" name="nombre">
@@ -113,13 +113,12 @@
                 <span class="info-error">Por favor, ingrese solo 8 dígitos y valores válidos.</span>
             </div>
             <div class="contenedor-input" id="celular">
-                <p>Celular</p>
-                <p><strong>Perú</strong> (+51)</p>
+                <p>Celular (+51)</p>
                 <input type="text" name="celular">
                 <span class="info-error">Por favor, ingrese solo 9 dígitos y valores válidos.</span>
             </div>
 
-            <div class="subtitulo"><strong>Información de inicio de sesión</strong></div>
+            <div class="subtitulo">Información de inicio de sesión</div>
             <div class="contenedor-input" id="correo">
                 <p>Email</p>
                 <input type="email" name="correo">

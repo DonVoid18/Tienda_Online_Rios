@@ -23,12 +23,17 @@
                     // iniciar sesion
                     session_start();
                     if(isset($_SESSION["correo"])){?>
-                        <li class="item-menu" class="cuenta-activa"><a href="<?php echo $link_base_root?>\usuario\usuario_cuenta.php"><i class="fas fa-user"></i> <?php echo $_SESSION["nombre"]?></a></li>                        
+                        <li class="item-menu" class="cuenta-activa">
+                            <a href="<?php echo $link_base_root?>\usuario\usuario_cuenta.php"><i class="fas fa-user"></i> <?php echo $_SESSION["nombre"]?></a>
+                        </li>
                     <?php }
                     else{?>
-                        <li class="item-menu ingresar-cuenta"><span><i class="fas fa-user"></i></span>  Ingresar</li>
+                        <li class="item-menu ingresar-cuenta">
+                            <span><i class="fas fa-user"></i></span> Ingresar
+                        </li>
                     <?php } ?>
-                    <li class="item-menu"><a href="<?php echo $link_base_root?>\producto\carrito_productos.php" class="item-link"><span><i class="fas fa-shopping-cart"></i></span> Mi carrito 
+                    <li class="item-menu">
+                        <a href="<?php echo $link_base_root?>\producto\carrito_productos.php" class="item-link"><span><i class="fas fa-shopping-cart"></i></span> Mi carrito 
                     <?php
                     if(isset($_SESSION["carrito"])){
                         // entonces que nos muestre la cantidad de productos
@@ -36,7 +41,8 @@
                             echo "<span id='cantidad-productos-carrito'>".count($_SESSION["carrito"])."</span>";
                         }
                     }
-                    ?></a></li>
+                    ?></a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -78,6 +84,9 @@
             $_SESSION["celular"] = $row["celular"];
             $_SESSION["password"] = $row["password"];
             header("Location: $link_base_root\index.php");
+        }else{
+            // si la contraseña está incorrecta entonces no sucede nada
+            header("Location: $link_base_root\index.php");
         }
     }else{?>
     <?php if(!isset($_SESSION["correo"])){?>
@@ -110,7 +119,7 @@
         </div>
     </form>
     <script src='<?php echo $link_base_root?>\javascript\ventana-modal.js'></script>
-    <script src='<?php echo $link_base_root?>\javascript\menu-responsive.js'></script>
+    <?php } ?>
     <?php } ?>
     <!-- html de la ventana modal -->
-    <?php } ?>
+    <script src='<?php echo $link_base_root?>\javascript\menu-responsive.js'></script>

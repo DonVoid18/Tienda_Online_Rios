@@ -79,6 +79,7 @@
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: var(--border-radius);
 }
 /* css de la tabla ficha tecnica */
 .contenedor-tabla{

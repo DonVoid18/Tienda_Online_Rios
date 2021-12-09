@@ -7,6 +7,10 @@
     --color-botones: var(--principal-color);
     --color-text-in-boton: white;
 }
+#main_container_perfil_usuario{
+    flex-grow: 1;
+    background-color: #f2f2f2;
+}
 /* css del container form */
 .form-container{
     width: 100%;
@@ -34,6 +38,7 @@
     font-family: var(--text-form-family);
     font-size: var(--text-size);
     border: none;
+    border-radius: var(--border-radius);
 }
 .container-datos-usuario{
     width: 100%;
@@ -83,6 +88,7 @@
     background: var(--color-botones);
     color: var(--color-text-in-boton);
     transition: 0.5s ease;
+    border-radius: var(--border-radius);
 }
 .container-botones-perfil button:active{
     transform: scale(.9,.9);
