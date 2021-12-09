@@ -14,22 +14,20 @@
     if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["boton_guardar_datos_usuario"])){
         $nombre_usuario = $_POST["nombre"];
         $apellido_paterno_usuario = $_POST["apellido_paterno"];
-        $fecha_nacimiento_usuario = $_POST["fecha_nacimiento"];
         $dni_usuario = $_POST["dni"];
         $celular_usuario = $_POST["celular"];
         $email_usuario = $_POST["email"];
         $password_usuario = $_POST["password"];
         $correo_actual_validacion = $_SESSION["correo"];
-        $consulta_actualizar_datos_usuario = "UPDATE usuarios SET nombre='$nombre_usuario', apellido_paterno='$apellido_paterno_usuario', fecha_nacimiento='$fecha_nacimiento_usuario', dni='$dni_usuario', celular='$celular_usuario', email='$email_usuario', password='$password_usuario' WHERE email='$correo_actual_validacion'";
+        $consulta_actualizar_datos_usuario = "UPDATE usuarios SET nombre='$nombre_usuario', apellido_paterno='$apellido_paterno_usuario', dni='$dni_usuario', celular='$celular_usuario', email='$email_usuario', password='$password_usuario' WHERE email='$correo_actual_validacion'";
         if($conn->query($consulta_actualizar_datos_usuario) === TRUE){
             $_SESSION["correo"] = $email_usuario;
             $_SESSION["nombre"] = $nombre_usuario;
             $_SESSION["apellido_paterno"] = $apellido_paterno_usuario;
-            $_SESSION["fecha_nacimiento"] = $fecha_nacimiento_usuario;
             $_SESSION["dni"] = $dni_usuario;
             $_SESSION["celular"] = $celular_usuario;
             $_SESSION["password"] = $password_usuario;
-            header("Location: $link_base_root\index.php");
+            header("Location: $link_base_root/usuario/usuario_cuenta.php");
         }
         else{
             echo "Los datos no han sido actualizados";
@@ -49,48 +47,43 @@
             <div class="container-info-personal">
                 <div class="container-input">
                     <label for="nombre_usuario" class="descripcion_input">Nombre</label>
-                    <input type="text" id="nombre_usuario" class="input_info" name="nombre" value="<?php echo $_SESSION["nombre"];?>" disabled>
+                    <input type="text" id="nombre_usuario" class="input_info" name="nombre" value="<?php echo $_SESSION["nombre"];?>" required>
                 </div>
                 <div class="container-input">
                     <label for="apellido_paterno" class="descripcion_input">Apellido Paterno</label>
-                    <input type="text" id="apellido_paterno" class="input_info" name="apellido_paterno" value="<?php echo $_SESSION["apellido_paterno"]?>" disabled>
+                    <input type="text" id="apellido_paterno" class="input_info" name="apellido_paterno" value="<?php echo $_SESSION["apellido_paterno"]?>" required>
                 </div>
                 <div class="container-input">
                     <label for="dni_usuario" class="descripcion_input">DNI</label>
-                    <input type="text" id="dni_usuario" class="input_info" name="dni" value="<?php echo $_SESSION["dni"]?>" disabled>
+                    <input type="text" id="dni_usuario" class="input_info" name="dni" value="<?php echo $_SESSION["dni"]?>" required>
                 </div>
                 <div class="container-input">
                     <label for="celular_usuario" class="descripcion_input">Celular (+51)</label>
-                    <input type="text" id="celular_usuario" class="input_info" name="celular" value="<?php echo $_SESSION["celular"]?>" disabled>
+                    <input type="text" id="celular_usuario" class="input_info" name="celular" value="<?php echo $_SESSION["celular"]?>" required>
                 </div>
             </div>
             <div class="container-sesion-usuario">
                 <div class="container-input">
                     <label for="correo_usuario" class="descripcion_input">Correo Electrónico</label>
-                    <input type="email" id="correo_usuario" class="input_info" name="email" value="<?php echo $_SESSION["correo"]?>" disabled>
+                    <input type="email" id="correo_usuario" class="input_info" name="email" value="<?php echo $_SESSION["correo"]?>" required>
                 </div>
                 <div class="container-input">
                     <label for="password_usuario" class="descripcion_input">Contraseña</label>
-                    <input type="password" id="password_usuario" class="input_info" name="password" value="<?php echo $_SESSION["password"]?>" disabled>
+                    <input type="password" id="password_usuario" class="input_info" name="password" value="<?php echo $_SESSION["password"]?>" required>
+                    <span class="boton_password_view">
+                        <i class="fas fa-eye"></i>
+                        <i class="fas fa-eye-slash"></i>
+                    </span>
                 </div>
                 <div class="container-botones-perfil">
-                    <button type="button" id="boton_modificar_perfil">Modificar datos <i class="fas fa-user-edit"></i></button>
+                    <!-- <button type="button" id="boton_modificar_perfil">Modificar datos <i class="fas fa-user-edit"></i></button> -->
                     <button type="submit" id="boton_guardar_datos" name="boton_guardar_datos_usuario">Guardar Cambios <i class="fas fa-save"></i></button>
                 </div>
             </div>
         </div>
     </form>
 </main>
-    <script>
-        let inputs = document.querySelectorAll(".container-datos-usuario .input_info");
-        let boton_modificar = document.querySelector("#boton_modificar_perfil");
-        boton_modificar.addEventListener("click", desactivarBloqueo);
-        function desactivarBloqueo(){
-            for (let i = 0; i < inputs.length; i++) {
-            inputs[i].removeAttribute("disabled");
-            }
-        }
-    </script>
+    <script src="<?php echo $link_base_root?>/javascript/boton_mostrar_password.js"></script>
 <?php
     include ("../php/footer.php");
 ?>

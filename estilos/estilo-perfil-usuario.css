@@ -64,6 +64,26 @@
     outline: none;
     font-size: var(--text-size);
     font-family: var(--text-form-family);
+    font-size: 1rem;
+    border-radius: var(--border-radius);
+    border: none;
+}
+/* css del input ver contraseña */
+#password_usuario{
+    width: 90%;
+}
+.fa-eye{
+    display: none;
+}
+.fa-eye-slash{
+    display: inline-block;
+}
+.boton_password_view{
+    width: 10%;
+    cursor: pointer;
+}
+.input_info:focus{
+    box-shadow: 0 0 0.1875rem 0.0625rem #00699d94;
 }
 .container-info-personal{
     width: 48%;
@@ -89,6 +109,7 @@
     color: var(--color-text-in-boton);
     transition: 0.5s ease;
     border-radius: var(--border-radius);
+    font-size: 1rem;
 }
 .container-botones-perfil button:active{
     transform: scale(.9,.9);
