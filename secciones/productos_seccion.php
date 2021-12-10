@@ -2,6 +2,7 @@
     require_once "../php/head.php";
     echo "<link rel='stylesheet' href='$link_base_root/estilos/estilo-main.css'>";
     require_once "../php/header.php";
+    $nombre_categoria = $_GET["categoria"];
 ?>
 <main>
     <?php

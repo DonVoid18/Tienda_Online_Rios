@@ -56,7 +56,7 @@
                     $secciones = $conn->query($seccion_header);
                     if ($secciones->num_rows > 0) {
                         while($row = $secciones->fetch_assoc()) {?>
-                            <li class="item-menu-2"><a href="<?php echo $link_base_root?>/secciones/<?php echo $row["nombre_categoria"];?>.php" class="item-link-2"><?php echo $row["nombre_categoria"];?></a></li>
+                            <li class="item-menu-2"><a href="<?php echo $link_base_root?>/secciones/productos_seccion.php?categoria=<?php echo $row["nombre_categoria"]?>" class="item-link-2"><?php echo $row["nombre_categoria"];?></a></li>
                 <?php                        }
                     } else {
                       echo "No tenemos resultados";
