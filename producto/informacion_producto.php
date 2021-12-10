@@ -187,9 +187,14 @@
             ?>
         </div>
     </main>
-    <!-- pequeño script para validar el campo del input -->
-    <script src="<?php echo $link_base_root?>\javascript\validar_input_new_comentario.js"></script>
-    <script src="<?php echo $link_base_root?>\javascript\enviar_comentario_producto.js"></script>
+    <?php
+    if(isset($_SESSION["correo"])){?>
+        <!-- pequeño script para validar el campo del input -->
+        <script src="<?php echo $link_base_root?>\javascript\validar_input_new_comentario.js"></script>
+        <script src="<?php echo $link_base_root?>\javascript\enviar_comentario_producto.js"></script>
+    <?php
+    }
+    ?>
     <script src="<?php echo $link_base_root?>\javascript\producto-informacion.js"></script>
     <script src="<?php echo $link_base_root?>\javascript\guardar_producto_carrito.js"></script>
 <?php

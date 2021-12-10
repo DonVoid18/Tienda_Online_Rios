@@ -86,7 +86,7 @@
             <div class="container-dato-destino-pedido">
                 <label for="departamento_pedido">Departamento</label>
                 <select name="" id="departamento_pedido">
-                    <option value="" selected>Seleccionar</option>
+                    <option value="seleccionar" selected>Seleccionar</option>
                     <?php
                     while($row_departamento = $departamentos->fetch_assoc()) {?>
                         <option value="<?php echo $row_departamento["nombre_departamento"]?>"><?php echo $row_departamento["nombre_departamento"]?></option>
@@ -97,8 +97,8 @@
             </div>
             <div class="container-dato-destino-pedido">
                 <label for="departamento_pedido">Provincia</label>
-                <select name="" id="departamento_pedido">
-                    <option value="">Seleccionar</option>
+                <select name="" id="provincia_pedido">
+                    <option value="seleccionar" selected>Seleccionar</option>
                 </select>
             </div>
             <div class="container-button-enviar-datos-pedido">
@@ -128,8 +128,7 @@
             </div>
         </div>
     </main>
-
-
+    <script src='<?php echo $link_base_root?>\javascript\departamentos_seleccionar.js'></script>
 <?php
     }else{
         echo "Esta página necesita requisitos previos";

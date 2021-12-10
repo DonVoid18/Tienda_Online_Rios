@@ -29,7 +29,7 @@
             <?php
                 if($cantidadFilas == 0){?>
                 <div class="no-existe-producto">
-                <p>Por el momento no contamos con productos <br> <i class="far fa-sad-tear"></i></p>
+                <p>Por el momento no contamos con productos <i class="far fa-sad-tear"></i></p>
                 </div>
                 <?php } ?>
             <?php while($row = $productos_seccion->fetch_assoc()) {?>
