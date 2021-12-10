@@ -120,5 +120,3 @@
     </form>
     <?php } ?>
     <?php } ?>
-    <!-- html de la ventana modal -->
-    <script src='<?php echo $link_base_root?>\javascript\menu-responsive.js'></script>

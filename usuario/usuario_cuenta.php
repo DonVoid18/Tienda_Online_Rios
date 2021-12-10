@@ -30,7 +30,7 @@
             header("Location: $link_base_root/usuario/usuario_cuenta.php");
         }
         else{
-            echo "Los datos no han sido actualizados";
+            echo "Los datos no han sido actualizados, intentalo más tarde";
         }
     }
 ?>

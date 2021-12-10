@@ -78,12 +78,16 @@ body::-webkit-scrollbar-thumb {
     align-items: center;
     border-radius: var(--border-radius);
     margin: 0 2.5rem;
+    transition: 0.2s linear;
 }
 .contenedor-buscador-input input{
     width: 31.25rem;
     outline: none;
     border: none;
     font-size: 1rem;
+}
+.contenedor-buscador-input:hover{
+    box-shadow: 0 0 0.1875rem 0.0625rem #00699d94;
 }
 .icon-buscador{
     background: none;

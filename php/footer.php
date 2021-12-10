@@ -74,5 +74,7 @@
     <?php
         }
     ?>
+    <!-- script del menu responsive -->
+    <script src='<?php echo $link_base_root?>\javascript\menu-responsive.js'></script>
 </body>
 </html>
