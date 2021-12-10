@@ -60,7 +60,7 @@
                     // si se encuentran errores entonces
                     if($NumErrores != 0){
                         // el error se muestra cuando se presiona el boton de enviar los datos
-                        $mensajeError = "Los datos de algún campo se encuentran inválidos...";
+                        $mensajeError = "Ingresó datos inválidos, vuelva a rellenar el formulario...";
                         echo $mensajeError;
                     }else{
                         // necesitamos saber que el correo, celular y dni no se repitan
@@ -76,11 +76,11 @@
                             $datos_insertados = $conn->query($consulta_insertar_datos);
                             if($datos_insertados === TRUE){
                                 // los datos se enviaron
-                                echo "Te registraste correctamente";
+                                echo "Ya se encuentra registrado, gracias por completar el formulario.";
                             }
                             else{
                                 // los datos no se enviaron por cualquier error
-                                echo "Error: " . $enviar. "<br>" . $conn->error;
+                                echo "Se ha producido un error vuelva a intentarlo más tarde";
                             }
                         }
                         $conn->close();
@@ -127,7 +127,7 @@
             <div class="contenedor-input" id="password">
                 <p>Contraseña</p>
                 <input type="password" name="pass">
-                <span class="info-error">Por favor, la contraseña debe contar con minúsculas, mayúsculas y número para que esté correcto.</span>
+                <span class="info-error">La longitud de la contraseña debe ser 8-15 caracteres, al menos 1 digito y al menos 1 letra mayúscula.</span>
             </div>
             <div class="contenedor-input" id="repeatPassword">
                 <p>Confirmar contraseña</p>
