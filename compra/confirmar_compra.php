@@ -78,19 +78,27 @@
                 <label for="">Dirección</label>
                 <input type="text" placeholder="Dirección de donde vive">
             </div>
+            <!-- realizamos la consulta multi tabla para obtener los valores -->
+            <?php
+                $consulta_departamento = "SELECT nombre_departamento FROM departamento";
+                $departamentos = $conn->query($consulta_departamento);
+            ?>
             <div class="container-dato-destino-pedido">
                 <label for="departamento_pedido">Departamento</label>
                 <select name="" id="departamento_pedido">
-                    <option value="">Huánuco</option>
-                    <option value="">Lima</option>
+                    <option value="" selected>Seleccionar</option>
+                    <?php
+                    while($row_departamento = $departamentos->fetch_assoc()) {?>
+                        <option value="<?php echo $row_departamento["nombre_departamento"]?>"><?php echo $row_departamento["nombre_departamento"]?></option>
+                    <?php
+                    }
+                    ?>
                 </select>
             </div>
             <div class="container-dato-destino-pedido">
                 <label for="departamento_pedido">Provincia</label>
                 <select name="" id="departamento_pedido">
-                    <option value="">Ambo</option>
-                    <option value="">Huánuco</option>
-                    <option value="">Tingo María</option>
+                    <option value="">Seleccionar</option>
                 </select>
             </div>
             <div class="container-button-enviar-datos-pedido">

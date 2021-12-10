@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,400&family=Open+Sans:wght@500&family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo $link_base_root?>/estilos/estilo-perfil-usuario.css">
 <?php
+    ob_start();
     require_once ("../php/header.php");
     if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["boton-cerrar-sesion-usuario"])){
         session_destroy();
@@ -27,7 +28,8 @@
             $_SESSION["dni"] = $dni_usuario;
             $_SESSION["celular"] = $celular_usuario;
             $_SESSION["password"] = $password_usuario;
-            header("Location: $link_base_root/usuario/usuario_cuenta.php");
+            echo "<div style='padding: 10px 0;text-align:center;font-weight: 700'>Los datos se han actualizado correctamente.</div>";
+            header("Location: $link_base_root\usuario/usuario_cuenta.php");
         }
         else{
             echo "Los datos no han sido actualizados, intentalo más tarde";
