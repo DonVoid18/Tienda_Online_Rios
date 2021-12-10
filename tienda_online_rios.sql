@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-12-2021 a las 17:57:19
+-- Tiempo de generación: 10-12-2021 a las 18:10:14
 -- Versión del servidor: 10.4.18-MariaDB
 -- Versión de PHP: 8.0.3
 
@@ -24,6 +24,28 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `banner_img`
+--
+
+CREATE TABLE `banner_img` (
+  `id_banner` int(11) NOT NULL,
+  `direccion_imagen` varchar(500) NOT NULL,
+  `estado_imagen` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `banner_img`
+--
+
+INSERT INTO `banner_img` (`id_banner`, `direccion_imagen`, `estado_imagen`) VALUES
+(1, 'https://hiraoka.com.pe/media/weltpixel/owlcarouselslider/images/b/a/banner-home-lg_4.jpg', 1),
+(2, 'https://hiraoka.com.pe/media/weltpixel/owlcarouselslider/images/w/e/web-hiraoka-ux371ea-hl003t.jpg', 1),
+(3, 'https://hiraoka.com.pe/media/weltpixel/owlcarouselslider/images/w/e/web-hiraoka-fx506hcb-hn139t_2_.jpg', 1),
+(4, 'https://hiraoka.com.pe/media/weltpixel/owlcarouselslider/images/h/1/h1-xiaomi-boom.jpg', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `categoria`
 --
 
@@ -40,7 +62,47 @@ INSERT INTO `categoria` (`id_categoria`, `nombre_categoria`) VALUES
 (1, 'televisores'),
 (2, 'celulares'),
 (3, 'audio'),
-(4, 'gaming');
+(4, 'gaming'),
+(5, 'comida');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `correos_publicidad`
+--
+
+CREATE TABLE `correos_publicidad` (
+  `id_correo` int(11) NOT NULL,
+  `correo` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `correos_publicidad`
+--
+
+INSERT INTO `correos_publicidad` (`id_correo`, `correo`) VALUES
+(1, 'patrick@gmail.com'),
+(2, 'angeloPatrick@gmail.com'),
+(3, 'rios@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `departamento`
+--
+
+CREATE TABLE `departamento` (
+  `id_departamento` int(11) NOT NULL,
+  `nombre_departamento` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `departamento`
+--
+
+INSERT INTO `departamento` (`id_departamento`, `nombre_departamento`) VALUES
+(1, 'Huánuco'),
+(2, 'Huancayo');
 
 -- --------------------------------------------------------
 
@@ -62,7 +124,9 @@ CREATE TABLE `opinion` (
 --
 
 INSERT INTO `opinion` (`id_comentario`, `id_producto`, `id_usuario`, `comentario`, `producto_puntaje`, `fecha_registro`) VALUES
-(1, 143, 1, 'La verdad que si es un buen producto si me ha gustado bastante.', 4, '2021-12-03 16:41:29');
+(1, 143, 1, 'La verdad que si es un buen producto si me ha gustado bastante.', 4, '2021-12-03 16:41:29'),
+(2, 1, 1, 'Si es un buen, mis hermanos le dieron un pelotazo y aún así sigue funcionando muy bien. Recomiendo este producto a todos mis amigos', 4, '2021-12-04 00:09:29'),
+(3, 1, 1, 'Mal producto y no me gustó.', 1, '2021-12-04 01:16:52');
 
 -- --------------------------------------------------------
 
@@ -251,6 +315,33 @@ INSERT INTO `productos` (`id_producto`, `id_categoria`, `marca`, `descripcion`, 
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `provincia`
+--
+
+CREATE TABLE `provincia` (
+  `id_provincia` int(11) NOT NULL,
+  `id_departamento` int(11) NOT NULL,
+  `nombre_provincia` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `provincia`
+--
+
+INSERT INTO `provincia` (`id_provincia`, `id_departamento`, `nombre_provincia`) VALUES
+(1, 1, 'Ambo'),
+(2, 1, 'Pachitea'),
+(3, 1, 'Huánuco'),
+(4, 1, 'Lauricocha'),
+(5, 1, 'Puerto Inca'),
+(6, 1, 'Leoncio Prado'),
+(7, 1, 'Dos de mayo'),
+(8, 2, 'Chilca'),
+(9, 2, 'Sicaya');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `usuarios`
 --
 
@@ -269,18 +360,37 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre`, `apellido_paterno`, `dni`, `celular`, `email`, `password`) VALUES
-(1, 'Angelo Patrick', 'Rios', '75942730', '923929304', 'angelopatrickriosnolasco@gmail.com', 'ANGELOpatrick123'),
-(2, 'Joel', 'Ferrer Escobal', '74589621', '963258741', 'ferrer@gmail.com', 'JOELferrer123');
+(1, 'Anuel BB', 'Rios', '75942730', '923929304', 'patrickriosnolasco@gmail.com', 'patrick123'),
+(2, 'Joel', 'Ferrer Escobal', '74589621', '963258741', 'ferrer@gmail.com', 'JOELferrer123'),
+(3, 'Angelo', 'Rios', '74125896', '523698741', 'angelo@gmail.com', 'Pangelo123');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
+-- Indices de la tabla `banner_img`
+--
+ALTER TABLE `banner_img`
+  ADD PRIMARY KEY (`id_banner`);
+
+--
 -- Indices de la tabla `categoria`
 --
 ALTER TABLE `categoria`
   ADD PRIMARY KEY (`id_categoria`);
+
+--
+-- Indices de la tabla `correos_publicidad`
+--
+ALTER TABLE `correos_publicidad`
+  ADD PRIMARY KEY (`id_correo`);
+
+--
+-- Indices de la tabla `departamento`
+--
+ALTER TABLE `departamento`
+  ADD PRIMARY KEY (`id_departamento`);
 
 --
 -- Indices de la tabla `opinion`
@@ -298,6 +408,13 @@ ALTER TABLE `productos`
   ADD KEY `R_2` (`id_categoria`);
 
 --
+-- Indices de la tabla `provincia`
+--
+ALTER TABLE `provincia`
+  ADD PRIMARY KEY (`id_provincia`),
+  ADD KEY `id_departamento` (`id_departamento`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
@@ -308,16 +425,34 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `banner_img`
+--
+ALTER TABLE `banner_img`
+  MODIFY `id_banner` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT de la tabla `correos_publicidad`
+--
+ALTER TABLE `correos_publicidad`
+  MODIFY `id_correo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `departamento`
+--
+ALTER TABLE `departamento`
+  MODIFY `id_departamento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `opinion`
 --
 ALTER TABLE `opinion`
-  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_comentario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `productos`
@@ -326,10 +461,16 @@ ALTER TABLE `productos`
   MODIFY `id_producto` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=161;
 
 --
+-- AUTO_INCREMENT de la tabla `provincia`
+--
+ALTER TABLE `provincia`
+  MODIFY `id_provincia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas
@@ -347,6 +488,12 @@ ALTER TABLE `opinion`
 --
 ALTER TABLE `productos`
   ADD CONSTRAINT `R_2` FOREIGN KEY (`id_categoria`) REFERENCES `categoria` (`id_categoria`);
+
+--
+-- Filtros para la tabla `provincia`
+--
+ALTER TABLE `provincia`
+  ADD CONSTRAINT `provincia_ibfk_1` FOREIGN KEY (`id_departamento`) REFERENCES `departamento` (`id_departamento`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

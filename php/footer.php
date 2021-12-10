@@ -3,8 +3,11 @@
     <div class="container-seccion">
         <p>Entérate de nuestras ofertas</p>
         <div class="container-input-email-footer">
-            <input type="email" placeholder="Correo electrónico">
-            <button><i class="fas fa-angle-double-right"></i></button>
+            <input type="email" placeholder="Correo electrónico" name="correo_usuario_anonymous" id="correo_usuario_anonymous">
+            <button onclick="enviarCorreoAnonymous();"><i class="fas fa-angle-double-right"></i></button>
+        </div>
+        <div id="container_result_correo_anonymous">
+
         </div>
         <div class="container-redes-sociales-footer">
             <a href="">
@@ -76,5 +79,6 @@
     ?>
     <!-- script del menu responsive -->
     <script src='<?php echo $link_base_root?>\javascript\menu-responsive.js'></script>
+    <script src='<?php echo $link_base_root?>\javascript\enviar_correo_anonymous.js'></script>
 </body>
 </html>

@@ -99,6 +99,9 @@
 .ingresar_cuenta_footer:hover{
     text-decoration: underline;
 }
+#container_result_correo_anonymous{
+    padding: 5px 0 2px 0;
+}
 /* css de las medias querys */
 @media (max-width: 840px){
     .container-footer{
