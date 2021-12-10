@@ -2,7 +2,7 @@
 <!-- nesitamos la direccion de la imagen -->
 
 <?php
-  $consulta_slider = "SELECT direccion_imagen FROM banner_img";
+  $consulta_slider = "SELECT direccion_imagen FROM banner_img WHERE estado_imagen='1'";
   $imagenes = $conn->query($consulta_slider);
 ?>
 <div class="slideshow-container">
