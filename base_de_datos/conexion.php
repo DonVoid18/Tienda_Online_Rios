@@ -2,6 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
+// colorcar el nombre dependiendo de la base de datos que tengas
 $base_datos = "tienda_online_patrick_test";
 // Create connection
 $conn = new mysqli($servername, $username, $password, $base_datos);
