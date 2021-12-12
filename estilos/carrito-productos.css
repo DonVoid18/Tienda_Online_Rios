@@ -1,14 +1,32 @@
+<<<<<<< HEAD
 main{
     display: flex;
+=======
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+main{
+    display: flex;
+    padding: 5% 10%;
+>>>>>>> bad28b0716d8898672e2b9c818683211113cc53e
     background-color: #f2f2f2;
     flex-grow: 1;
     align-items: center;
     justify-content: center;
+<<<<<<< HEAD
     flex-direction: column;
     padding: 20px 0;
 }
 .tabla-productos-informacion{
     border-collapse: collapse;
+=======
+}
+.tabla-productos-informacion{
+    border-collapse: collapse;
+    font-size: 1.1em;
+>>>>>>> bad28b0716d8898672e2b9c818683211113cc53e
     background-color: white;
 }
 .tabla-productos-informacion td, .tabla-productos-informacion th{
@@ -17,16 +35,27 @@ main{
     text-align: center;
 } 
 .tabla-productos-informacion th{
+<<<<<<< HEAD
     padding-top: 0.75rem;
     padding-bottom: 0.75rem;
     background-color: var(--principal-color);
+=======
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: var(--color-principal);
+>>>>>>> bad28b0716d8898672e2b9c818683211113cc53e
     color: white;
     font-size: 0.9em;
 }
 /* css del input de cantidad */
 .cantidad-input-tabla{
+<<<<<<< HEAD
     padding: 0.625rem;
     width: 2.8125rem;
+=======
+    padding: 10px;
+    width: 45px;
+>>>>>>> bad28b0716d8898672e2b9c818683211113cc53e
     text-align: center;
 }
 .cantidad-input-tabla::-webkit-inner-spin-button{
@@ -44,37 +73,62 @@ main{
 }
 /* css del contenedor de la imagen */
 .fila-imagen-tabla{
+<<<<<<< HEAD
     width: 12.5rem;
 }
 /* css de la imagen */
 .fila-imagen-tabla img{
     width: 50%;
+=======
+    width: 200px;
+}
+/* css de la imagen */
+.fila-imagen-tabla img{
+    width: 50%;   
+>>>>>>> bad28b0716d8898672e2b9c818683211113cc53e
 }
 /* medias querys */
 @media (max-width: 1100px) {
     .fila-imagen-tabla img{
+<<<<<<< HEAD
         width: 70%;
+=======
+        width: 70%;    
+>>>>>>> bad28b0716d8898672e2b9c818683211113cc53e
     }
 }
 @media (max-width: 600px) {
     .fila-imagen-tabla img{
+<<<<<<< HEAD
         width: 60%;
+=======
+        width: 60%;    
+>>>>>>> bad28b0716d8898672e2b9c818683211113cc53e
     }
 }
 /*  css de la columna del precio  */
 .precio-producto-tabla{
     font-weight: 700;
+<<<<<<< HEAD
     background-color: rgba(0, 0, 0, 0.144);
+=======
+    background-color: #6606bf23;
+>>>>>>> bad28b0716d8898672e2b9c818683211113cc53e
 }
 
 /* css de la celda de la suma de todos los precios finales */
 #precio-total-productos{
     font-weight: 700;
+<<<<<<< HEAD
     background-color: rgba(0, 0, 0, 0.144);
+=======
+    background-color: #6606bf4f;
+>>>>>>> bad28b0716d8898672e2b9c818683211113cc53e
 }
 
 /* css del boton vaciar carrito */
 .boton-fila-final{
+<<<<<<< HEAD
     background: var(--principal-color);
     border: none;
     color: white;
@@ -103,4 +157,16 @@ main{
 .container-botones-confirmar-compra button:hover{
     transform: scale(1.1,1.1);
     background: var(--color-principal);
+=======
+    font-size: 1.1em;
+    background: rgba(255, 0, 0, 0.438);
+    border: none;
+    color: white;
+    padding: 2px 5px;
+    cursor: pointer;
+}
+.boton-fila-final:hover{
+    transition: 0.3s ease;
+    background: red;
+>>>>>>> bad28b0716d8898672e2b9c818683211113cc53e
 }
