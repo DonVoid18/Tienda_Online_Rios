@@ -4,9 +4,9 @@
     $consulta_insertar_correo_anonymous = "INSERT INTO correos_publicidad (id_correo, correo) VALUES ('','$correo_anonymous')";
     $resultado_insertar_correo = $conn->query($consulta_insertar_correo_anonymous);
     if($resultado_insertar_correo === TRUE){
-        echo "Gracias por enviarnos tu correo.";
+        echo "<span style='color:green;'>Gracias por enviarnos tu correo <i class='far fa-grin-hearts'></i></span>";
     }else{
-        echo "Solo sentimos, tenemos problemas en estos momentos";
+        echo "<span style='color:red;'>Intente más tarde, estamos teniendo problemas</span>";
     }
     $conn->close();
 ?>

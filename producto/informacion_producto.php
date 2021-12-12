@@ -9,7 +9,7 @@
     $codigo_producto =  $_GET["codigo_producto"];
 ?>
 <?php
-    $consulta_producto = "SELECT * FROM productos WHERE id_producto = '$codigo_producto' AND marca = '$nombre_producto' AND descripcion = '$descripcion_producto'";
+    $consulta_producto = "SELECT productos.id_producto,productos.marca,productos.descripcion, productos.cantidad, productos.precio, productos.imagen_producto,oferta.descuento,oferta.estado_oferta,ficha_tecnica.ancho,ficha_tecnica.peso,ficha_tecnica.alto,ficha_tecnica.color FROM productos INNER JOIN oferta ON  productos.id_producto=oferta.productos_id_producto INNER JOIN ficha_tecnica ON productos.id_producto=ficha_tecnica.productos_id_producto WHERE id_producto = '$codigo_producto' AND marca = '$nombre_producto' AND productos.descripcion = '$descripcion_producto'";
     $datos_producto = $conn->query($consulta_producto);
     $row = $datos_producto->fetch_assoc();
     // $cantidadFilas = mysqli_num_rows($resultado);
@@ -25,13 +25,36 @@
                 <p class="titulo producto"><?php echo $row["marca"]?></p>
                 <p class="descripcion producto"><?php echo $row["descripcion"]?></p>
                 <p class="codigo producto">Código: <?php echo $row["id_producto"]?></p>
-                <p class="precio producto">Precio: S/. <span><?php echo number_format($row["precio"],2)?></span></p>
-                <p class="precio_descuento producto">Precio Final: S/. <span><?php 
-                    $descuento_precio = round($row["precio"] * ($row["descuento"]/100),2);
-                    $precio_nuevo = number_format($row["precio"]-$descuento_precio,2);
-                    echo $precio_nuevo;
-                    ?></span></p>
-                <p class="descuento producto">Descuento: <span><?php echo $row["descuento"]?>%</span></p>
+                <?php
+                    if($row["estado_oferta"] === "1"){?>
+                    <p class="precio producto">Precio: S/. <span><?php echo number_format($row["precio"],2)?></span></p>
+                <?php
+                    }
+                ?>
+                <p class="precio_descuento producto">Precio Final: S/.
+                    <span>
+                    <?php
+                    if($row["estado_oferta"] === "1"){
+                        $descuento_precio = round($row["precio"] * ($row["descuento"]/100),2);
+                        $precio_nuevo = number_format($row["precio"]-$descuento_precio,2);
+                        echo $precio_nuevo;
+                    }else{
+                        echo $row["precio"];
+                    }
+                    ?>
+                    </span>
+                </p>
+                <p class="descuento producto">Descuento:
+                    <span>
+                    <?php
+                     if($row["estado_oferta"] === "1"){
+                         echo $row["descuento"];
+                     }else{
+                         echo "0";
+                     }
+                     ?>%
+                    </span>
+                </p>
                 <p class="cantidad producto">Cantidad: <span value ="<?php echo $row["cantidad"]?>" class="cantidad-max-productos"><?php echo $row["cantidad"]?></span></p>
                 <div class="contenedor-botones-cantidad">
                     <button class="boton-restar-producto">-</button>
@@ -43,8 +66,16 @@
                     <input type="hidden" id="descripcion-form" name="descripcion-form" value="<?php echo $row["descripcion"]?>">
                     <input type="hidden" id="codigo-producto-form" name="codigo-producto-form" value="<?php echo $row["id_producto"]?>">
                     <input type="hidden" id="precio-form" name="precio-form" value="<?php echo $row["precio"]?>">
-                    <input type="hidden" id="descuento-form" name="descuento-form" value="<?php echo $row["descuento"]?>">
-                    <input type="hidden" class="cantidad-producto-form" id="cantidad-productos-form" name="cantidad-productos-form" value="1"> 
+                    <input type="hidden" id="descuento-form" name="descuento-form" value="
+                    <?php
+                        if($row["estado_oferta"] === "1"){
+                            echo $row["descuento"];
+                        }else{
+                            echo "0";
+                        }
+                    ?>
+                    ">
+                    <input type="hidden" class="cantidad-producto-form" id="cantidad-productos-form" name="cantidad-productos-form" value="1">
                     <button type="submit" class="bottom-carrito">Agregar al carrito</button>
                 </form>
             </div>
@@ -60,7 +91,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Modelo</td>
+                        <td>Marca</td>
                         <td><?php echo $row["marca"]?></td>
                     </tr>
                     <tr>
@@ -68,12 +99,44 @@
                         <td><?php echo $row["descripcion"]?></td>
                     </tr>
                     <tr>
+                        <td>Precio</td>
+                        <td><?php echo $row["precio"]?></td>
+                    </tr>
+                    <tr>
                         <td>Descuento</td>
-                        <td><?php echo $row["descuento"]?>%</td>
+                        <td>
+                        <?php
+                            if($row["estado_oferta"] === "1"){
+                                echo $row["descuento"];
+                            }else{
+                                echo "0";
+                            }
+                        ?>%
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Cantidad</td>
+                        <td><?php echo $row["cantidad"]?></td>
+                    </tr>
+                    <tr>
+                        <td>Ancho</td>
+                        <td><?php echo $row["ancho"]?> cm</td>
+                    </tr>
+                    <tr>
+                        <td>Alto</td>
+                        <td><?php echo $row["alto"]?> cm</td>
+                    </tr>
+                    <tr>
+                        <td>Peso</td>
+                        <td><?php echo $row["peso"]?> Kg</td>
+                    </tr>
+                    <tr>
+                        <td>Color</td>
+                        <td><?php echo $row["color"]?></td>
                     </tr>
                     <tr>
                         <td>Métedo de entrega</td>
-                        <td><b>Recoger en tienda</b></td>
+                        <td><b>Delivery</b></td>
                     </tr>
                 </tbody>
             </table>
@@ -134,7 +197,7 @@
             ?>
             <?php
                 // realizar una selección de todos los comentarios que se encuentran el base de datos
-                $consulta_comentarios_usuarios = "SELECT usuarios.nombre,opinion.comentario,opinion.producto_puntaje,opinion.fecha_registro FROM opinion INNER JOIN usuarios ON opinion.id_usuario=usuarios.id_usuario WHERE opinion.id_producto='$codigo_producto'";
+                $consulta_comentarios_usuarios = "SELECT opinion.fecha_registro,opinion.comentario,opinion.producto_puntaje,usuarios.nombre,usuarios.apellido_paterno FROM opinion INNER JOIN usuarios ON opinion.usuarios_id_usuario = usuarios.id_usuario WHERE opinion.productos_id_producto = '$codigo_producto'";
                 $comentarios_usuarios = $conn->query($consulta_comentarios_usuarios);
                 $cantidad_comentarios = mysqli_num_rows($comentarios_usuarios);
                 if($cantidad_comentarios!==0){
@@ -145,7 +208,7 @@
                         <span>
                             <strong>
                                 <?php
-                                    echo $comentario["nombre"];
+                                    echo $comentario["nombre"]." ".$comentario["apellido_paterno"];
                                 ?>
                             </strong>
                         </span>
@@ -171,7 +234,7 @@
                         </p>
                     </div>
                     <div class="container-fecha-usuario-comentario">
-                        <?php 
+                        <?php
                         // extraer la hora y la fecha que se encuentra en una misma cadena
                             $fecha_registro = $comentario["fecha_registro"];
                             $posicion_espacio = strpos($fecha_registro," ");

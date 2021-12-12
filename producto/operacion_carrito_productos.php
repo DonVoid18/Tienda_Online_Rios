@@ -2,15 +2,13 @@
         require_once "../base_de_datos/conexion.php";
         session_start();
         $codigo = $_POST["codigo-producto-form"];
-        $consulta_datos_carrito = "SELECT * FROM productos WHERE id_producto = '$codigo'";
+        $consulta_datos_carrito = "SELECT productos.id_producto,productos.marca,productos.descripcion,productos.cantidad,productos.precio,productos.imagen_producto,oferta.descuento,oferta.estado_oferta FROM productos INNER JOIN oferta ON productos.id_producto=oferta.productos_id_producto WHERE id_producto = '$codigo'";
         $datos_producto_carrito = $conn->query($consulta_datos_carrito);
         $row = $datos_producto_carrito->fetch_assoc();
         // validamos los datos
         // si los datos se encuentran correctos entonces se envian
         // debemos validar el nombre cantidad y todos los campos para enviarlos al carrito
-        if(($row["cantidad"]>=$_POST["cantidad-productos-form"]) && ($row["id_producto"] == $_POST["codigo-producto-form"]) 
-        && ($row["marca"] == $_POST["marca-form"]) && ($row["descripcion"] == $_POST["descripcion-form"]) && ($row["precio"] == $_POST["precio-form"])
-        && ($row["descuento"] == $_POST["descuento-form"])){
+        if(($row["id_producto"] === $_POST["codigo-producto-form"])){
             // debemos calcular el precio total = (cantidad*precio) - ((cantidad*precio)*descuento);
             $precioSinDescuento = (floatval($_POST["precio-form"]) * floatval($_POST["cantidad-productos-form"]));
             $descuentoTotal = ($_POST["precio-form"] * $_POST["cantidad-productos-form"] * ($_POST["descuento-form"]/100)); 
@@ -57,6 +55,6 @@
             };
             echo "<div class='mensaje-carrito'>El producto a sido agregado correctamente <i class='fas fa-check-circle'></i> </div>";
         }else{
-            echo "<div class='mensaje-carrito'>El producto no a sido añadido por algunos errores. <i class='fas fa-check-circle'></i> </div>";
+            echo "<div class='mensaje-carrito'>No se ha podido añadir el producto <i class='fas fa-times'></i></div>";
         }
 ?>

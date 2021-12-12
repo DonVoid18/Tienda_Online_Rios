@@ -5,7 +5,7 @@
 <?php
     require_once "../php/header.php";
     if((isset($_SESSION["carrito"]) && count($_SESSION["carrito"])>0 && isset($_SESSION["correo"]))){?>
-    <main class="container-principal">
+    <main class="container-principal" id="container_resultado_pedido">
         <div class="container-seccion-pedido">
             <div class="container-title-seccion-pedido">
                 <span>PRODUCTOS DEL PEDIDO</span>
@@ -34,7 +34,7 @@
                                 <!-- sin descuento -->
                                 <?php
                                     $monto_sin_descuento = 0;
-                                    for ($i=0; $i < count($_SESSION["carrito"]); $i++) { 
+                                    for ($i=0; $i < count($_SESSION["carrito"]); $i++) {
                                         $monto_sin_descuento = $monto_sin_descuento + $_SESSION["carrito"][$i][7];
                                     }
                                     echo number_format($monto_sin_descuento,2);
@@ -47,10 +47,19 @@
                                 <!-- descuento total -->
                                 <?php
                                     $descuento_total_productos = 0;
-                                    for ($i=0; $i < count($_SESSION["carrito"]); $i++) { 
+                                    for ($i=0; $i < count($_SESSION["carrito"]); $i++) {
                                         $descuento_total_productos = $descuento_total_productos + $_SESSION["carrito"][$i][6];
                                     }
                                     echo number_format($descuento_total_productos,2);
+                                ?>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Precio Delivery: S/</td>
+                            <td>
+                                <?php
+                                    $precio_delivery = 20;
+                                    echo number_format($precio_delivery,2);
                                 ?>
                             </td>
                         </tr>
@@ -59,11 +68,12 @@
                             <td class="boleta-precio-num-final">
                             <?php
                                 $montoFinal = 0;
-                                for ($i=0; $i < count($_SESSION["carrito"]); $i++) { 
+                                for ($i=0; $i < count($_SESSION["carrito"]); $i++) {
                                     $montoFinal = $montoFinal + $_SESSION["carrito"][$i][8];
                                 }
-                                echo number_format($montoFinal,2);
+                                echo number_format($montoFinal+$precio_delivery,2);
                             ?>
+                            <input type="hidden"  id="precio_number_final_pedido" value="<?php echo $montoFinal+$precio_delivery?>">
                             </td>
                         </tr>
                     </table>
@@ -76,7 +86,7 @@
             </div>
             <div class="container-dato-destino-pedido">
                 <label for="">Dirección</label>
-                <input type="text" placeholder="Dirección de donde vive">
+                <input type="text" placeholder="Dirección de donde vive" class="input_direccion_pedido" required>
             </div>
             <!-- realizamos la consulta multi tabla para obtener los valores -->
             <?php
@@ -102,7 +112,7 @@
                 </select>
             </div>
             <div class="container-button-enviar-datos-pedido">
-                <button>Realizar Pedido <i class="fas fa-shipping-fast"></i></button>
+                <button id="boton_enviar_pedido_usuario" class="enviar_pedido_usuario" >Realizar Pedido <i class="fas fa-shipping-fast"></i></button>
             </div>
         </div>
         <div class="container-seccion-pedido">
@@ -129,6 +139,7 @@
         </div>
     </main>
     <script src='<?php echo $link_base_root?>\javascript\departamentos_seleccionar.js'></script>
+    <script src='<?php echo $link_base_root?>\javascript\enviar_pedido.js'></script>
 <?php
     }else{
         echo "Esta página necesita requisitos previos";

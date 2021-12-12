@@ -51,7 +51,7 @@
 }
 .container-button-enviar-datos-pedido button{
     width: 40%;
-    height: 1.875rem;
+    height: 3rem;
     background: var(--principal-color);
     font-weight: 700;
     border-radius: 0.3125rem;

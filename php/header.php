@@ -53,6 +53,8 @@
                 <?php
                     //aqui deben aparecer todas todas las secciones de la base de datos
                     $seccion_header = "SELECT DISTINCT nombre_categoria FROM categoria";
+
+                    // $seccion_header = "SELECT nombre_categoria FROM categoria";
                     $secciones = $conn->query($seccion_header);
                     if ($secciones->num_rows > 0) {
                         while($row = $secciones->fetch_assoc()) {?>
@@ -69,7 +71,8 @@
     if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["button-enviar-registro"])){
         $correo = $_POST["correo_modal"];
         $pass = $_POST["pass_modal"];
-        $consulta_validacion = "SELECT * FROM usuarios WHERE email = '$correo' && password='$pass'";
+        // si es de rango 0 entonces es un cliente
+        $consulta_validacion = "SELECT * FROM usuarios WHERE email = '$correo' && password='$pass' && rango='0'";
         $validacion_datos = $conn->query($consulta_validacion);
         $cantidadFilas = mysqli_num_rows($validacion_datos);
         $row = $validacion_datos->fetch_assoc();

@@ -1,8 +1,8 @@
 <?php
     ?>
     <main>
-        <?php 
-            $consulta_productos = "SELECT * FROM productos ORDER BY RAND() LIMIT 20";
+        <?php
+            $consulta_productos = "SELECT productos.*,oferta.descuento,estado_oferta FROM productos INNER JOIN oferta ON productos.id_producto=oferta.productos_id_producto ORDER BY RAND() LIMIT 20";
             $productos = $conn->query($consulta_productos);
             $cantidadFilas = mysqli_num_rows($productos);
         ?>
@@ -36,25 +36,40 @@
                             echo $row["descripcion"];
                             ?>
                         </div>
+                        <?php
+                            if($row["estado_oferta"] === "1"){?>
                         <div class="contenedor-producto-precio">
-                            <p>S/. <span class="precio"><?php
-                            echo number_format($row["precio"],2);
-                            ?></span></p>
+                                <p>S/. <span class="precio"><?php
+                                echo number_format($row["precio"],2);
+                                ?></span></p>
                         </div>
+                        <?php
+                                }
+                        ?>
                         <div class="contenedor-producto-precio-oferta">
                             <p>
                                 S/. <span class="precio-oferta">
                                     <?php
-                                    $descuento_precio = round($row["precio"] * ($row["descuento"]/100),2);
-                                    $precio_nuevo = number_format($row["precio"]-$descuento_precio,2);
-                                    echo $precio_nuevo;
+                                    if($row["estado_oferta"] === "1"){
+                                        $descuento_precio = round($row["precio"] * ($row["descuento"]/100),2);
+                                        $precio_nuevo = number_format($row["precio"]-$descuento_precio,2);
+                                        echo $precio_nuevo;
+                                    }else{
+                                        echo number_format($row["precio"],2);
+                                    }
                                     ?>
                                 </span>
                             </p>
                         </div>
-                        <div class="contenedor-banner-descuento-producto">
-                            <span>-<?php echo $row["descuento"]?>%</span>
-                        </div>
+                        <!-- aqui tenemos que validar si el producto tiene la oferta habilitada o no -->
+                        <?php
+                        if($row["estado_oferta"] === "1"){?>
+                            <div class="contenedor-banner-descuento-producto">
+                                <span>-<?php echo $row["descuento"]?>%</span>
+                            </div>
+                        <?php
+                        }
+                        ?>
                         <div class="contenedor-producto-botom">
                         <form action="<?php echo $link_base_root?>/producto/informacion_producto.php" method="GET">
                             <button type="submit">Ver producto <span><i class="fas fa-eye"></i></span></button>

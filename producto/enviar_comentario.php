@@ -6,7 +6,7 @@
     $mensaje_usuario = $_POST["mensaje_usuario"];
     $cantidad_estrellas = $_POST["cant_star"];
     // generamos la insersión a la base de datos en tabla de comentarios
-    $consulta_insertar_comentario = "INSERT INTO opinion (id_usuario,id_producto,comentario,producto_puntaje) VALUES ('$id_usuario','$codigo_producto','$mensaje_usuario','$cantidad_estrellas')";
+    $consulta_insertar_comentario = "INSERT INTO opinion (productos_id_producto,usuarios_id_usuario,comentario,producto_puntaje) VALUES ('$codigo_producto', '$id_usuario', '$mensaje_usuario','$cantidad_estrellas')";
     $confirmar_comentario = $conn->query($consulta_insertar_comentario);
     if($confirmar_comentario === TRUE){
         echo "Tu comentario se ha registrado correctamente, gracias <i class='far fa-smile-beam'></i>";

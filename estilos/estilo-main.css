@@ -124,3 +124,8 @@ main{
     font-weight: 700;
     text-align: center;
 }
+.si-existe-producto{
+    font-size: 1.5em;
+    font-weight: 700;
+    padding: var(--padding-seccion-producto) var(--padding-seccion-producto) 0 var(--padding-seccion-producto);
+}

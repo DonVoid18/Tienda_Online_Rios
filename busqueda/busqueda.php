@@ -4,9 +4,10 @@
     require_once ("../php/header.php");
 ?>
 <main>
-    <?php 
+    <?php
         $text_busqueda = $_GET["search"];
-        $consulta_busqueda_productos = "SELECT * FROM productos, categoria WHERE (nombre_categoria='$text_busqueda' AND productos.id_categoria=categoria.id_categoria) OR (productos.marca LIKE ('%$text_busqueda%') AND productos.id_categoria=categoria.id_categoria) OR (productos.descripcion LIKE ('%$text_busqueda%') AND productos.id_categoria=categoria.id_categoria)";
+        $consulta_busqueda_productos = "SELECT categoria.nombre_categoria,categoria.descripcion,productos.id_producto,productos.marca,productos.descripcion,productos.cantidad,productos.precio,productos.imagen_producto,oferta.descuento,oferta.estado_oferta FROM productos INNER JOIN categoria ON productos.categoria_id_categoria=categoria.id_categoria INNER JOIN oferta ON 
+        productos.id_producto = oferta.productos_id_producto  WHERE (categoria.descripcion LIKE '%$text_busqueda%') OR (categoria.nombre_categoria LIKE '%$text_busqueda%') OR (productos.marca LIKE '%$text_busqueda%') OR (productos.descripcion LIKE '%$text_busqueda%')";
         $resultados_busqueda = $conn->query($consulta_busqueda_productos);
         $cantidadFilas = mysqli_num_rows($resultados_busqueda);
         // $row = $resultado->fetch_assoc();
@@ -14,11 +15,17 @@
         // print_r(array_values($row));
     ?>
     <div class="seccion">
+        <?php
+        if($cantidadFilas !==0){?>
+            <div class="si-existe-producto">Cantidad de resultados: <?php echo $cantidadFilas?></div>
+        <?php
+        }
+        ?>
         <div class="contenedor-productos">
             <?php
                 if($cantidadFilas == 0){?>
                 <div class="no-existe-producto">
-                <p>No hay resultados de búsqueda <br> <i class="far fa-sad-tear"></i></p>
+                <p>No hay resultados de búsqueda <i class="far fa-frown"></i></p>
                 </div>
                 <?php } ?>
             <?php while($row = $resultados_busqueda->fetch_assoc()) {?>
@@ -38,25 +45,40 @@
                         print $row["descripcion"];
                         ?>
                     </div>
-                    <div class="contenedor-producto-precio">
-                        <p>S/. <span class="precio"><?php
-                        echo number_format($row["precio"],2);
-                        ?></span></p>
-                    </div>
+                    <?php
+                            if($row["estado_oferta"] === "1"){?>
+                        <div class="contenedor-producto-precio">
+                                <p>S/. <span class="precio"><?php
+                                echo number_format($row["precio"],2);
+                                ?></span></p>
+                        </div>
+                        <?php
+                                }
+                        ?>
                     <div class="contenedor-producto-precio-oferta">
                         <p>
                             S/. <span class="precio-oferta">
                                 <?php
-                                $descuento_precio = round($row["precio"] * ($row["descuento"]/100),2);
-                                $precio_nuevo = number_format($row["precio"]-$descuento_precio,2);
-                                echo $precio_nuevo;
+                                if($row["estado_oferta"] === "1"){
+                                    $descuento_precio = round($row["precio"] * ($row["descuento"]/100),2);
+                                    $precio_nuevo = number_format($row["precio"]-$descuento_precio,2);
+                                    echo $precio_nuevo;
+                                }else{
+                                    echo number_format($row["precio"],2);
+                                }
                                 ?>
                             </span>
                         </p>
                     </div>
-                    <div class="contenedor-banner-descuento-producto">
-                        <span>-<?php echo $row["descuento"]?>%</span>
-                    </div>
+                    <!-- aqui tenemos que validar si el producto tiene la oferta habilitada o no -->
+                    <?php
+                        if($row["estado_oferta"] === "1"){?>
+                            <div class="contenedor-banner-descuento-producto">
+                                <span>-<?php echo $row["descuento"]?>%</span>
+                            </div>
+                        <?php
+                        }
+                        ?>
                     <div class="contenedor-producto-botom">
                         <form action="<?php echo $link_base_root?>/producto/informacion_producto.php" method="GET">
                             <button type="submit">Ver producto <span><i class="fas fa-eye"></i></span></button>
@@ -77,7 +99,7 @@
             $conn->close();
         ?>
     </div>
-    <!-- todo el contenido de la página -->  
+    <!-- todo el contenido de la página -->
 </main>
 <?php
     require_once ("../php/footer.php");

@@ -64,7 +64,7 @@
                         echo $mensajeError;
                     }else{
                         // necesitamos saber que el correo, celular y dni no se repitan
-                        $consulta_buscar_datos = "SELECT * FROM usuarios WHERE celular = '$celular' || dni = '$dni' || email = '$correo'";
+                        $consulta_buscar_datos = "SELECT dni,email FROM usuarios WHERE dni = '$dni' || email = '$correo'";
                         $datos_consultados = $conn->query($consulta_buscar_datos);
                         if($datos_consultados->num_rows > 0){
                             // se encuentran datos repetidos

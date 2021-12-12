@@ -6,7 +6,7 @@
 ?>
 <main>
     <?php
-        $consulta_producto_seccion = "SELECT * FROM categoria INNER JOIN productos on categoria.id_categoria = productos.id_categoria WHERE nombre_categoria = '$nombre_categoria'";
+        $consulta_producto_seccion = "SELECT categoria.nombre_categoria,productos.id_producto,productos.marca,productos.descripcion,productos.cantidad,productos.precio,productos.imagen_producto,oferta.descuento, oferta.estado_oferta FROM categoria INNER JOIN productos on categoria.id_categoria = productos.categoria_id_categoria INNER JOIN oferta ON oferta.productos_id_producto=productos.id_producto WHERE categoria.nombre_categoria = '$nombre_categoria'";
         $productos_seccion = $conn->query($consulta_producto_seccion);
         $cantidadFilas = mysqli_num_rows($productos_seccion);
         // $row = $resultado->fetch_assoc();
@@ -49,25 +49,40 @@
                         print $row["descripcion"];
                         ?>
                     </div>
+                    <?php
+                            if($row["estado_oferta"] === "1"){?>
                     <div class="contenedor-producto-precio">
-                        <p>S/. <span class="precio"><?php
-                        echo number_format($row["precio"],2);
-                        ?></span></p>
+                            <p>S/. <span class="precio"><?php
+                            echo number_format($row["precio"],2);
+                            ?></span></p>
                     </div>
+                    <?php
+                            }
+                    ?>
                     <div class="contenedor-producto-precio-oferta">
                         <p>
                             S/. <span class="precio-oferta">
                                 <?php
-                                $descuento_precio = round($row["precio"] * ($row["descuento"]/100),2);
-                                $precio_nuevo = number_format($row["precio"]-$descuento_precio,2);
-                                echo $precio_nuevo;
+                                if($row["estado_oferta"] === "1"){
+                                    $descuento_precio = round($row["precio"] * ($row["descuento"]/100),2);
+                                    $precio_nuevo = number_format($row["precio"]-$descuento_precio,2);
+                                    echo $precio_nuevo;
+                                }else{
+                                    echo number_format($row["precio"],2);
+                                }
                                 ?>
                             </span>
                         </p>
                     </div>
+                     <!-- aqui tenemos que validar si el producto tiene la oferta habilitada o no -->
+                     <?php
+                    if($row["estado_oferta"] === "1"){?>
                     <div class="contenedor-banner-descuento-producto">
                         <span>-<?php echo $row["descuento"]?>%</span>
                     </div>
+                    <?php
+                    }
+                    ?>
                     <div class="contenedor-producto-botom">
                         <form action="<?php echo $link_base_root?>/producto/informacion_producto.php" method="GET">
                             <button type="submit">Ver producto <span><i class="fas fa-eye"></i></span></button>
@@ -90,7 +105,7 @@
             $conn->close();
         ?>
     </div>
-    <!-- todo el contenido de la página -->  
+    <!-- todo el contenido de la página -->
 </main>
 <?php
     require_once "../php/footer.php";

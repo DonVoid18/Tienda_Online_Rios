@@ -14,7 +14,8 @@ function enviarCorreoAnonymous(){
             };
             $.ajax({
                 data: valores,
-                url: 'enviar_correo/enviar_correo.php',
+                // nesitamos hacerlo dinámico para cualquier persona
+                url: `${window.location.origin}/Tienda_Online_Rios/enviar_correo/enviar_correo.php`,
                 type: 'post',
                 success: function(mensaje_mostrar){
                     $('#container_result_correo_anonymous').html(mensaje_mostrar);
@@ -22,7 +23,7 @@ function enviarCorreoAnonymous(){
             });
             correo_anonymous.value = "";
         }else{
-            mensaje_validacion_correo_anonymous.innerText = "Correo Incorrecto";
+            mensaje_validacion_correo_anonymous.innerHTML = "<span style='color:red;'>Correo Incorrecto</span>";
         }
     }
 }
