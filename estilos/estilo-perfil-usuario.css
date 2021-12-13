@@ -114,6 +114,10 @@
 .container-botones-perfil button:active{
     transform: scale(.9,.9);
 }
+#boton_panel_administrador{
+    background: red;
+    font-weight: 700;
+}
 @media (max-width: 580px){
     .container-datos-usuario{
         width: 90%;

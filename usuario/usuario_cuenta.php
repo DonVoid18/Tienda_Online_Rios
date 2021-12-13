@@ -12,6 +12,10 @@
         session_destroy();
         header("Location: $link_base_root\index.php");
     }
+    // redireccionar al panel del administrador
+    if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["boton_panel_administrador"])){
+        header("Location: $link_base_root\./../../Panel/index.php");
+    }
     if($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["boton_guardar_datos_usuario"])){
         $nombre_usuario = $_POST["nombre"];
         $apellido_paterno_usuario = $_POST["apellido_paterno"];
@@ -40,7 +44,13 @@
 <main id="main_container_perfil_usuario">
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post">
         <div class="container-titulo-perfil">
-            <h2>DATOS DE TU CUENTA</h2>
+            <h2>DATOS DE TU CUENTA
+                <?php
+                if(isset($_SESSION["rango"])){
+                    echo "- ADMINISTRADOR";
+                }
+                ?>
+            </h2>
             <button class="boton_cerrar_sesion" id="boton-cerrar-sesion-usuario" name="boton-cerrar-sesion-usuario">
                  Cerrar Sesión <i class="fas fa-sign-out-alt"></i>
             </button>
@@ -80,6 +90,12 @@
                 <div class="container-botones-perfil">
                     <!-- <button type="button" id="boton_modificar_perfil">Modificar datos <i class="fas fa-user-edit"></i></button> -->
                     <button type="submit" id="boton_guardar_datos" name="boton_guardar_datos_usuario">Guardar Cambios <i class="fas fa-save"></i></button>
+                    <?php
+                    if(isset($_SESSION["rango"])){?>
+                        <button type="submit" id="boton_panel_administrador" name="boton_panel_administrador">Panel de administrador <i class="fas fa-users-cog"></i></button>
+                    <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>

@@ -77,30 +77,24 @@
         $cantidadFilas = mysqli_num_rows($validacion_datos);
         $row = $validacion_datos->fetch_assoc();
         // si se encuentra 1 fila entonces el usuario si existe de lo contrario no existe
-        if($row['rango']==1){
-            $_SESSION["id_usuario"] = $row["id_usuario"];
-            $_SESSION["correo"] = $correo;
-            $_SESSION["nombre"] = $row["nombre"];
-            $_SESSION["apellido_paterno"] = $row["apellido_paterno"];
-            $_SESSION["fecha_nacimiento"] = $row["fecha_nacimiento"];
-            $_SESSION["dni"] = $row["dni"];
-            $_SESSION["celular"] = $row["celular"];
-            $_SESSION["password"] = $row["password"];
-            header("Location: $link_base_root\./../../Panel/index.php");
-        }
-        $cantidadFilas = mysqli_num_rows($validacion_datos);
-        $row = $validacion_datos->fetch_assoc();
-        // si se encuentra 1 fila entonces el usuario si existe de lo contrario no existe
         if($cantidadFilas !== 0){
-            $_SESSION["id_usuario"] = $row["id_usuario"];
-            $_SESSION["correo"] = $correo;
-            $_SESSION["nombre"] = $row["nombre"];
-            $_SESSION["apellido_paterno"] = $row["apellido_paterno"];
-            $_SESSION["fecha_nacimiento"] = $row["fecha_nacimiento"];
-            $_SESSION["dni"] = $row["dni"];
-            $_SESSION["celular"] = $row["celular"];
-            $_SESSION["password"] = $row["password"];
-            header("Location: $link_base_root\index.php");
+                // guardamos los datos sin depender del rango de usuario
+                $_SESSION["id_usuario"] = $row["id_usuario"];
+                $_SESSION["correo"] = $correo;
+                $_SESSION["nombre"] = $row["nombre"];
+                $_SESSION["apellido_paterno"] = $row["apellido_paterno"];
+                $_SESSION["fecha_nacimiento"] = $row["fecha_nacimiento"];
+                $_SESSION["dni"] = $row["dni"];
+                $_SESSION["celular"] = $row["celular"];
+                $_SESSION["password"] = $row["password"];
+
+                // enviamos al usuario a diferentes direccion (index_usuario, panel_miguel) dependiendo del rango
+            if($row["rango"] === "0"){
+                header("Location: $link_base_root\index.php");
+            }else{
+                $_SESSION["rango"] = $row["rango"];
+                header("Location: $link_base_root\./../../Panel/index.php");
+            }
         }else{
             // si la contraseña está incorrecta entonces no sucede nada
             header("Location: $link_base_root\index.php");
