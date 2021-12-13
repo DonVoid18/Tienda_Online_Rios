@@ -72,8 +72,22 @@
         $correo = $_POST["correo_modal"];
         $pass = $_POST["pass_modal"];
         // si es de rango 0 entonces es un cliente
-        $consulta_validacion = "SELECT * FROM usuarios WHERE email = '$correo' && password='$pass' && rango='0'";
+        $consulta_validacion = "SELECT * FROM usuarios WHERE email = '$correo' && password='$pass'";
         $validacion_datos = $conn->query($consulta_validacion);
+        $cantidadFilas = mysqli_num_rows($validacion_datos);
+        $row = $validacion_datos->fetch_assoc();
+        // si se encuentra 1 fila entonces el usuario si existe de lo contrario no existe
+        if($row['rango']==1){
+            $_SESSION["id_usuario"] = $row["id_usuario"];
+            $_SESSION["correo"] = $correo;
+            $_SESSION["nombre"] = $row["nombre"];
+            $_SESSION["apellido_paterno"] = $row["apellido_paterno"];
+            $_SESSION["fecha_nacimiento"] = $row["fecha_nacimiento"];
+            $_SESSION["dni"] = $row["dni"];
+            $_SESSION["celular"] = $row["celular"];
+            $_SESSION["password"] = $row["password"];
+            header("Location: $link_base_root\./../../Panel/index.php");
+        }
         $cantidadFilas = mysqli_num_rows($validacion_datos);
         $row = $validacion_datos->fetch_assoc();
         // si se encuentra 1 fila entonces el usuario si existe de lo contrario no existe
