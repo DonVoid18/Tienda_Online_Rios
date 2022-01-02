@@ -9,7 +9,7 @@
     $codigo_producto =  $_GET["codigo_producto"];
 ?>
 <?php
-    $consulta_producto = "SELECT productos.id_producto,productos.marca,productos.descripcion, productos.cantidad, productos.precio, productos.imagen_producto,oferta.descuento,oferta.estado_oferta,ficha_tecnica.ancho,ficha_tecnica.peso,ficha_tecnica.alto,ficha_tecnica.color FROM productos INNER JOIN oferta ON  productos.id_producto=oferta.productos_id_producto INNER JOIN ficha_tecnica ON productos.id_producto=ficha_tecnica.productos_id_producto WHERE id_producto = '$codigo_producto' AND marca = '$nombre_producto' AND productos.descripcion = '$descripcion_producto'";
+    $consulta_producto = "SELECT productos.id_producto,productos.marca,productos.descripcion, productos.cantidad, productos.precio, productos.imagen_producto,oferta.descuento,oferta.estado_oferta FROM productos INNER JOIN oferta ON  productos.id_producto=oferta.productos_id_producto WHERE id_producto = '$codigo_producto' AND marca = '$nombre_producto' AND productos.descripcion = '$descripcion_producto'";
     $datos_producto = $conn->query($consulta_producto);
     $row = $datos_producto->fetch_assoc();
     // $cantidadFilas = mysqli_num_rows($resultado);
@@ -118,22 +118,32 @@
                         <td>Cantidad</td>
                         <td><?php echo $row["cantidad"]?></td>
                     </tr>
+                    <?php
+                        $consulta_ficha_tecnica = "SELECT ficha_tecnica.ancho,ficha_tecnica.peso,ficha_tecnica.alto,ficha_tecnica.color FROM ficha_tecnica WHERE productos_id_producto = '$codigo_producto'";
+                        $datos_ficha_tecnica = $conn->query($consulta_ficha_tecnica);
+                        $cant_ficha_tecnica = mysqli_num_rows($datos_ficha_tecnica);
+                        if($cant_ficha_tecnica!==0){
+                        $row_ficha = $datos_ficha_tecnica->fetch_assoc();
+                    ?>
                     <tr>
                         <td>Ancho</td>
-                        <td><?php echo $row["ancho"]?> cm</td>
+                        <td><?php echo $row_ficha["ancho"]?> cm</td>
                     </tr>
                     <tr>
                         <td>Alto</td>
-                        <td><?php echo $row["alto"]?> cm</td>
+                        <td><?php echo $row_ficha["alto"]?> cm</td>
                     </tr>
                     <tr>
                         <td>Peso</td>
-                        <td><?php echo $row["peso"]?> Kg</td>
+                        <td><?php echo $row_ficha["peso"]?> Kg</td>
                     </tr>
                     <tr>
                         <td>Color</td>
-                        <td><?php echo $row["color"]?></td>
+                        <td><?php echo $row_ficha["color"]?></td>
                     </tr>
+                    <?php
+                        }
+                    ?>
                     <tr>
                         <td>Métedo de entrega</td>
                         <td><b>Delivery</b></td>
@@ -144,13 +154,6 @@
 
         <!-- seccion de comentarios -->
         <div class="container-comentarios-producto">
-            <div class="container-tituto-comentarios-producto">
-                <p>
-                    <strong>
-                        Comentarios
-                    </strong>
-                </p>
-            </div>
             <?php
             if(isset($_SESSION["correo"])){?>
             <form class="container-nuevo-comentario-usuario" onsubmit="return enviarComentario();" method="POST">
@@ -201,8 +204,14 @@
                 $comentarios_usuarios = $conn->query($consulta_comentarios_usuarios);
                 $cantidad_comentarios = mysqli_num_rows($comentarios_usuarios);
                 if($cantidad_comentarios!==0){
-                while($comentario = $comentarios_usuarios->fetch_assoc()){
-                    ?>
+                while($comentario = $comentarios_usuarios->fetch_assoc()){?>
+                <div class="container-tituto-comentarios-producto">
+                    <p>
+                        <strong>
+                            Comentarios
+                        </strong>
+                    </p>
+                </div>
                 <div class="container-comentario-usuario">
                     <div class="container-nombre-usuario-comentario">
                         <span>
