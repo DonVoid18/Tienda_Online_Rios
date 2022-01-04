@@ -16,3 +16,19 @@
         Ahora solo debes ejecutar el archivo index.php en tu navegador y listo.
     </li>
 </ol>
+<h3>Creado por:</h3>
+<ul>
+    <li>
+        Joel Ferrer
+    </li>
+    <li>
+        Luis Fernando
+    </li>
+    <li>
+        Miguel Ángel
+    </li>
+    <li>
+        Angelo Patrick
+    </li>
+</ul>
+<h3><strong>"Pueden dejar sus opiniones o recomendaciones a la página <a href="https://www.facebook.com/Programador347-101320832263307">Programador347</a>"</strong></h3>

@@ -203,15 +203,15 @@
                 $consulta_comentarios_usuarios = "SELECT opinion.fecha_registro,opinion.comentario,opinion.producto_puntaje,usuarios.nombre,usuarios.apellido_paterno FROM opinion INNER JOIN usuarios ON opinion.usuarios_id_usuario = usuarios.id_usuario WHERE opinion.productos_id_producto = '$codigo_producto'";
                 $comentarios_usuarios = $conn->query($consulta_comentarios_usuarios);
                 $cantidad_comentarios = mysqli_num_rows($comentarios_usuarios);
-                if($cantidad_comentarios!==0){
-                while($comentario = $comentarios_usuarios->fetch_assoc()){?>
-                <div class="container-tituto-comentarios-producto">
+                if($cantidad_comentarios!==0){?>
+                    <div class="container-tituto-comentarios-producto">
                     <p>
                         <strong>
                             Comentarios
                         </strong>
                     </p>
                 </div>
+                <?php while($comentario = $comentarios_usuarios->fetch_assoc()){ ?>
                 <div class="container-comentario-usuario">
                     <div class="container-nombre-usuario-comentario">
                         <span>
